@@ -7,37 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23118BD12546E2A300E925A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23118BD02546E2A300E925A0 /* Main.storyboard */; };
 		233E72202542C9B600B243EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233E721F2542C9B600B243EC /* AppDelegate.swift */; };
 		233E72222542C9B600B243EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233E72212542C9B600B243EC /* ViewController.swift */; };
 		233E72242542C9B800B243EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 233E72232542C9B800B243EC /* Assets.xcassets */; };
-
-		233E72272542C9B800B243EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 233E72252542C9B800B243EC /* Main.storyboard */; };
-
+		233E72272542C9B800B243EC /* (null) in Resources */ = {isa = PBXBuildFile; };
 		233E723B2546D34A00B243EC /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 233E723A2546D34A00B243EC /* Home.storyboard */; };
 		233E723D2546D3BD00B243EC /* KeynoteTimer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 233E723C2546D3BD00B243EC /* KeynoteTimer.storyboard */; };
-
-
-		233E72322546BFA400B243EC /* TimerWindow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 233E72312546BFA400B243EC /* TimerWindow.storyboard */; };
-		
-
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		23118BD02546E2A300E925A0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		233E721C2542C9B600B243EC /* MacroPresent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacroPresent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		233E721F2542C9B600B243EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		233E72212542C9B600B243EC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		233E72232542C9B800B243EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		233E72282542C9B800B243EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		233E72292542C9B800B243EC /* MacroPresent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacroPresent.entitlements; sourceTree = "<group>"; };
-
-
 		233E723A2546D34A00B243EC /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Home.storyboard; path = "../../../../../../Downloads/MacroPresent-Home/MacroPresent/Home.storyboard"; sourceTree = "<group>"; };
 		233E723C2546D3BD00B243EC /* KeynoteTimer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = KeynoteTimer.storyboard; path = "../../../../../../Downloads/MacroPresent-KeynoteTimer/MacroPresent/KeynoteTimer.storyboard"; sourceTree = "<group>"; };
-
-
-		233E72312546BFA400B243EC /* TimerWindow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimerWindow.storyboard; sourceTree = "<group>"; };
-		
-
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,18 +58,14 @@
 		233E721E2542C9B600B243EC /* MacroPresent */ = {
 			isa = PBXGroup;
 			children = (
-				C85C534D2546C5AC00F54B01 /* Home.storyboard */,
 				233E721F2542C9B600B243EC /* AppDelegate.swift */,
 				233E72212542C9B600B243EC /* ViewController.swift */,
-
 				233E723A2546D34A00B243EC /* Home.storyboard */,
 				233E72232542C9B800B243EC /* Assets.xcassets */,
-				233E72252542C9B800B243EC /* Main.storyboard */,
 				233E723C2546D3BD00B243EC /* KeynoteTimer.storyboard */,
-
+				23118BD02546E2A300E925A0 /* Main.storyboard */,
 				233E72282542C9B800B243EC /* Info.plist */,
 				233E72292542C9B800B243EC /* MacroPresent.entitlements */,
-				233E72332546C2FA00B243EC /* KeynoteTimer.storyboard */,
 			);
 			path = MacroPresent;
 			sourceTree = "<group>";
@@ -145,13 +129,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				233E723B2546D34A00B243EC /* Home.storyboard in Resources */,
+				23118BD12546E2A300E925A0 /* Main.storyboard in Resources */,
 				233E72242542C9B800B243EC /* Assets.xcassets in Resources */,
-
 				233E723D2546D3BD00B243EC /* KeynoteTimer.storyboard in Resources */,
-				233E72272542C9B800B243EC /* Main.storyboard in Resources */,
-
-			
-
+				233E72272542C9B800B243EC /* (null) in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,17 +149,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		233E72372546CD6700B243EC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				233E72382546CD6700B243EC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		233E722A2542C9B800B243EC /* Debug */ = {
