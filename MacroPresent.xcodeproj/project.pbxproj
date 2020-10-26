@@ -11,6 +11,7 @@
 		233E72222542C9B600B243EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233E72212542C9B600B243EC /* ViewController.swift */; };
 		233E72242542C9B800B243EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 233E72232542C9B800B243EC /* Assets.xcassets */; };
 		233E72272542C9B800B243EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 233E72252542C9B800B243EC /* Main.storyboard */; };
+		233E72322546BFA400B243EC /* TimerWindow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 233E72312546BFA400B243EC /* TimerWindow.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		233E72262542C9B800B243EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		233E72282542C9B800B243EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		233E72292542C9B800B243EC /* MacroPresent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacroPresent.entitlements; sourceTree = "<group>"; };
+		233E72312546BFA400B243EC /* TimerWindow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimerWindow.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				233E72212542C9B600B243EC /* ViewController.swift */,
 				233E72232542C9B800B243EC /* Assets.xcassets */,
 				233E72252542C9B800B243EC /* Main.storyboard */,
+				233E72312546BFA400B243EC /* TimerWindow.storyboard */,
 				233E72282542C9B800B243EC /* Info.plist */,
 				233E72292542C9B800B243EC /* MacroPresent.entitlements */,
 			);
@@ -122,6 +125,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				233E72242542C9B800B243EC /* Assets.xcassets in Resources */,
+				233E72322546BFA400B243EC /* TimerWindow.storyboard in Resources */,
 				233E72272542C9B800B243EC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
