@@ -82,7 +82,7 @@
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cD0-Mv-vu4">
                                 <rect key="frame" x="88" y="26" width="38" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSSlideshowTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="tXZ-yA-0zZ">
+                                <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSTouchBarPlayTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="tXZ-yA-0zZ">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -96,6 +96,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="NSSlideshowTemplate" width="17" height="14"/>
+        <image name="NSTouchBarPlayTemplate" width="14" height="30"/>
     </resources>
 </document>
