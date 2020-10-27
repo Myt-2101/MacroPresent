@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097.2"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17156"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -26,10 +27,10 @@
             </objects>
             <point key="canvasLocation" x="94" y="81"/>
         </scene>
-        <!--View Controller-->
+        <!--Keynote Timer-->
         <scene sceneID="6qy-27-4mn">
             <objects>
-                <viewController id="816-dG-TQx" sceneMemberID="viewController">
+                <viewController id="816-dG-TQx" customClass="KeynoteTimer" customModule="MacroPresent" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="yXK-lC-zNQ">
                         <rect key="frame" x="0.0" y="0.0" width="214" height="217"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -86,9 +87,17 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="nextButton:" target="816-dG-TQx" id="19f-al-m51"/>
+                                </connections>
                             </button>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="keynoteName" destination="LEg-Kg-SHx" id="6qK-Sh-Xoa"/>
+                        <outlet property="timePerSlide" destination="7hk-y4-VJc" id="lNi-A1-xav"/>
+                        <outlet property="totalTime" destination="EEc-Go-5Jw" id="PaP-cM-kZ5"/>
+                    </connections>
                 </viewController>
                 <customObject id="ksp-1Q-9ez" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
