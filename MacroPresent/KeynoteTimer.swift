@@ -7,6 +7,16 @@
 //
 
 import Cocoa
+import Foundation
+
+//AppleScript Variable
+let StartPresent = """
+if application "Keynote" is running then
+set ThisDocument to the name of the front document
+start ThisDocument from the first slide of ThisDocument in window
+"""
+
+//Variable
 
 class KeynoteTimer: NSViewController {
 
@@ -22,6 +32,20 @@ class KeynoteTimer: NSViewController {
     @IBOutlet weak var timePerSlide: NSTextField!
     
     @IBAction func nextButton(_ sender: Any) {
+        StartPresentation()
     }
     
+    @objc func StartPresentation() {
+        let Start = NSAppleScript(source: StartPresent)
+        var error=NSDictionary?.none
+        Start?.executeAndReturnError(&error)
+        print(error ?? TID_NULL)
+    }
+    
+    
 }
+
+
+
+
+
