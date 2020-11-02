@@ -29,9 +29,10 @@ class KeynoteTimer: NSViewController {
     @IBOutlet weak var keynoteName: NSTextField!
     @IBOutlet weak var totalTime: NSTextField!
     @IBOutlet weak var timePerSlide: NSTextField!
+    @IBOutlet weak var NextButtonOutlet: NSButton!
     
     @IBAction func nextButton(_ sender: Any) {
-        StartPresentation()
+        NextButtonOutlet.isHidden=true
     }
     
     @objc func StartPresentation() {
