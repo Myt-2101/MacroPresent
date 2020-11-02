@@ -14,6 +14,10 @@
 		233E72272542C9B800B243EC /* (null) in Resources */ = {isa = PBXBuildFile; };
 		233E723B2546D34A00B243EC /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 233E723A2546D34A00B243EC /* Home.storyboard */; };
 		233E723D2546D3BD00B243EC /* KeynoteTimer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 233E723C2546D3BD00B243EC /* KeynoteTimer.storyboard */; };
+		C8F5F0C1254FEFED00EAD1AB /* PreRecordedRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F5F0C0254FEFED00EAD1AB /* PreRecordedRecognizer.swift */; };
+		C8F5F0C3254FEFF700EAD1AB /* LiveRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F5F0C2254FEFF700EAD1AB /* LiveRecognizer.swift */; };
+		C8F5F0C5254FF00000EAD1AB /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F5F0C4254FF00000EAD1AB /* Recording.swift */; };
+		C8F5F0C7254FF00A00EAD1AB /* TimerRecording.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F5F0C6254FF00A00EAD1AB /* TimerRecording.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,8 +28,12 @@
 		233E72232542C9B800B243EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		233E72282542C9B800B243EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		233E72292542C9B800B243EC /* MacroPresent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacroPresent.entitlements; sourceTree = "<group>"; };
-		233E723A2546D34A00B243EC /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Home.storyboard; path = "../../../../../../Downloads/MacroPresent-Home/MacroPresent/Home.storyboard"; sourceTree = "<group>"; };
-		233E723C2546D3BD00B243EC /* KeynoteTimer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = KeynoteTimer.storyboard; path = "../../../../../../Downloads/MacroPresent-KeynoteTimer/MacroPresent/KeynoteTimer.storyboard"; sourceTree = "<group>"; };
+		233E723A2546D34A00B243EC /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		233E723C2546D3BD00B243EC /* KeynoteTimer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = KeynoteTimer.storyboard; sourceTree = "<group>"; };
+		C8F5F0C0254FEFED00EAD1AB /* PreRecordedRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreRecordedRecognizer.swift; sourceTree = "<group>"; };
+		C8F5F0C2254FEFF700EAD1AB /* LiveRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveRecognizer.swift; sourceTree = "<group>"; };
+		C8F5F0C4254FF00000EAD1AB /* Recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
+		C8F5F0C6254FF00A00EAD1AB /* TimerRecording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerRecording.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +66,7 @@
 		233E721E2542C9B600B243EC /* MacroPresent */ = {
 			isa = PBXGroup;
 			children = (
+				C8F5F0BF254FEFDF00EAD1AB /* Speech Recognizer */,
 				233E721F2542C9B600B243EC /* AppDelegate.swift */,
 				233E72212542C9B600B243EC /* ViewController.swift */,
 				233E723A2546D34A00B243EC /* Home.storyboard */,
@@ -68,6 +77,17 @@
 				233E72292542C9B800B243EC /* MacroPresent.entitlements */,
 			);
 			path = MacroPresent;
+			sourceTree = "<group>";
+		};
+		C8F5F0BF254FEFDF00EAD1AB /* Speech Recognizer */ = {
+			isa = PBXGroup;
+			children = (
+				C8F5F0C0254FEFED00EAD1AB /* PreRecordedRecognizer.swift */,
+				C8F5F0C2254FEFF700EAD1AB /* LiveRecognizer.swift */,
+				C8F5F0C4254FF00000EAD1AB /* Recording.swift */,
+				C8F5F0C6254FF00A00EAD1AB /* TimerRecording.swift */,
+			);
+			name = "Speech Recognizer";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,7 +164,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				233E72222542C9B600B243EC /* ViewController.swift in Sources */,
+				C8F5F0C1254FEFED00EAD1AB /* PreRecordedRecognizer.swift in Sources */,
 				233E72202542C9B600B243EC /* AppDelegate.swift in Sources */,
+				C8F5F0C7254FF00A00EAD1AB /* TimerRecording.swift in Sources */,
+				C8F5F0C3254FEFF700EAD1AB /* LiveRecognizer.swift in Sources */,
+				C8F5F0C5254FF00000EAD1AB /* Recording.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,9 +293,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MacroPresent/MacroPresent.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 3F2HKZKWL7;
+				DEVELOPMENT_TEAM = 3MY2V9Q6LG;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = MacroPresent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -280,6 +304,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = CKCK.MacroPresent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -289,9 +314,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MacroPresent/MacroPresent.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 3F2HKZKWL7;
+				DEVELOPMENT_TEAM = 3MY2V9Q6LG;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = MacroPresent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -300,6 +325,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = CKCK.MacroPresent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
