@@ -14,6 +14,13 @@ let StartPresent = """
 if application "Keynote" is running then
 set ThisDocument to the name of the front document
 start ThisDocument from the first slide of ThisDocument in window
+end if
+"""
+
+let stopPresent = """
+if application "Keynote" is running then
+set ThisDocument to the name of the front document
+stop ThisDocument
 """
 
 //Variable
@@ -32,7 +39,7 @@ class KeynoteTimer: NSViewController {
     @IBOutlet weak var timePerSlide: NSTextField!
     
     @IBAction func nextButton(_ sender: Any) {
-        StartPresentation()
+        
     }
     
     @objc func StartPresentation() {
