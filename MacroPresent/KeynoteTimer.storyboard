@@ -117,6 +117,7 @@
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="NextButtonOutlet" destination="hhb-rs-dTv" id="j3W-Y3-BQB"/>
                         <outlet property="keynoteName" destination="LEg-Kg-SHx" id="6qK-Sh-Xoa"/>
                         <outlet property="timePerSlide" destination="7hk-y4-VJc" id="lNi-A1-xav"/>
                         <outlet property="totalTime" destination="EEc-Go-5Jw" id="PaP-cM-kZ5"/>
