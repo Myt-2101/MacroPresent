@@ -15,11 +15,14 @@ tell application "Keynote"
     activate
 set ThisDocument to make new document
 start ThisDocument from the first slide of ThisDocument in window
+end tell
 """
 
 let stopPresent = """
+tell "application Keynote"
 set ThisDocument to the name of the front document
 stop ThisDocument
+end tell
 """
 
 //Variable
@@ -48,7 +51,7 @@ class KeynoteTimer: NSViewController {
         PreviousSlideOutlet.isHidden=false
         NextSlideOutlet.isHidden=false
         
-        //StartPresentation()
+        StartPresentation()
     }
     
     @IBAction func StopButton(_ sender: Any) {
@@ -57,7 +60,7 @@ class KeynoteTimer: NSViewController {
         PreviousSlideOutlet.isHidden=true
         NextSlideOutlet.isHidden=true
         
-        //StopPresentation()
+        StopPresentation()
     }
     //IBAction
     
