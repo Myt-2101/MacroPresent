@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="816-dG-TQx">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097.2"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -29,7 +29,7 @@
         <!--Keynote Timer-->
         <scene sceneID="6qy-27-4mn">
             <objects>
-                <viewController id="816-dG-TQx" customClass="KeynoteTimer" customModule="MacroPresent" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController showSeguePresentationStyle="single" id="816-dG-TQx" customClass="KeynoteTimer" customModule="MacroPresent" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="yXK-lC-zNQ">
                         <rect key="frame" x="0.0" y="0.0" width="214" height="217"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -56,7 +56,7 @@
                                 <rect key="frame" x="78" y="153" width="59" height="14"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Total Time" id="bLd-gQ-OVj">
-                                    <font key="font" metaFont="message" size="11"/>
+                                    <font key="font" metaFont="controlContent" size="11"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -74,7 +74,7 @@
                                 <rect key="frame" x="61" y="109" width="92" height="14"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Time Per Slide" id="fgA-Uf-nEi">
-                                    <font key="font" metaFont="message" size="11"/>
+                                    <font key="font" metaFont="controlContent" size="11"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -113,11 +113,17 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="StopButton:" target="816-dG-TQx" id="Ue0-JR-1ah"/>
+                                </connections>
                             </button>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="NextButtonOutlet" destination="hhb-rs-dTv" id="j3W-Y3-BQB"/>
+                        <outlet property="NextSlideOutlet" destination="b7t-Ru-gxm" id="f0w-e3-auB"/>
+                        <outlet property="PlayButtonOutlet" destination="cD0-Mv-vu4" id="9FA-gY-aOP"/>
+                        <outlet property="PreviousSlideOutlet" destination="Et1-2D-PHt" id="go0-sB-40Z"/>
                         <outlet property="keynoteName" destination="LEg-Kg-SHx" id="6qK-Sh-Xoa"/>
                         <outlet property="timePerSlide" destination="7hk-y4-VJc" id="lNi-A1-xav"/>
                         <outlet property="totalTime" destination="EEc-Go-5Jw" id="PaP-cM-kZ5"/>
