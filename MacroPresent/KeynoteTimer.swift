@@ -14,7 +14,7 @@ let StartPresent = """
 tell application "Keynote"
     activate
 set ThisDocument to make new document
-start ThisDocument from the first slide of ThisDocument in window
+start ThisDocument from the first slide of ThisDocument
 end tell
 """
 
@@ -32,6 +32,10 @@ class KeynoteTimer: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+    }
+    
+    override func viewDidAppear() {
+        view.window?.level = .mainMenu
     }
     
     //IBOutlet
