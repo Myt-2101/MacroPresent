@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="816-dG-TQx">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097.2"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17156"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -91,12 +92,15 @@
                                 </connections>
                             </button>
                             <button hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b7t-Ru-gxm">
-                                <rect key="frame" x="138" y="26" width="38" height="23"/>
+                                <rect key="frame" x="138" y="25" width="38" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSTouchBarGoForwardTemplate" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DLt-q5-JNv">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="nextSlideButton:" target="816-dG-TQx" id="FVl-6G-oRF"/>
+                                </connections>
                             </button>
                             <button hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Et1-2D-PHt">
                                 <rect key="frame" x="38" y="26" width="38" height="23"/>
@@ -105,6 +109,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="previousSlideButton:" target="816-dG-TQx" id="XDY-bt-bHy"/>
+                                </connections>
                             </button>
                             <button hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hhb-rs-dTv">
                                 <rect key="frame" x="88" y="26" width="38" height="23"/>
@@ -118,6 +125,8 @@
                     </view>
                     <connections>
                         <outlet property="keynoteName" destination="LEg-Kg-SHx" id="6qK-Sh-Xoa"/>
+                        <outlet property="nextSlideButtonOutlet" destination="b7t-Ru-gxm" id="FyG-Z5-paS"/>
+                        <outlet property="previousSlideButtonOutlet" destination="Et1-2D-PHt" id="pXA-kS-lR2"/>
                         <outlet property="timePerSlide" destination="7hk-y4-VJc" id="lNi-A1-xav"/>
                         <outlet property="totalTime" destination="EEc-Go-5Jw" id="PaP-cM-kZ5"/>
                     </connections>
