@@ -12,33 +12,36 @@ import Foundation
 //AppleScript Variable
 let StartPresent = """
 tell application "Keynote"
-    activate
-set ThisDocument to make new document
+set ThisDocument to the front document
 start ThisDocument from the first slide of ThisDocument
 end tell
 """
 
 let stopPresent = """
-tell "application Keynote"
-set ThisDocument to the name of the front document
+tell application "Keynote"
+set ThisDocument to the front document
 stop ThisDocument
 end tell
 """
 
-//Variable
+let NextSlideScript = """
+tell application "Keynote"
+show next
+end tell
+"""
+
+let PreviousSlideScript = """
+tell application "Keynote"
+show previous
+end tell
+"""
+
+//AppleScript Variable
+
+
 
 class KeynoteTimer: NSViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do view setup here.
-    }
-    
-
-    override func viewDidAppear() {
-        view.window?.level = .mainMenu
-    }
-
+//VARIABLE
     var timer : Timer?
     var timerPerSlide : Timer?
     var timeInSeconds = 0
@@ -47,89 +50,80 @@ class KeynoteTimer: NSViewController {
     var arrayTimePerSlide = [Int]()
     var formatter = DateComponentsFormatter()
     var interval : TimeInterval = 0
+    var interval1 : TimeInterval = 0
+    var slideindex = 1
+//VARIABLE
     
-    @IBOutlet weak var keynoteName: NSTextField!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do view setup here.
+      
+        
+    }
+    
+
+    override func viewDidAppear() {
+       view.window?.level = .mainMenu
+    }
+
+  
+    
 
     
     //IBOutlet
-    @IBOutlet weak var PreviousSlideOutlet: NSButton!
-    @IBOutlet weak var NextSlideOutlet: NSButton!
-    @IBOutlet weak var PlayButtonOutlet: NSButton!
-    @IBOutlet weak var keynoteName: NSTextField!
+    @IBOutlet weak var previousSlideButtonOutlet: NSButton!
+    @IBOutlet weak var StopButtonOutlet: NSButton!
     @IBOutlet weak var totalTime: NSTextField!
     @IBOutlet weak var timePerSlide: NSTextField!
     @IBOutlet weak var NextButtonOutlet: NSButton!
+    @IBOutlet weak var keynoteName: NSTextField!
+    @IBOutlet weak var nextSlideButtonOutlet: NSButton!
     //IBOutlet
     
     //IBAction
     @IBAction func nextButton(_ sender: Any) {
 
-        NextButtonOutlet.isHidden=false
-        PlayButtonOutlet.isHidden=true
-        PreviousSlideOutlet.isHidden=false
-        NextSlideOutlet.isHidden=false
-        
+        NextButtonOutlet.isHidden=true
+        StopButtonOutlet.isHidden=false
+        previousSlideButtonOutlet.isHidden=false
+        nextSlideButtonOutlet.isHidden=false
         StartPresentation()
+        startTotalTimer()
+        keynoteName.stringValue = "Slide \(slideindex)"
     }
     
     @IBAction func StopButton(_ sender: Any) {
-        NextButtonOutlet.isHidden=true
-        PlayButtonOutlet.isHidden=false
-        PreviousSlideOutlet.isHidden=true
-        NextSlideOutlet.isHidden=true
-        
+        NextButtonOutlet.isHidden=false
+        StopButtonOutlet.isHidden=true
+        previousSlideButtonOutlet.isHidden=true
+        nextSlideButtonOutlet.isHidden=true
         StopPresentation()
-
-        startTotalTimer()
-        startTimePerSlide()
-        print(timeInSeconds)
+        
+        
     }
     
     
-    @IBOutlet weak var nextSlideButtonOutlet: NSButton!
+   
     @IBAction func nextSlideButton(_ sender: Any) {
+        GotoNextSlide()
         newSlideTimer()
         print(arrayTimePerSlide)
         print(averageTimePerSlide)
+        keynoteName.stringValue = "Slide \(slideindex+1)"
     }
     
     
-    @IBOutlet weak var previousSlideButtonOutlet: NSButton!
+    
     @IBAction func previousSlideButton(_ sender: Any) {
-    }
-    
-    
-    func startTotalTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(startInSeconds), userInfo: nil, repeats: true)
-        nextSlideButtonOutlet.isHidden = false
-        previousSlideButtonOutlet.isHidden = false
-    }
-    
-    @objc func startInSeconds(){
-        timeInSeconds += 1
-    }
-    
-    func startTimePerSlide(){
-        timerPerSlide = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(startPerSlide), userInfo: nil, repeats: true)
-    }
-    
-    @objc func startPerSlide(){
-        timerInSeconds += 1
-    }
-    
-    func newSlideTimer(){
-        arrayTimePerSlide.append(timerInSeconds)
-        timerInSeconds = 0
+        if(slideindex != 0){
+        keynoteName.stringValue = "Slide \(slideindex-1)"
+        }
         
-        averageTimePerSlide = timeInSeconds / arrayTimePerSlide.count
-        
-        interval = TimeInterval(averageTimePerSlide)
-        formatter.allowedUnits = [.hour, .minute, .second]
-        formatter.unitsStyle = .abbreviated
-        
-        timePerSlide.stringValue = formatter.string(from: interval) ?? ""
-
     }
+    
+    
+    
+    
     //IBAction
     
     //Functions
@@ -144,6 +138,46 @@ class KeynoteTimer: NSViewController {
         let stop = NSAppleScript(source: stopPresent)
         var error=NSDictionary?.none
         stop?.executeAndReturnError(&error)
+        print(error ?? TID_NULL)
+    }
+    
+//    SETIAP SLIDE GANTI RESET TIMER
+    func newSlideTimer(){
+        arrayTimePerSlide.append(timerInSeconds)
+        timerInSeconds = 0
+        
+        averageTimePerSlide = timeInSeconds / arrayTimePerSlide.count
+        
+        interval = TimeInterval(averageTimePerSlide)
+        formatter.allowedUnits = [.hour, .minute, .second]
+        formatter.unitsStyle = .abbreviated
+        
+        timePerSlide.stringValue = formatter.string(from: interval) ?? ""
+
+    }
+//    UNTUK TOTAL TIMER
+    func startTotalTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(startInSeconds), userInfo: nil, repeats: true)
+        nextSlideButtonOutlet.isHidden = false
+        previousSlideButtonOutlet.isHidden = false
+    }
+//    UNTUK MENGHITUNG DURASI TOTAL TIMER DALAM DETIK
+    @objc func startInSeconds(){
+        timeInSeconds += 1
+    }
+//  UNTUK START TIMER PER SLIDE
+    func startTimePerSlide(){
+        timerPerSlide = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(startPerSlide), userInfo: nil, repeats: true)
+    }
+//   UNTUK MENGHITUNG DURASI TOTAL TIMER PER SLIDE
+    @objc func startPerSlide(){
+        timerInSeconds += 1
+    }
+    
+    @objc func GotoNextSlide(){
+        let next = NSAppleScript(source: NextSlideScript)
+        var error=NSDictionary?.none
+        next?.executeAndReturnError(&error)
         print(error ?? TID_NULL)
     }
     

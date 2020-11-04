@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="816-dG-TQx">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="816-dG-TQx">
     <dependencies>
-        <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17156"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097.2"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -120,10 +119,15 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="StopButton:" target="816-dG-TQx" id="66m-q5-XiU"/>
+                                </connections>
                             </button>
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="NextButtonOutlet" destination="cD0-Mv-vu4" id="whw-sU-v0f"/>
+                        <outlet property="StopButtonOutlet" destination="hhb-rs-dTv" id="KEW-pS-6PW"/>
                         <outlet property="keynoteName" destination="LEg-Kg-SHx" id="6qK-Sh-Xoa"/>
                         <outlet property="nextSlideButtonOutlet" destination="b7t-Ru-gxm" id="FyG-Z5-paS"/>
                         <outlet property="previousSlideButtonOutlet" destination="Et1-2D-PHt" id="pXA-kS-lR2"/>
