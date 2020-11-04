@@ -34,9 +34,22 @@ class KeynoteTimer: NSViewController {
         // Do view setup here.
     }
     
+
     override func viewDidAppear() {
         view.window?.level = .mainMenu
     }
+
+    var timer : Timer?
+    var timerPerSlide : Timer?
+    var timeInSeconds = 0
+    var timerInSeconds = 0
+    var averageTimePerSlide : Int = 0
+    var arrayTimePerSlide = [Int]()
+    var formatter = DateComponentsFormatter()
+    var interval : TimeInterval = 0
+    
+    @IBOutlet weak var keynoteName: NSTextField!
+
     
     //IBOutlet
     @IBOutlet weak var PreviousSlideOutlet: NSButton!
@@ -50,6 +63,7 @@ class KeynoteTimer: NSViewController {
     
     //IBAction
     @IBAction func nextButton(_ sender: Any) {
+
         NextButtonOutlet.isHidden=false
         PlayButtonOutlet.isHidden=true
         PreviousSlideOutlet.isHidden=false
@@ -65,6 +79,56 @@ class KeynoteTimer: NSViewController {
         NextSlideOutlet.isHidden=true
         
         StopPresentation()
+
+        startTotalTimer()
+        startTimePerSlide()
+        print(timeInSeconds)
+    }
+    
+    
+    @IBOutlet weak var nextSlideButtonOutlet: NSButton!
+    @IBAction func nextSlideButton(_ sender: Any) {
+        newSlideTimer()
+        print(arrayTimePerSlide)
+        print(averageTimePerSlide)
+    }
+    
+    
+    @IBOutlet weak var previousSlideButtonOutlet: NSButton!
+    @IBAction func previousSlideButton(_ sender: Any) {
+    }
+    
+    
+    func startTotalTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(startInSeconds), userInfo: nil, repeats: true)
+        nextSlideButtonOutlet.isHidden = false
+        previousSlideButtonOutlet.isHidden = false
+    }
+    
+    @objc func startInSeconds(){
+        timeInSeconds += 1
+    }
+    
+    func startTimePerSlide(){
+        timerPerSlide = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(startPerSlide), userInfo: nil, repeats: true)
+    }
+    
+    @objc func startPerSlide(){
+        timerInSeconds += 1
+    }
+    
+    func newSlideTimer(){
+        arrayTimePerSlide.append(timerInSeconds)
+        timerInSeconds = 0
+        
+        averageTimePerSlide = timeInSeconds / arrayTimePerSlide.count
+        
+        interval = TimeInterval(averageTimePerSlide)
+        formatter.allowedUnits = [.hour, .minute, .second]
+        formatter.unitsStyle = .abbreviated
+        
+        timePerSlide.stringValue = formatter.string(from: interval) ?? ""
+
     }
     //IBAction
     
