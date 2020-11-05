@@ -12,7 +12,7 @@ import AVFoundation
 class Recording : NSObject, AVAudioRecorderDelegate {
     
     var recorder: AVAudioRecorder?
-    var path: URL
+    var url: URL
     var isRecording: Bool
     var slideNumber: Int
     var position: Int
@@ -21,10 +21,14 @@ class Recording : NSObject, AVAudioRecorderDelegate {
     /// var recording = Recording(path: url)
     /// ```
     /// - Parameter path: Full path to save the audio file, including the file name and extension
+    /// - Parameter position: Recording ke berapa
+    /// - Parameter slideNumber: Mulai recording di slide berapa
     init(path: URL, position: Int, slideNumber: Int) {
         
-        self.path = path
+        self.url = path
         self.isRecording = false
+        self.slideNumber = slideNumber
+        self.position = position
         super.init()
         self.checkPath(path)
         let settings = [
@@ -35,7 +39,7 @@ class Recording : NSObject, AVAudioRecorderDelegate {
         ]
         
         do {
-            recorder = try AVAudioRecorder(url: self.path, settings: settings)
+            recorder = try AVAudioRecorder(url: self.url, settings: settings)
             recorder?.delegate = self
             recorder?.prepareToRecord()
         } catch {

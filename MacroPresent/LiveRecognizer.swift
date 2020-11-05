@@ -67,7 +67,7 @@ class LiveRecognizer{
         print("Live: \(result.bestTranscription.formattedString)")
         print("Speaking Rate: \(result.bestTranscription.speakingRate)")
         //result.bestTranscription.formattedString.split(separator: " ").count
-        delegate?.didUpdateTranscript(result: result)
+//        delegate?.didFinish(result: result)
         if result.isFinal{
             audioEngine.inputNode.removeTap(onBus: 0)
         }
@@ -88,25 +88,27 @@ class LiveRecognizer{
     }
     
     private func askPermission(){
-           SFSpeechRecognizer.requestAuthorization { authStatus in
-               // Do Auth
-               OperationQueue.main.addOperation {
-                   switch authStatus{
-                   case .authorized:
-                       // Good to go
-                       break
-                   case .denied:
-                       // User said no
-                       break
-                   case .restricted:
-                       // Device isn't permitted
-                       break
-                   case .notDetermined:
-                       // Don't know yet
-                       break
-                   }
-               }
-           }
-       }
+        SFSpeechRecognizer.requestAuthorization { authStatus in
+            //TODO: Handle authorization
+            OperationQueue.main.addOperation {
+                switch authStatus{
+                    case .authorized:
+                        // Good to go
+                        break
+                    case .denied:
+                        // User said no
+                        break
+                    case .restricted:
+                        // Device isn't permitted
+                        break
+                    case .notDetermined:
+                        // Don't know yet
+                        break
+                    default:
+                        break
+                }
+            }
+        }
+    }
     
 }

@@ -11,7 +11,7 @@ import Foundation
 import Speech
 
 protocol RecognizerTaskDelegate{
-    func didFinishRecognizing(result: cWPM)
+    func didFinishRecognizing(_ result: cWPM)
 }
 
 class PreRecordedRecognizer{
@@ -32,13 +32,13 @@ class PreRecordedRecognizer{
     }
     
     public func recognize(){
-        
         askPermission()
         
         if !speechRecognizer.isAvailable {
             fatalError("Speech recognizer is not available")
         }
-        let request = SFSpeechURLRecognitionRequest(url: recording.path)
+        
+        let request = SFSpeechURLRecognitionRequest(url: recording.url)
         request.shouldReportPartialResults = false
 
         speechRecognizer.recognitionTask(with: request) { (_result, _error) in
@@ -53,9 +53,7 @@ class PreRecordedRecognizer{
         }
     }
     
-    private func handleResult(result:  SFSpeechRecognitionResult){
-        //TODO: Hasil resultnya mau diapain dan disimpen kemana
-        
+    private func handleResult(result:  SFSpeechRecognitionResult){        
         if (result.isFinal){
 //            print("File saved at: \(path!)")
 //            print("Text: \(result.bestTranscription.formattedString) ")
@@ -63,16 +61,16 @@ class PreRecordedRecognizer{
 //            print("Speaking rate: \(result.bestTranscription.speakingRate)")
             let thisWPM = cWPM(position: recording.position,
                                wordsPerMinute: Int(result.bestTranscription.speakingRate),
-                               audioPath: recording.path,
+                               audioPath: recording.url,
                                slideNumber: recording.slideNumber
             )
-            delegate?.didFinishRecognizing(result: thisWPM)
+            delegate?.didFinishRecognizing(thisWPM)
         }
     }
     
     private func askPermission(){
         SFSpeechRecognizer.requestAuthorization { authStatus in
-            // Do Auth
+            //TODO: Handle authorization
             OperationQueue.main.addOperation {
                 switch authStatus{
                 case .authorized:
@@ -86,6 +84,8 @@ class PreRecordedRecognizer{
                     break
                 case .notDetermined:
                     // Don't know yet
+                    break
+                default:
                     break
                 }
             }
