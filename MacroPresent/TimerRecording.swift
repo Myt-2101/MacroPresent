@@ -9,6 +9,13 @@
 import Foundation
 import Speech
 
+public struct cWPM{
+    var position: Int
+    var wordsPerMinute: Int
+    var audioPath: URL
+    var slideNumber: Int
+}
+
 class TimerRecording{
     
     var interval: TimeInterval!
@@ -21,7 +28,7 @@ class TimerRecording{
     
     var currentRecording: Recording!
     
-    var speakingRates : [Double]!
+    var WPMs : [cWPM]!
     
     /// This function will create a new unique folder to save all the audio files,
     /// ```
@@ -37,7 +44,7 @@ class TimerRecording{
         self.folderID = UUID()
         self.recordCount = 0
         
-        self.speakingRates = []
+        self.WPMs = []
         self.uniqueFolderPath = createPath(path: basePath)
     }
     
@@ -56,7 +63,16 @@ class TimerRecording{
     func stopTimer(){
         timer.invalidate()
         stopAllRecordings()
+        
+        //Append rekaman terakhir yang kepotong button stop
+        recordings.append(currentRecording)
         recognizeCurrent()
+
+        
+//        //Analisis semua rekamannya
+//        for recording in recordings{
+//            PreRecordedRecognizer(for: recording).recognize()
+//        }
     }
     
     private func recognizeCurrent(){
@@ -64,10 +80,16 @@ class TimerRecording{
             if (currentRecording.isRecording){
                 currentRecording.stopRecord()
             }
-            let record = PreRecordedRecognizer(for: currentRecording.path)
+            let record = PreRecordedRecognizer(for: currentRecording)
             record.delegate = self
             record.recognize()
         }
+        currentRecording = nil
+    }
+    
+    //TODO: Slide numbernya dapet darimana
+    private func getSlideNumber() -> Int{
+        return 0
     }
     
     @objc func onRecordTimer(){
@@ -78,7 +100,7 @@ class TimerRecording{
         recordCount += 1
 
         let newUrl = URL(fileURLWithPath: "\(self.uniqueFolderPath!)/\(recordCount!).m4a")
-        let newRecord = Recording(path: newUrl)
+        let newRecord = Recording(path: newUrl, position: recordCount!, slideNumber: getSlideNumber())
         newRecord.startRecord()
         recordings?.append(newRecord)
         currentRecording = newRecord
@@ -98,8 +120,7 @@ class TimerRecording{
 }
 
 extension TimerRecording : RecognizerTaskDelegate{
-    func didUpdateTranscript(result: SFSpeechRecognitionResult) {
-        speakingRates.append(result.bestTranscription.speakingRate)
+    func didFinishRecognizing(result: cWPM) {
+        WPMs.append(result)
     }
 }
-

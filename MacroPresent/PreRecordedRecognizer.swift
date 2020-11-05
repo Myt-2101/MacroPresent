@@ -11,14 +11,13 @@ import Foundation
 import Speech
 
 protocol RecognizerTaskDelegate{
-    func didUpdateTranscript(result: SFSpeechRecognitionResult)
+    func didFinishRecognizing(result: cWPM)
 }
 
 class PreRecordedRecognizer{
     
     var speechRecognizer: SFSpeechRecognizer!
-    var path: URL!
-    
+    var recording: Recording!
     var delegate : RecognizerTaskDelegate?
     
     /// Recognizing a pre-recorded audio file
@@ -27,8 +26,8 @@ class PreRecordedRecognizer{
     /// var preRecordedRecognizer = PreRecordedRecognizer(for: path)
     /// ```
     /// - Parameter for: Full path to an existing audio file
-    init(for path: URL){
-        self.path = path
+    init(for recording: Recording){
+        self.recording = recording
         speechRecognizer = SFSpeechRecognizer()
     }
     
@@ -39,10 +38,9 @@ class PreRecordedRecognizer{
         if !speechRecognizer.isAvailable {
             fatalError("Speech recognizer is not available")
         }
-        let request = SFSpeechURLRecognitionRequest(url: path)
-//        request.shouldReportPartialResults = true
+        let request = SFSpeechURLRecognitionRequest(url: recording.path)
+        request.shouldReportPartialResults = false
 
-        // will now ask for authorisation
         speechRecognizer.recognitionTask(with: request) { (_result, _error) in
             if (_error != nil){
                 print("ERROR: \(String(describing: _error))")
@@ -62,10 +60,13 @@ class PreRecordedRecognizer{
 //            print("File saved at: \(path!)")
 //            print("Text: \(result.bestTranscription.formattedString) ")
 //            print("Average pause: \(result.bestTranscription.averagePauseDuration)")
-            print("Speaking rate: \(result.bestTranscription.speakingRate)")
-            delegate?.didUpdateTranscript(result: result)
-            
-//            print(AVAsset(url: path).duration)
+//            print("Speaking rate: \(result.bestTranscription.speakingRate)")
+            let thisWPM = cWPM(position: recording.position,
+                               wordsPerMinute: Int(result.bestTranscription.speakingRate),
+                               audioPath: recording.path,
+                               slideNumber: recording.slideNumber
+            )
+            delegate?.didFinishRecognizing(result: thisWPM)
         }
     }
     

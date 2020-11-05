@@ -14,13 +14,14 @@ class Recording : NSObject, AVAudioRecorderDelegate {
     var recorder: AVAudioRecorder?
     var path: URL
     var isRecording: Bool
-    
+    var slideNumber: Int
+    var position: Int
     /// ```
     /// var url = URL(fileURLWithPath: "Users/calvindalenta/Documents/Recordings/foo.m4a")
     /// var recording = Recording(path: url)
     /// ```
     /// - Parameter path: Full path to save the audio file, including the file name and extension
-    init(path: URL) {
+    init(path: URL, position: Int, slideNumber: Int) {
         
         self.path = path
         self.isRecording = false
