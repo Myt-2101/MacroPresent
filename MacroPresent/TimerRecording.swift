@@ -27,6 +27,8 @@ class TimerRecording{
     var recordings: [Recording]!
     var WPMs : [cWPM]!
     
+    var currentSlideNumber: Int!
+    
     /// This function will create a new unique folder to save all the audio files,
     /// ```
     /// var path = "Users/calvindalenta/Documents/"
@@ -42,6 +44,8 @@ class TimerRecording{
         self.recordCount = 0
         self.WPMs = []
         self.uniqueFolderPath = createPath(path: basePath)
+        
+        self.currentSlideNumber = 1
     }
     
     func startTimer(){
@@ -112,7 +116,7 @@ class TimerRecording{
     
     private func getSlideNumber() -> Int{
         //TODO: Slide numbernya dapet darimana
-        return 0
+        return currentSlideNumber
     }
 
 }
