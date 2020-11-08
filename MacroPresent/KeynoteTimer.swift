@@ -141,12 +141,14 @@ class KeynoteTimer: NSViewController {
     //IBAction
     
     //Functions
+    
+//    PLAY SLIDE PRESENTASI
     @objc func StartPresentation() {
         let Start = NSAppleScript(source: StartPresent)
         Start?.executeAndReturnError(&error)
         print(error ?? TID_NULL)
     }
-    
+//    STOP PLAY PRESENTASI
     @objc func StopPresentation() {
         let stop = NSAppleScript(source: stopPresent)
         stop?.executeAndReturnError(&error)
@@ -170,8 +172,6 @@ class KeynoteTimer: NSViewController {
 //    UNTUK TOTAL TIMER
     func startTotalTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(startInSeconds), userInfo: nil, repeats: true)
-        nextSlideButtonOutlet.isHidden = false
-        previousSlideButtonOutlet.isHidden = false
     }
 //    UNTUK MENGHITUNG DURASI TOTAL TIMER DALAM DETIK
     @objc func startInSeconds(){
@@ -187,10 +187,9 @@ class KeynoteTimer: NSViewController {
     }
     
     
-
+//    PINDAH KE SLIDE SELANJUTNYA
         @objc func GotoNextSlide(){
             let next = NSAppleScript(source: NextSlideScript)
-            
             next?.executeAndReturnError(&error)
             print(error ?? TID_NULL)
         }
