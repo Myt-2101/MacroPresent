@@ -26,6 +26,7 @@ end tell
 
 let NextSlideScript = """
 tell application "Keynote"
+delay 0.000001
 show next
 end tell
 """
@@ -35,6 +36,8 @@ tell application "Keynote"
 show previous
 end tell
 """
+
+let next2 = NSAppleScript(source: NextSlideScript)
 
 //AppleScript Variable
 
@@ -52,6 +55,7 @@ class KeynoteTimer: NSViewController {
     var interval : TimeInterval = 0
     var interval1 : TimeInterval = 0
     var slideindex = 1
+    var error=NSDictionary?.none
 //VARIABLE
     
     override func viewDidLoad() {
@@ -92,6 +96,8 @@ class KeynoteTimer: NSViewController {
         keynoteName.stringValue = "Slide \(slideindex)"
     }
     
+
+    
     @IBAction func StopButton(_ sender: Any) {
         NextButtonOutlet.isHidden=false
         StopButtonOutlet.isHidden=true
@@ -104,21 +110,29 @@ class KeynoteTimer: NSViewController {
     
     
    
-    @IBAction func nextSlideButton(_ sender: Any) {
-        GotoNextSlide()
-        newSlideTimer()
-        print(arrayTimePerSlide)
-        print(averageTimePerSlide)
-        keynoteName.stringValue = "Slide \(slideindex+1)"
+   
+    @IBAction func NextSlide(_ sender: Any) {
+            GotoNextSlide()
+            newSlideTimer()
+            print(arrayTimePerSlide)
+            print(averageTimePerSlide)
+        next2?.executeAndReturnError(&error)
+                   print(error ?? TID_NULL)
+            keynoteName.stringValue = "Slide \(slideindex+1)"
     }
     
     
     
     @IBAction func previousSlideButton(_ sender: Any) {
-        if(slideindex != 0){
-        keynoteName.stringValue = "Slide \(slideindex-1)"
+        if(slideindex != 1){
+            slideindex -= 1
         }
+           keynoteName.stringValue = "Slide \(slideindex)"
         
+        let Previous = NSAppleScript(source: PreviousSlideScript)
+        var error = NSDictionary?.none
+        Previous?.executeAndReturnError(&error)
+        print(error ?? TID_NULL)
     }
     
     
@@ -129,14 +143,12 @@ class KeynoteTimer: NSViewController {
     //Functions
     @objc func StartPresentation() {
         let Start = NSAppleScript(source: StartPresent)
-        var error=NSDictionary?.none
         Start?.executeAndReturnError(&error)
         print(error ?? TID_NULL)
     }
     
     @objc func StopPresentation() {
         let stop = NSAppleScript(source: stopPresent)
-        var error=NSDictionary?.none
         stop?.executeAndReturnError(&error)
         print(error ?? TID_NULL)
     }
@@ -174,12 +186,14 @@ class KeynoteTimer: NSViewController {
         timerInSeconds += 1
     }
     
-    @objc func GotoNextSlide(){
-        let next = NSAppleScript(source: NextSlideScript)
-        var error=NSDictionary?.none
-        next?.executeAndReturnError(&error)
-        print(error ?? TID_NULL)
-    }
+    
+
+        @objc func GotoNextSlide(){
+            let next = NSAppleScript(source: NextSlideScript)
+            
+            next?.executeAndReturnError(&error)
+            print(error ?? TID_NULL)
+        }
     
     //Functions
 }
