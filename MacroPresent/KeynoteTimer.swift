@@ -12,8 +12,7 @@ import Foundation
 //AppleScript Variable
 let StartPresent = """
 tell application "Keynote"
-set ThisDocument to the front document
-start ThisDocument from the first slide of ThisDocument
+start the front document from the first slide of the front document
 end tell
 """
 
@@ -24,6 +23,21 @@ stop ThisDocument
 end tell
 """
 
+let NextSlideScript = """
+           tell application "Keynote"
+           
+            tell the front document
+                    set slidenum to slide number of the current slide
+                    if slidenum is less than (count of slide) then
+                        set slidenum to slidenum + 1
+                    else
+                        stop
+                    end if
+                show slide slidenum
+                    
+            end tell
+           end tell
+           """
 
 
 let PreviousSlideScript = """
@@ -32,10 +46,15 @@ show previous
 end tell
 """
 
+let Getmaxslidevalue = """
+tell application "Keynote"
+set thisslide to count of slides of the front document
+end tell
+"""
+
 //let next2 = NSAppleScript(source: NextSlideScript)
 
 //AppleScript Variable
-
 
 
 class KeynoteTimer: NSViewController {
@@ -59,7 +78,7 @@ class KeynoteTimer: NSViewController {
       
         
     }
-    
+     
 
     override func viewDidAppear() {
        view.window?.level = .mainMenu
@@ -183,11 +202,7 @@ class KeynoteTimer: NSViewController {
     
 //    PINDAH KE SLIDE SELANJUTNYA
          func GotoNextSlide(){
-            let NextSlideScript = """
-            tell application "Keynote"
-            show next
-            end tell
-            """
+           
             
             let next = NSAppleScript(source: NextSlideScript)
             next?.executeAndReturnError(&error)
