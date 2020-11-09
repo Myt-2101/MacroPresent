@@ -8,6 +8,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="viewPastHistory1" customModule="MacroPresent" customModuleProvider="target">
             <connections>
+                <outlet property="pptView" destination="KsV-JB-UGe" id="f5K-XF-Hvu"/>
                 <outlet property="presentationTitle" destination="VYj-go-KHc" id="vHU-Wn-SnE"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -19,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VYj-go-KHc">
-                    <rect key="frame" x="43" y="20" width="31" height="16"/>
+                    <rect key="frame" x="43" y="12" width="31" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Title" id="w7g-Ke-BL1">
                         <font key="font" usesAppearanceFont="YES"/>
@@ -27,13 +28,21 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Svr-ZI-5bX">
-                    <rect key="frame" x="34" y="36" width="48" height="48"/>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KsV-JB-UGe">
+                    <rect key="frame" x="11" y="32" width="94" height="48"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSColorPanel" id="y4l-Kv-vBS"/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Rectangleppt1" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="ST0-3N-85s">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tIl-ct-HXS">
+                    <rect key="frame" x="91" y="67" width="23" height="23"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="rectanglered" id="LED-7i-Os5"/>
                 </imageView>
             </subviews>
-            <point key="canvasLocation" x="-19" y="148"/>
+            <point key="canvasLocation" x="-19.5" y="147.5"/>
         </customView>
         <customObject id="nRr-c5-E4M" customClass="viewPastHistory1" customModule="MacroPresent" customModuleProvider="target">
             <connections>
@@ -42,6 +51,7 @@
         </customObject>
     </objects>
     <resources>
-        <image name="NSColorPanel" width="32" height="32"/>
+        <image name="Rectangleppt1" width="94" height="48"/>
+        <image name="rectanglered" width="23" height="23"/>
     </resources>
 </document>
