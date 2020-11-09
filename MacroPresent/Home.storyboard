@@ -118,6 +118,7 @@
                         <outlet property="historyPlaceHolderText" destination="weL-Bn-X7I" id="UhK-AR-i5J"/>
                         <outlet property="keynoteTextField" destination="kgM-mq-2ev" id="WW9-aG-BRX"/>
                         <outlet property="maxDurationTextField" destination="gcS-Sh-QpV" id="4Sh-2F-iBu"/>
+                        <outlet property="timerStepper" destination="Y0R-vt-bZ9" id="sJ8-eB-hKi"/>
                     </connections>
                 </viewController>
                 <customObject id="HkC-7H-c22" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

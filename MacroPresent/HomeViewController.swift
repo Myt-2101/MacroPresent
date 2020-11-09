@@ -23,10 +23,13 @@ class HomeViewController: NSViewController {
     @IBOutlet weak var historyPlaceHolderText: NSTextField!
     
     var keynotFilePath = ""
+    var duraationsInSeconds = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        timerStepper.integerValue = 0
+        maxDurationTextField.stringValue = String(timerStepper.integerValue)
     }
     
     
@@ -58,7 +61,13 @@ class HomeViewController: NSViewController {
         print(error)
     }
     
+    
+    
+    @IBOutlet weak var timerStepper: NSStepper!
     @IBAction func onStepperChange(_ sender: NSStepper) {
+        sender.increment = 1
+        maxDurationTextField.stringValue = String(timerStepper.integerValue)
+        duraationsInSeconds = timerStepper.integerValue*60
     }
 
 }
