@@ -12,6 +12,8 @@ class viewPastHistory1: NSCollectionViewItem {
 
     @IBOutlet weak var presentationTitle: NSTextField!
     @IBOutlet weak var pptView: NSButton!
+    @IBOutlet weak var notifView: NSImageView!
+    @IBOutlet weak var notifViewNumber: NSTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()

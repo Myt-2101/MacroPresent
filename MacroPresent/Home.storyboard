@@ -117,7 +117,7 @@
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="CDW-YL-MrC"/>
                             </imageView>
                             <scrollView wantsLayer="YES" fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rB1-HR-Hhw">
-                                <rect key="frame" x="24" y="10" width="139" height="354"/>
+                                <rect key="frame" x="24" y="16" width="139" height="354"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="3eD-rd-XYH">
                                     <rect key="frame" x="0.0" y="0.0" width="139" height="354"/>
@@ -129,10 +129,10 @@
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="xlZ-Zz-aDs">
                                                 <size key="itemSize" width="117" height="93"/>
                                             </collectionViewFlowLayout>
-                                            <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="primaryBackgroundColor" red="0.14901961389999999" green="0.14901961389999999" blue="0.14901961389999999" alpha="1" colorSpace="deviceRGB"/>
                                         </collectionView>
                                     </subviews>
-                                    <color key="backgroundColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" red="0.14901961389999999" green="0.14901961389999999" blue="0.14901961389999999" alpha="1" colorSpace="deviceRGB"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="MUN-2i-KBV">
                                     <rect key="frame" x="-100" y="-100" width="234" height="16"/>
@@ -143,6 +143,58 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
+                            <scrollView wantsLayer="YES" fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rds-gQ-eWs">
+                                <rect key="frame" x="184" y="16" width="139" height="354"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <clipView key="contentView" id="HCb-c0-xey">
+                                    <rect key="frame" x="0.0" y="0.0" width="139" height="354"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <collectionView id="O9j-Bq-1q1">
+                                            <rect key="frame" x="0.0" y="0.0" width="139" height="158"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="YbP-tG-KHE">
+                                                <size key="itemSize" width="117" height="93"/>
+                                            </collectionViewFlowLayout>
+                                            <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </collectionView>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="IDs-C7-PZd">
+                                    <rect key="frame" x="1" y="143" width="137" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="1Cy-V6-TIB">
+                                    <rect key="frame" x="234" y="1" width="15" height="143"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                            <scrollView wantsLayer="YES" fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bd9-4T-GOf">
+                                <rect key="frame" x="343" y="16" width="139" height="354"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <clipView key="contentView" id="619-rK-vgA">
+                                    <rect key="frame" x="0.0" y="0.0" width="139" height="354"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <collectionView id="2jM-G6-OxD">
+                                            <rect key="frame" x="0.0" y="0.0" width="139" height="158"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="fT5-c0-MQV">
+                                                <size key="itemSize" width="117" height="93"/>
+                                            </collectionViewFlowLayout>
+                                            <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </collectionView>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="KjT-xW-0Of">
+                                    <rect key="frame" x="1" y="143" width="137" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Iko-aR-hwj">
+                                    <rect key="frame" x="234" y="1" width="15" height="143"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
                         </subviews>
                     </view>
                     <connections>
@@ -150,6 +202,8 @@
                         <outlet property="historyPlaceHolderText" destination="weL-Bn-X7I" id="UhK-AR-i5J"/>
                         <outlet property="keynoteTextField" destination="kgM-mq-2ev" id="WW9-aG-BRX"/>
                         <outlet property="listPastHistory1" destination="ZWR-lb-s7M" id="R4t-ve-VGI"/>
+                        <outlet property="listPastHistory2" destination="O9j-Bq-1q1" id="7WM-lN-KW1"/>
+                        <outlet property="listPastHistory3" destination="2jM-G6-OxD" id="Wgi-Hp-wmu"/>
                         <outlet property="maxDurationTextField" destination="gcS-Sh-QpV" id="4Sh-2F-iBu"/>
                     </connections>
                 </viewController>

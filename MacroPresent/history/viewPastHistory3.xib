@@ -6,12 +6,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="viewPastHistory1" customModule="MacroPresent" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="viewPastHistory3" customModule="MacroPresent" customModuleProvider="target">
             <connections>
-                <outlet property="notifView" destination="tIl-ct-HXS" id="d5u-Tk-RrG"/>
-                <outlet property="notifViewNumber" destination="Rdh-l7-QVv" id="JYu-uL-8D5"/>
-                <outlet property="pptView" destination="KsV-JB-UGe" id="f5K-XF-Hvu"/>
-                <outlet property="presentationTitle" destination="VYj-go-KHc" id="vHU-Wn-SnE"/>
+                <outlet property="notifView3" destination="EBF-bx-v3D" id="o1x-Ej-apq"/>
+                <outlet property="notifViewNumber3" destination="wuJ-SV-M1L" id="7fE-IA-U7H"/>
+                <outlet property="pptview3" destination="bAT-6a-BW3" id="mCg-Ef-ayI"/>
+                <outlet property="presentationTitle3" destination="js6-kS-eql" id="7gR-S7-j03"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -21,45 +21,50 @@
             <rect key="frame" x="0.0" y="0.0" width="117" height="93"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VYj-go-KHc">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="js6-kS-eql">
                     <rect key="frame" x="43" y="16" width="31" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="Title" id="w7g-Ke-BL1">
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Title" id="Mag-hk-VZU">
                         <font key="font" usesAppearanceFont="YES"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KsV-JB-UGe">
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bAT-6a-BW3">
                     <rect key="frame" x="11" y="32" width="94" height="48"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Rectangleppt1" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="ST0-3N-85s">
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Rectangleppt1" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="oVR-5e-iCX">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                 </button>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tIl-ct-HXS">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eAY-KO-7pJ">
+                    <rect key="frame" x="31" y="0.0" width="61" height="16"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="10:00:00" id="CEi-7j-r1i">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EBF-bx-v3D">
                     <rect key="frame" x="91" y="67" width="23" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="rectanglered" id="LED-7i-Os5"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="rectanglered" id="Zim-4b-eTa"/>
                 </imageView>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rdh-l7-QVv">
-                    <rect key="frame" x="97" y="71" width="10" height="16"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wuJ-SV-M1L">
+                    <rect key="frame" x="96" y="71" width="13" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="1" id="bLR-hc-WAt">
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="3" id="ouE-Kp-a7O">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
             </subviews>
-            <point key="canvasLocation" x="-19.5" y="147.5"/>
+            <point key="canvasLocation" x="-101" y="145"/>
         </customView>
-        <customObject id="nRr-c5-E4M" customClass="viewPastHistory1" customModule="MacroPresent" customModuleProvider="target">
-            <connections>
-                <outlet property="view" destination="Hz6-mo-xeY" id="CLK-WI-f4d"/>
-            </connections>
-        </customObject>
+        <customObject id="HxU-vt-AIQ" customClass="viewPastHistory3" customModule="MacroPresent" customModuleProvider="target"/>
     </objects>
     <resources>
         <image name="Rectangleppt1" width="94" height="48"/>
