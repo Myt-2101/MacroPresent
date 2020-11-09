@@ -116,15 +116,15 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="CDW-YL-MrC"/>
                             </imageView>
-                            <scrollView wantsLayer="YES" fixedFrame="YES" borderType="line" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rB1-HR-Hhw">
+                            <scrollView wantsLayer="YES" fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rB1-HR-Hhw">
                                 <rect key="frame" x="24" y="10" width="139" height="354"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="3eD-rd-XYH">
-                                    <rect key="frame" x="1" y="1" width="137" height="352"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="139" height="354"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <collectionView id="ZWR-lb-s7M">
-                                            <rect key="frame" x="0.0" y="0.0" width="137" height="352"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="139" height="354"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="xlZ-Zz-aDs">
                                                 <size key="itemSize" width="117" height="93"/>
@@ -132,6 +132,7 @@
                                             <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </collectionView>
                                     </subviews>
+                                    <color key="backgroundColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="MUN-2i-KBV">
                                     <rect key="frame" x="-100" y="-100" width="234" height="16"/>
