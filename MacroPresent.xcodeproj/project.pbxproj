@@ -14,6 +14,7 @@
 		233E72272542C9B800B243EC /* (null) in Resources */ = {isa = PBXBuildFile; };
 		233E723B2546D34A00B243EC /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 233E723A2546D34A00B243EC /* Home.storyboard */; };
 		233E723D2546D3BD00B243EC /* KeynoteTimer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 233E723C2546D3BD00B243EC /* KeynoteTimer.storyboard */; };
+		3DCECF4525517792001C644D /* viewHistory.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DCECF4425517792001C644D /* viewHistory.xib */; };
 		C80F368B25481AC500222976 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80F368A25481AC500222976 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		233E72292542C9B800B243EC /* MacroPresent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacroPresent.entitlements; sourceTree = "<group>"; };
 		233E723A2546D34A00B243EC /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		233E723C2546D3BD00B243EC /* KeynoteTimer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = KeynoteTimer.storyboard; sourceTree = "<group>"; };
+		3DCECF4425517792001C644D /* viewHistory.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = viewHistory.xib; sourceTree = "<group>"; };
 		C80F368A25481AC500222976 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,10 +69,19 @@
 				233E72232542C9B800B243EC /* Assets.xcassets */,
 				233E723C2546D3BD00B243EC /* KeynoteTimer.storyboard */,
 				23118BD02546E2A300E925A0 /* Main.storyboard */,
+				3DCECF43255174DC001C644D /* history */,
 				233E72282542C9B800B243EC /* Info.plist */,
 				233E72292542C9B800B243EC /* MacroPresent.entitlements */,
 			);
 			path = MacroPresent;
+			sourceTree = "<group>";
+		};
+		3DCECF43255174DC001C644D /* history */ = {
+			isa = PBXGroup;
+			children = (
+				3DCECF4425517792001C644D /* viewHistory.xib */,
+			);
+			path = history;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,6 +145,7 @@
 				233E723B2546D34A00B243EC /* Home.storyboard in Resources */,
 				23118BD12546E2A300E925A0 /* Main.storyboard in Resources */,
 				233E72242542C9B800B243EC /* Assets.xcassets in Resources */,
+				3DCECF4525517792001C644D /* viewHistory.xib in Resources */,
 				233E723D2546D3BD00B243EC /* KeynoteTimer.storyboard in Resources */,
 				233E72272542C9B800B243EC /* (null) in Resources */,
 			);

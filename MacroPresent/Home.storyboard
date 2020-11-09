@@ -111,6 +111,11 @@
                                     <action selector="onChooseFile:" target="Nuv-Tk-SGM" id="lgs-Bo-mKn"/>
                                 </connections>
                             </button>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h0C-gq-pBH">
+                                <rect key="frame" x="34" y="271" width="117" height="93"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="CDW-YL-MrC"/>
+                            </imageView>
                         </subviews>
                     </view>
                     <connections>
