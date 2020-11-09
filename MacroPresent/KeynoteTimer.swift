@@ -24,12 +24,7 @@ stop ThisDocument
 end tell
 """
 
-let NextSlideScript = """
-tell application "Keynote"
-delay 0.000001
-show next
-end tell
-"""
+
 
 let PreviousSlideScript = """
 tell application "Keynote"
@@ -37,7 +32,7 @@ show previous
 end tell
 """
 
-let next2 = NSAppleScript(source: NextSlideScript)
+//let next2 = NSAppleScript(source: NextSlideScript)
 
 //AppleScript Variable
 
@@ -86,7 +81,7 @@ class KeynoteTimer: NSViewController {
     
     //IBAction
     @IBAction func nextButton(_ sender: Any) {
-
+        slideindex = 1
         NextButtonOutlet.isHidden=true
         StopButtonOutlet.isHidden=false
         previousSlideButtonOutlet.isHidden=false
@@ -112,13 +107,12 @@ class KeynoteTimer: NSViewController {
    
    
     @IBAction func NextSlide(_ sender: Any) {
+            slideindex += 1
             GotoNextSlide()
             newSlideTimer()
             print(arrayTimePerSlide)
             print(averageTimePerSlide)
-        next2?.executeAndReturnError(&error)
-                   print(error ?? TID_NULL)
-            keynoteName.stringValue = "Slide \(slideindex+1)"
+            keynoteName.stringValue = "Slide \(slideindex)"
     }
     
     
@@ -188,7 +182,13 @@ class KeynoteTimer: NSViewController {
     
     
 //    PINDAH KE SLIDE SELANJUTNYA
-        @objc func GotoNextSlide(){
+         func GotoNextSlide(){
+            let NextSlideScript = """
+            tell application "Keynote"
+            show next
+            end tell
+            """
+            
             let next = NSAppleScript(source: NextSlideScript)
             next?.executeAndReturnError(&error)
             print(error ?? TID_NULL)
