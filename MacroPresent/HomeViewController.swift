@@ -161,6 +161,7 @@ extension HomeViewController: NSCollectionViewDelegate, NSCollectionViewDataSour
         //string value
         //item.presentationTitle.stringValue = showDataListHistory1[indexPath.item].namePresentationTitle
         //print(item.presentationTitle.stringValue)
+        item.presentationTitle.stringValue = showDataListHistory1[indexPath.item].namePresentationTitle
         if (collectionView == listPastHistory2){
             let item2 = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "viewPastHistory2"), for: indexPath) as! viewPastHistory2
             return item2
