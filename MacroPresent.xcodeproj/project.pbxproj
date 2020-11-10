@@ -18,6 +18,9 @@
 		3D0994D725599A360080C398 /* viewPastHistory2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D0994D525599A360080C398 /* viewPastHistory2.xib */; };
 		3D0994DB2559A58A0080C398 /* viewPastHistory3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0994D92559A58A0080C398 /* viewPastHistory3.swift */; };
 		3D0994DC2559A58A0080C398 /* viewPastHistory3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D0994DA2559A58A0080C398 /* viewPastHistory3.xib */; };
+		3D7738EF255A966B00D1C62E /* dataListHistory1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7738EE255A966B00D1C62E /* dataListHistory1.swift */; };
+		3D7738F9255AA33300D1C62E /* dataListHistory2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7738F8255AA33300D1C62E /* dataListHistory2.swift */; };
+		3D7738FD255AA77700D1C62E /* dataListHistory3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7738FC255AA77700D1C62E /* dataListHistory3.swift */; };
 		3D96D7AF2559457E006B0A79 /* viewPastHistory1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D96D7AD2559457E006B0A79 /* viewPastHistory1.swift */; };
 		3D96D7B02559457E006B0A79 /* viewPastHistory1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D96D7AE2559457E006B0A79 /* viewPastHistory1.xib */; };
 		C80F368B25481AC500222976 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80F368A25481AC500222976 /* HomeViewController.swift */; };
@@ -37,6 +40,9 @@
 		3D0994D525599A360080C398 /* viewPastHistory2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = viewPastHistory2.xib; sourceTree = "<group>"; };
 		3D0994D92559A58A0080C398 /* viewPastHistory3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewPastHistory3.swift; sourceTree = "<group>"; };
 		3D0994DA2559A58A0080C398 /* viewPastHistory3.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = viewPastHistory3.xib; sourceTree = "<group>"; };
+		3D7738EE255A966B00D1C62E /* dataListHistory1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataListHistory1.swift; sourceTree = "<group>"; };
+		3D7738F8255AA33300D1C62E /* dataListHistory2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataListHistory2.swift; sourceTree = "<group>"; };
+		3D7738FC255AA77700D1C62E /* dataListHistory3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataListHistory3.swift; sourceTree = "<group>"; };
 		3D96D7AD2559457E006B0A79 /* viewPastHistory1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewPastHistory1.swift; sourceTree = "<group>"; };
 		3D96D7AE2559457E006B0A79 /* viewPastHistory1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = viewPastHistory1.xib; sourceTree = "<group>"; };
 		C80F368A25481AC500222976 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +78,7 @@
 		233E721E2542C9B600B243EC /* MacroPresent */ = {
 			isa = PBXGroup;
 			children = (
+				3D7738ED255A964A00D1C62E /* Data Model */,
 				233E721F2542C9B600B243EC /* AppDelegate.swift */,
 				233E72212542C9B600B243EC /* ViewController.swift */,
 				233E723A2546D34A00B243EC /* Home.storyboard */,
@@ -84,6 +91,16 @@
 				233E72292542C9B800B243EC /* MacroPresent.entitlements */,
 			);
 			path = MacroPresent;
+			sourceTree = "<group>";
+		};
+		3D7738ED255A964A00D1C62E /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				3D7738EE255A966B00D1C62E /* dataListHistory1.swift */,
+				3D7738F8255AA33300D1C62E /* dataListHistory2.swift */,
+				3D7738FC255AA77700D1C62E /* dataListHistory3.swift */,
+			);
+			path = "Data Model";
 			sourceTree = "<group>";
 		};
 		3DCECF43255174DC001C644D /* history */ = {
@@ -178,9 +195,12 @@
 				3D96D7AF2559457E006B0A79 /* viewPastHistory1.swift in Sources */,
 				233E72222542C9B600B243EC /* ViewController.swift in Sources */,
 				233E72202542C9B600B243EC /* AppDelegate.swift in Sources */,
+				3D7738F9255AA33300D1C62E /* dataListHistory2.swift in Sources */,
 				C80F368B25481AC500222976 /* HomeViewController.swift in Sources */,
+				3D7738EF255A966B00D1C62E /* dataListHistory1.swift in Sources */,
 				3D0994D625599A360080C398 /* viewPastHistory2.swift in Sources */,
 				3D0994DB2559A58A0080C398 /* viewPastHistory3.swift in Sources */,
+				3D7738FD255AA77700D1C62E /* dataListHistory3.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

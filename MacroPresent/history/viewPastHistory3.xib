@@ -12,6 +12,7 @@
                 <outlet property="notifViewNumber3" destination="wuJ-SV-M1L" id="7fE-IA-U7H"/>
                 <outlet property="pptview3" destination="bAT-6a-BW3" id="mCg-Ef-ayI"/>
                 <outlet property="presentationTitle3" destination="js6-kS-eql" id="7gR-S7-j03"/>
+                <outlet property="timePresentation3" destination="eAY-KO-7pJ" id="RjU-71-57q"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>

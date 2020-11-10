@@ -15,9 +15,16 @@ class viewPastHistory1: NSCollectionViewItem {
     @IBOutlet weak var notifView: NSImageView!
     @IBOutlet weak var notifViewNumber: NSTextField!
     
+    //var viewc = HomeViewController()
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+    }
+    
+    
+    @IBAction func pptViewButton(_ sender: Any) {
     }
     
 }
