@@ -14,6 +14,7 @@
 		233E72272542C9B800B243EC /* (null) in Resources */ = {isa = PBXBuildFile; };
 		233E723B2546D34A00B243EC /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 233E723A2546D34A00B243EC /* Home.storyboard */; };
 		233E723D2546D3BD00B243EC /* KeynoteTimer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 233E723C2546D3BD00B243EC /* KeynoteTimer.storyboard */; };
+		C80FE742255A816400065A93 /* TimerColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80FE741255A816400065A93 /* TimerColor.swift */; };
 		C8F5F0C1254FEFED00EAD1AB /* PreRecordedRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F5F0C0254FEFED00EAD1AB /* PreRecordedRecognizer.swift */; };
 		C8F5F0C3254FEFF700EAD1AB /* LiveRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F5F0C2254FEFF700EAD1AB /* LiveRecognizer.swift */; };
 		C8F5F0C5254FF00000EAD1AB /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F5F0C4254FF00000EAD1AB /* Recording.swift */; };
@@ -30,6 +31,7 @@
 		233E72292542C9B800B243EC /* MacroPresent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacroPresent.entitlements; sourceTree = "<group>"; };
 		233E723A2546D34A00B243EC /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		233E723C2546D3BD00B243EC /* KeynoteTimer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = KeynoteTimer.storyboard; sourceTree = "<group>"; };
+		C80FE741255A816400065A93 /* TimerColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerColor.swift; sourceTree = "<group>"; };
 		C8F5F0C0254FEFED00EAD1AB /* PreRecordedRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreRecordedRecognizer.swift; sourceTree = "<group>"; };
 		C8F5F0C2254FEFF700EAD1AB /* LiveRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveRecognizer.swift; sourceTree = "<group>"; };
 		C8F5F0C4254FF00000EAD1AB /* Recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				C8F5F0C2254FEFF700EAD1AB /* LiveRecognizer.swift */,
 				C8F5F0C4254FF00000EAD1AB /* Recording.swift */,
 				C8F5F0C6254FF00A00EAD1AB /* TimerRecording.swift */,
+				C80FE741255A816400065A93 /* TimerColor.swift */,
 			);
 			name = "Speech Recognizer";
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 			files = (
 				233E72222542C9B600B243EC /* ViewController.swift in Sources */,
 				C8F5F0C1254FEFED00EAD1AB /* PreRecordedRecognizer.swift in Sources */,
+				C80FE742255A816400065A93 /* TimerColor.swift in Sources */,
 				233E72202542C9B600B243EC /* AppDelegate.swift in Sources */,
 				C8F5F0C7254FF00A00EAD1AB /* TimerRecording.swift in Sources */,
 				C8F5F0C3254FEFF700EAD1AB /* LiveRecognizer.swift in Sources */,
