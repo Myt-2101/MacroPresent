@@ -25,17 +25,7 @@ end tell
 
 let NextSlideScript = """
            tell application "Keynote"
-           
-            tell the front document
-                    set slidenum to slide number of the current slide
-                    if slidenum is less than (count of slide) then
-                        set slidenum to slidenum + 1
-                    else
-                        stop
-                    end if
-                show slide slidenum
-                    
-            end tell
+            show next
            end tell
            """
 
@@ -46,9 +36,11 @@ show previous
 end tell
 """
 
-let Getmaxslidevalue = """
+let Getcurrentslidevalue = """
 tell application "Keynote"
-set thisslide to count of slides of the front document
+    tell the front document
+        set slidenum to slide number of the current slide
+    end tell
 end tell
 """
 
@@ -70,7 +62,6 @@ class KeynoteTimer: NSViewController {
     var interval1 : TimeInterval = 0
     var slideindex = 1
     var error=NSDictionary?.none
-    let script=NSAppleScript(source: Getmaxslidevalue)!
 //VARIABLE
     
     override func viewDidLoad() {
@@ -100,14 +91,13 @@ class KeynoteTimer: NSViewController {
     
     //IBAction
     @IBAction func nextButton(_ sender: Any) {
-        slideindex = 1
         NextButtonOutlet.isHidden=true
         StopButtonOutlet.isHidden=false
         previousSlideButtonOutlet.isHidden=false
         nextSlideButtonOutlet.isHidden=false
         StartPresentation()
         startTotalTimer()
-        keynoteName.stringValue = "Slide \(slideindex)"
+        keynoteName.stringValue = "Slide \(getCurrentslideValue())"
     }
     
 
@@ -126,15 +116,20 @@ class KeynoteTimer: NSViewController {
    
    
     @IBAction func NextSlide(_ sender: Any) {
-        if(slideindex != getMaxslideValue()){
-            slideindex += 1
-            
-        }
-            GotoNextSlide()
+        GotoNextSlide()
+        if(getCurrentslideValue() != getMaxslideValue()) {
             newSlideTimer()
             print(arrayTimePerSlide)
             print(averageTimePerSlide)
-            keynoteName.stringValue = "Slide \(slideindex)"
+            keynoteName.stringValue = "Slide \(getCurrentslideValue())"
+            
+        }
+        else if (getCurrentslideValue() == getMaxslideValue()){
+            keynoteName.stringValue = "Slide \(getMaxslideValue())"
+        }
+           
+           
+            
     }
     
     
@@ -143,7 +138,7 @@ class KeynoteTimer: NSViewController {
         if(slideindex != 1){
             slideindex -= 1
         }
-           keynoteName.stringValue = "Slide \(slideindex)"
+           keynoteName.stringValue = "Slide \(getCurrentslideValue())"
         
         let Previous = NSAppleScript(source: PreviousSlideScript)
         var error = NSDictionary?.none
@@ -223,6 +218,12 @@ class KeynoteTimer: NSViewController {
         return Int(script?.executeAndReturnError(&error).stringValue ?? "") ?? 0
 
         
+    }
+    
+    func getCurrentslideValue() -> Int{
+        let script = NSAppleScript(source: Getcurrentslidevalue)
+        
+        return Int(script?.executeAndReturnError(&error).stringValue ?? "") ?? 0
     }
     
     
