@@ -70,12 +70,12 @@ class KeynoteTimer: NSViewController {
     var interval1 : TimeInterval = 0
     var slideindex = 1
     var error=NSDictionary?.none
+    let script=NSAppleScript(source: Getmaxslidevalue)!
 //VARIABLE
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-      
         
     }
      
@@ -126,7 +126,10 @@ class KeynoteTimer: NSViewController {
    
    
     @IBAction func NextSlide(_ sender: Any) {
+        if(slideindex != getMaxslideValue()){
             slideindex += 1
+            
+        }
             GotoNextSlide()
             newSlideTimer()
             print(arrayTimePerSlide)
@@ -208,6 +211,20 @@ class KeynoteTimer: NSViewController {
             next?.executeAndReturnError(&error)
             print(error ?? TID_NULL)
         }
+        
+    func getMaxslideValue() -> Int{
+        let source = """
+            tell applications "Keynote"
+                set ThisSlide to count of slides of the front document
+            end tell
+"""
+        let script = NSAppleScript(source: source )
+      
+        return Int(script?.executeAndReturnError(&error).stringValue ?? "") ?? 0
+
+        
+    }
+    
     
     //Functions
 }
