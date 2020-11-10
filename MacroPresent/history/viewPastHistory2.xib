@@ -8,11 +8,6 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="viewPastHistory2" customModule="MacroPresent" customModuleProvider="target">
             <connections>
-                <outlet property="notifView2" destination="EGB-Jv-Mtr" id="D7s-mA-pxh"/>
-                <outlet property="notifViewNumber2" destination="FFe-QO-kdN" id="jfC-5m-E4j"/>
-                <outlet property="pptView2" destination="kAq-iP-XMO" id="ODd-aZ-mhk"/>
-                <outlet property="presentationTitle2" destination="CJj-SX-6DA" id="rNF-hP-MP7"/>
-                <outlet property="timePresentation2" destination="R9l-PK-LZl" id="rxp-pQ-Sl2"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -65,7 +60,15 @@
             </subviews>
             <point key="canvasLocation" x="-101" y="145"/>
         </customView>
-        <customObject id="7bR-Tc-CSB" customClass="viewPastHistory2" customModule="MacroPresent" customModuleProvider="target"/>
+        <customObject id="7bR-Tc-CSB" customClass="viewPastHistory2" customModule="MacroPresent" customModuleProvider="target">
+            <connections>
+                <outlet property="notifView2" destination="EGB-Jv-Mtr" id="OyE-nG-3Xz"/>
+                <outlet property="notifViewNumber2" destination="FFe-QO-kdN" id="5It-IM-pEy"/>
+                <outlet property="pptView2" destination="kAq-iP-XMO" id="att-VB-H0d"/>
+                <outlet property="presentationTitle2" destination="CJj-SX-6DA" id="q2z-E2-GID"/>
+                <outlet property="timePresentation2" destination="R9l-PK-LZl" id="12D-Vu-rqp"/>
+            </connections>
+        </customObject>
     </objects>
     <resources>
         <image name="Rectangleppt2" width="94" height="48"/>

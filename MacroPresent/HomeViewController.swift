@@ -75,18 +75,18 @@ class HomeViewController: NSViewController {
         
         
         //coba masukin data dummy nscollection kiri ke satu
-        showDataListHistory1.append(dataListHistory1.init(namePresenttationTitle: "ini yang pertama 1", namePptView: "Rectangleppt1", nameNotifView: "rectanglered", nameNotifViewNumber: 1))
-        showDataListHistory1.append(dataListHistory1.init(namePresenttationTitle: "ini yang pertama 2", namePptView: "Rectangleppt1", nameNotifView: "rectanglered", nameNotifViewNumber: 1))
-        showDataListHistory1.append(dataListHistory1.init(namePresenttationTitle: "ini yang pertama 3", namePptView: "Rectangleppt1", nameNotifView: "rectanglered", nameNotifViewNumber: 1))
-        showDataListHistory1.append(dataListHistory1.init(namePresenttationTitle: "ini yang pertama 4", namePptView: "Rectangleppt1", nameNotifView: "rectanglered", nameNotifViewNumber: 1))
-        showDataListHistory1.append(dataListHistory1.init(namePresenttationTitle: "ini yang pertama 5", namePptView: "Rectangleppt1", nameNotifView: "rectanglered", nameNotifViewNumber: 1))
+        showDataListHistory1.append(dataListHistory1.init(namePresenttationTitle: "ini 1", namePptView: "Rectangleppt1", nameNotifView: "rectanglered", nameNotifViewNumber: 1))
+        showDataListHistory1.append(dataListHistory1.init(namePresenttationTitle: "ini 2", namePptView: "Rectangleppt1", nameNotifView: "rectanglered", nameNotifViewNumber: 1))
+        showDataListHistory1.append(dataListHistory1.init(namePresenttationTitle: "ini 3", namePptView: "Rectangleppt1", nameNotifView: "rectanglered", nameNotifViewNumber: 1))
+        showDataListHistory1.append(dataListHistory1.init(namePresenttationTitle: "ini 4", namePptView: "Rectangleppt1", nameNotifView: "rectanglered", nameNotifViewNumber: 1))
+        showDataListHistory1.append(dataListHistory1.init(namePresenttationTitle: "ini 5", namePptView: "Rectangleppt1", nameNotifView: "rectanglered", nameNotifViewNumber: 1))
         
         
         //masukin data dummy datalist 2 ke datalist 1
-        showDataListHistory1[0].setDataListHistory2(setValueDataList2: showDataListHistory2[0], namePresentationTitle: "ini yang pertama 1")
-        showDataListHistory1[0].setDataListHistory2(setValueDataList2: showDataListHistory2[1], namePresentationTitle: "ini yang pertama 1")
-        showDataListHistory1[0].setDataListHistory2(setValueDataList2: showDataListHistory2[2], namePresentationTitle: "ini yang pertama 1")
-        showDataListHistory1[0].setDataListHistory2(setValueDataList2: showDataListHistory2[3], namePresentationTitle: "ini yang pertama 1")
+        showDataListHistory1[0].setDataListHistory2(setValueDataList2: showDataListHistory2[0], namePresentationTitle: "ini 1")
+        showDataListHistory1[0].setDataListHistory2(setValueDataList2: showDataListHistory2[1], namePresentationTitle: "ini 1")
+        showDataListHistory1[0].setDataListHistory2(setValueDataList2: showDataListHistory2[2], namePresentationTitle: "ini 1")
+        showDataListHistory1[0].setDataListHistory2(setValueDataList2: showDataListHistory2[3], namePresentationTitle: "ini 1")
         
         
         
@@ -162,6 +162,10 @@ extension HomeViewController: NSCollectionViewDelegate, NSCollectionViewDataSour
         //item.presentationTitle.stringValue = showDataListHistory1[indexPath.item].namePresentationTitle
         //print(item.presentationTitle.stringValue)
         item.presentationTitle.stringValue = showDataListHistory1[indexPath.item].namePresentationTitle
+        item.pptView.image = NSImage(named: showDataListHistory1[indexPath.item].namePptView)
+        item.notifView.image = NSImage(named: showDataListHistory1[indexPath.item].nameNotifView)
+        item.notifViewNumber.stringValue = "\(showDataListHistory1[indexPath.item].nameNotifViewNumber)"
+        
         if (collectionView == listPastHistory2){
             let item2 = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "viewPastHistory2"), for: indexPath) as! viewPastHistory2
             return item2

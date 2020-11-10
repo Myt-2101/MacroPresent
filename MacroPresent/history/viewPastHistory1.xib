@@ -8,10 +8,6 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="viewPastHistory1" customModule="MacroPresent" customModuleProvider="target">
             <connections>
-                <outlet property="notifView" destination="tIl-ct-HXS" id="d5u-Tk-RrG"/>
-                <outlet property="notifViewNumber" destination="Rdh-l7-QVv" id="JYu-uL-8D5"/>
-                <outlet property="pptView" destination="KsV-JB-UGe" id="f5K-XF-Hvu"/>
-                <outlet property="presentationTitle" destination="VYj-go-KHc" id="vHU-Wn-SnE"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -22,7 +18,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VYj-go-KHc">
-                    <rect key="frame" x="43" y="16" width="35" height="16"/>
+                    <rect key="frame" x="9" y="16" width="98" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Najib" id="w7g-Ke-BL1">
                         <font key="font" usesAppearanceFont="YES"/>
@@ -60,6 +56,10 @@
         </customView>
         <customObject id="nRr-c5-E4M" customClass="viewPastHistory1" customModule="MacroPresent" customModuleProvider="target">
             <connections>
+                <outlet property="notifView" destination="tIl-ct-HXS" id="LcH-5m-Hys"/>
+                <outlet property="notifViewNumber" destination="Rdh-l7-QVv" id="npX-UP-qJc"/>
+                <outlet property="pptView" destination="KsV-JB-UGe" id="tVk-GX-2Qy"/>
+                <outlet property="presentationTitle" destination="VYj-go-KHc" id="sML-iR-ZCj"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="CLK-WI-f4d"/>
             </connections>
         </customObject>

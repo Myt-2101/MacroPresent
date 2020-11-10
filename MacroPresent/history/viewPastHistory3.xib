@@ -8,11 +8,6 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="viewPastHistory3" customModule="MacroPresent" customModuleProvider="target">
             <connections>
-                <outlet property="notifView3" destination="EBF-bx-v3D" id="o1x-Ej-apq"/>
-                <outlet property="notifViewNumber3" destination="wuJ-SV-M1L" id="7fE-IA-U7H"/>
-                <outlet property="pptview3" destination="bAT-6a-BW3" id="mCg-Ef-ayI"/>
-                <outlet property="presentationTitle3" destination="js6-kS-eql" id="7gR-S7-j03"/>
-                <outlet property="timePresentation3" destination="eAY-KO-7pJ" id="RjU-71-57q"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -65,7 +60,15 @@
             </subviews>
             <point key="canvasLocation" x="-101" y="145"/>
         </customView>
-        <customObject id="HxU-vt-AIQ" customClass="viewPastHistory3" customModule="MacroPresent" customModuleProvider="target"/>
+        <customObject id="HxU-vt-AIQ" customClass="viewPastHistory3" customModule="MacroPresent" customModuleProvider="target">
+            <connections>
+                <outlet property="notifView3" destination="EBF-bx-v3D" id="jTa-IN-bBK"/>
+                <outlet property="notifViewNumber3" destination="wuJ-SV-M1L" id="h8s-O1-akM"/>
+                <outlet property="pptview3" destination="bAT-6a-BW3" id="xQm-Dy-eaQ"/>
+                <outlet property="presentationTitle3" destination="js6-kS-eql" id="Yh2-ZK-EBE"/>
+                <outlet property="timePresentation3" destination="eAY-KO-7pJ" id="gkC-k9-RYG"/>
+            </connections>
+        </customObject>
     </objects>
     <resources>
         <image name="Rectangleppt1" width="94" height="48"/>
