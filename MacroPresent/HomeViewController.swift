@@ -31,6 +31,10 @@ class HomeViewController: NSViewController {
     var showDataListHistory1 = [dataListHistory1]()
     var showDataListHistory2 = [dataListHistory2]()
     var showDataListHistory3 = [dataListHistory3]()
+    
+    var indexListPastHistory1: Int?
+    var indexListPastHistory2: Int?
+    var indexListPastHistory3: Int?
 
     
     override func viewDidLoad() {
@@ -53,7 +57,6 @@ class HomeViewController: NSViewController {
         listPastHistory3.register(nibPastHistory3, forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: "viewPastHistory3"))
         
         
-        
         /////// CEK YA BRADER
         
         //coba masukin data dummy di nscollection paling kanan
@@ -61,11 +64,16 @@ class HomeViewController: NSViewController {
         showDataListHistory3.append(dataListHistory3.init(namePresentationTitle3: "terakhir ketiga 2", namePptView3: "Rectangleppt1", valueTimePresentation3: "20:00:00", nameNotifView3: "rectanglered", nameNotifViewNumber3: 3))
         showDataListHistory3.append(dataListHistory3.init(namePresentationTitle3: "terakhir ketiga 3", namePptView3: "Rectangleppt1", valueTimePresentation3: "30:00:00", nameNotifView3: "rectanglered", nameNotifViewNumber3: 3))
         
+        
+        
+        
         //coba masukin data dummy di ns collection kedua / tengah
         showDataListHistory2.append(dataListHistory2.init(namePresentationTitle2: "kamu yang kedua 1", namePptView2: "Rectangleppt2", valueTimePresentation2: "40:00:00", nameNotifView2: "rectanglered", nameNotifViewNumber2: 2))
         showDataListHistory2.append(dataListHistory2.init(namePresentationTitle2: "kamu yang kedua 2", namePptView2: "Rectangleppt2", valueTimePresentation2: "50:00:00", nameNotifView2: "rectanglered", nameNotifViewNumber2: 2))
         showDataListHistory2.append(dataListHistory2.init(namePresentationTitle2: "kamu yang kedua 3", namePptView2: "Rectangleppt2", valueTimePresentation2: "60:00:00", nameNotifView2: "rectanglered", nameNotifViewNumber2: 2))
         showDataListHistory2.append(dataListHistory2.init(namePresentationTitle2: "kamu yang kedua2 4", namePptView2: "Rectangleppt2", valueTimePresentation2: "70:00:00", nameNotifView2: "rectanglered", nameNotifViewNumber2: 2))
+        
+        
         
         //masukin data dummy datalist 3 ke datalist 2
         showDataListHistory2[0].setDataListHistory3(setValueDataList3: showDataListHistory3[0], namePresentationTitle2: "kamu yang kedua 1")
@@ -149,11 +157,18 @@ extension HomeViewController: NSCollectionViewDelegate, NSCollectionViewDataSour
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if (collectionView == listPastHistory2){
-            return showDataListHistory2.count
+            guard let index = indexListPastHistory1 else {return 0}
+            return showDataListHistory1[index].getDataListHistory2()
+            //return showDataListHistory1[section].getDataListHistory2()
         }else if (collectionView == listPastHistory3){
-            return showDataListHistory3.count
+            guard let index = indexListPastHistory2 else {return 0}
+            return showDataListHistory2[index].getDataListHistory3()
+            //return showDataListHistory2[section].getDataListHistory3()
         }
+        
         return showDataListHistory1.count
+        
+//        guard let data = data,                   let selectedKeynoteIndex = selectedKeynoteIndex else { return 0 }             return data[selectedKeynoteIndex].practice.count  
     }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
@@ -168,13 +183,34 @@ extension HomeViewController: NSCollectionViewDelegate, NSCollectionViewDataSour
         
         if (collectionView == listPastHistory2){
             let item2 = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "viewPastHistory2"), for: indexPath) as! viewPastHistory2
+            
+            //kenapa gak muncul??
+            item2.presentationTitle2.stringValue = showDataListHistory1[indexPath.section].valueDatalistHistory2[indexPath.item].namePresentationTitle2
+            item2.pptView2.image = NSImage(named: showDataListHistory1[indexPath.section].valueDatalistHistory2[indexPath.item].namePptView2)
+            item2.notifView2.image = NSImage(named: showDataListHistory1[indexPath.section].valueDatalistHistory2[indexPath.item].nameNotifView2)
+            item2.notifViewNumber2.stringValue = "\(showDataListHistory1[indexPath.section].valueDatalistHistory2[indexPath.item].nameNotifViewNumber2)"
+            item2.timePresentation2.stringValue = showDataListHistory1[indexPath.section].valueDatalistHistory2[indexPath.item].valueTimePresentation2
             return item2
+            
         }else if (collectionView == listPastHistory3){
             let item3 = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "viewPastHistory3"), for: indexPath) as! viewPastHistory3
+            item3.presentationTitle3.stringValue = showDataListHistory2[indexPath.section].valueDatalistHistory3[indexPath.item].namePresentationTitle3
+            item3.pptview3.image = NSImage(named: showDataListHistory2[indexPath.section].valueDatalistHistory3[indexPath.item].namePptView3)
+            item3.notifView3.image = NSImage(named: showDataListHistory2[indexPath.section].valueDatalistHistory3[indexPath.item].nameNotifView3)
+            item3.notifViewNumber3.stringValue = "\(showDataListHistory2[indexPath.section].valueDatalistHistory3[indexPath.item].nameNotifViewNumber3)"
+            item3.timePresentation3.stringValue = showDataListHistory2[indexPath.section].valueDatalistHistory3[indexPath.item].valueTimePresentation3
             return item3
         }
         return item
     }
+    
+    func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
+        if (collectionView == listPastHistory1){
+        }else if(collectionView == listPastHistory2)
+    }
+    
+    //itemforrepre
+    
     
 //    func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
 //        if (collectionView == listPastHistory1){

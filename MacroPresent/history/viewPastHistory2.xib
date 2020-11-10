@@ -67,6 +67,7 @@
                 <outlet property="pptView2" destination="kAq-iP-XMO" id="att-VB-H0d"/>
                 <outlet property="presentationTitle2" destination="CJj-SX-6DA" id="q2z-E2-GID"/>
                 <outlet property="timePresentation2" destination="R9l-PK-LZl" id="12D-Vu-rqp"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="5Jx-hD-nuf"/>
             </connections>
         </customObject>
     </objects>
