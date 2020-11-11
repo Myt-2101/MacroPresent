@@ -17,6 +17,11 @@
             <rect key="frame" x="0.0" y="0.0" width="117" height="93"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uyd-fk-qpr">
+                    <rect key="frame" x="11" y="32" width="94" height="48"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="NY1-6U-aQp"/>
+                </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="js6-kS-eql">
                     <rect key="frame" x="43" y="16" width="31" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -26,14 +31,6 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bAT-6a-BW3">
-                    <rect key="frame" x="11" y="32" width="94" height="48"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Rectangleppt1" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="oVR-5e-iCX">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eAY-KO-7pJ">
                     <rect key="frame" x="31" y="0.0" width="61" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -64,7 +61,7 @@
             <connections>
                 <outlet property="notifView3" destination="EBF-bx-v3D" id="jTa-IN-bBK"/>
                 <outlet property="notifViewNumber3" destination="wuJ-SV-M1L" id="h8s-O1-akM"/>
-                <outlet property="pptview3" destination="bAT-6a-BW3" id="xQm-Dy-eaQ"/>
+                <outlet property="pptView3" destination="uyd-fk-qpr" id="sYm-62-IgD"/>
                 <outlet property="presentationTitle3" destination="js6-kS-eql" id="Yh2-ZK-EBE"/>
                 <outlet property="timePresentation3" destination="eAY-KO-7pJ" id="gkC-k9-RYG"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="gXW-tD-PTp"/>
@@ -72,7 +69,6 @@
         </customObject>
     </objects>
     <resources>
-        <image name="Rectangleppt1" width="94" height="48"/>
         <image name="rectanglered" width="23" height="23"/>
     </resources>
 </document>

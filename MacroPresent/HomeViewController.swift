@@ -21,6 +21,8 @@ class HomeViewController: NSViewController {
     @IBOutlet weak var listPastHistory1: NSCollectionView!
     @IBOutlet weak var listPastHistory2: NSCollectionView!
     @IBOutlet weak var listPastHistory3: NSCollectionView!
+    @IBOutlet weak var listHistoryPast4: NSCollectionView!
+    
     
     var collectionviewhidden2:Int = 0
     var collectionviewhideen3:Int = 0
@@ -108,7 +110,7 @@ class HomeViewController: NSViewController {
         
         setName()
         setPastHistory1()
-        setHiddenCollectionView()
+        //setHiddenCollectionView()
         print(collectionviewhidden2)
         //print(showDataListHistory1[index])
     }
@@ -172,24 +174,26 @@ extension HomeViewController: NSCollectionViewDelegate, NSCollectionViewDataSour
 
         item.presentationTitle.stringValue = showDataListHistory1[indexPath.item].namePresentationTitle
         item.pptView.image = NSImage(named: showDataListHistory1[indexPath.item].namePptView)
+        //item.pptView.image = NSImage(named: showDataListHistory1[indexPath.item].namePptView)
         item.notifView.image = NSImage(named: showDataListHistory1[indexPath.item].nameNotifView)
         item.notifViewNumber.stringValue = "\(showDataListHistory1[indexPath.item].nameNotifViewNumber)"
         
         if (collectionView == listPastHistory2){
             let item2 = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "viewPastHistory2"), for: indexPath) as! viewPastHistory2
-            
-
             item2.presentationTitle2.stringValue = showDataListHistory1[indexPath.section].valueDatalistHistory2[indexPath.item].namePresentationTitle2
             item2.pptView2.image = NSImage(named: showDataListHistory1[indexPath.section].valueDatalistHistory2[indexPath.item].namePptView2)
+            //item2.pptView2.image = NSImage(named: showDataListHistory1[indexPath.section].valueDatalistHistory2[indexPath.item].namePptView2)
             item2.notifView2.image = NSImage(named: showDataListHistory1[indexPath.section].valueDatalistHistory2[indexPath.item].nameNotifView2)
             item2.notifViewNumber2.stringValue = "\(showDataListHistory1[indexPath.section].valueDatalistHistory2[indexPath.item].nameNotifViewNumber2)"
             item2.timePresentation2.stringValue = showDataListHistory1[indexPath.section].valueDatalistHistory2[indexPath.item].valueTimePresentation2
             return item2
             
         }else if (collectionView == listPastHistory3){
+            
             let item3 = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "viewPastHistory3"), for: indexPath) as! viewPastHistory3
             item3.presentationTitle3.stringValue = showDataListHistory2[indexPath.section].valueDatalistHistory3[indexPath.item].namePresentationTitle3
-            item3.pptview3.image = NSImage(named: showDataListHistory2[indexPath.section].valueDatalistHistory3[indexPath.item].namePptView3)
+            item3.pptView3.image = NSImage(named: showDataListHistory2[indexPath.section].valueDatalistHistory3[indexPath.item].namePptView3)
+            //item3.pptview3.image = NSImage(named: showDataListHistory2[indexPath.section].valueDatalistHistory3[indexPath.item].namePptView3)
             item3.notifView3.image = NSImage(named: showDataListHistory2[indexPath.section].valueDatalistHistory3[indexPath.item].nameNotifView3)
             item3.notifViewNumber3.stringValue = "\(showDataListHistory2[indexPath.section].valueDatalistHistory3[indexPath.item].nameNotifViewNumber3)"
             item3.timePresentation3.stringValue = showDataListHistory2[indexPath.section].valueDatalistHistory3[indexPath.item].valueTimePresentation3
@@ -201,6 +205,9 @@ extension HomeViewController: NSCollectionViewDelegate, NSCollectionViewDataSour
         if (collectionView == listPastHistory1){
             indexListPastHistory1 = indexPaths.first?.item
             listPastHistory2.reloadData()
+        }else if (collectionView == listPastHistory2){
+            indexListPastHistory2 = indexPaths.first?.item
+            listPastHistory3.reloadData()
         }
     }
 
