@@ -33,6 +33,7 @@ class HomeViewController: NSViewController {
     var showDataListHistory1 = [dataListHistory1]()
     var showDataListHistory2 = [dataListHistory2]()
     var showDataListHistory3 = [dataListHistory3]()
+    var showDataListHistory4 = [dataListHistory4]()
     
     var indexListPastHistory1: Int?
     var indexListPastHistory2: Int?
@@ -64,6 +65,10 @@ class HomeViewController: NSViewController {
         
         
         /////// CEK YA BRADER
+        //showDataListHistory4.append(dataListHistory4.init(valueCurrentTime4: "00:00", valueMaxTime4: "2:58", nameTextAnalisa4: <#T##String#>))
+        
+        
+        //coba masukin data dummy rekaman
         
         //coba masukin data dummy di nscollection paling kanan
         showDataListHistory3.append(dataListHistory3.init(namePresentationTitle3: "terakhir ketiga 1", namePptView3: "Rectangleppt1", valueTimePresentation3: "10:00:00", nameNotifView3: "rectanglered", nameNotifViewNumber3: 3))

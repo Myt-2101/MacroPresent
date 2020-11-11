@@ -14,6 +14,7 @@ class dataListHistory3 {
     var valueTimePresentation3: String
     var nameNotifView3: String
     var nameNotifViewNumber3: Int
+    var valueDatalistHistory4 = [dataListHistory4]()
     
     init(namePresentationTitle3: String, namePptView3: String, valueTimePresentation3: String, nameNotifView3: String, nameNotifViewNumber3: Int ) {
         self.namePresentationTitle3 = namePresentationTitle3
@@ -22,4 +23,27 @@ class dataListHistory3 {
         self.nameNotifView3 = nameNotifView3
         self.nameNotifViewNumber3 = nameNotifViewNumber3
     }
+    
+    func setDataListHistory4(setValueDataList4: dataListHistory4, amePresentationTitle3: String){
+        if namePresentationTitle3 == self.namePresentationTitle3 {
+            self.valueDatalistHistory4.append(setValueDataList4)
+        }
+    }
+    
+    func getDataListHistory4() -> Int {
+        return valueDatalistHistory4.count
+    }
+    
+    //    func setDataListHistory3(setValueDataList3: dataListHistory3, namePresentationTitle2: String ){
+    //        if namePresentationTitle2 == self.namePresentationTitle2 {
+    //            self.valueDatalistHistory3.append(setValueDataList3)
+    //        }
+    //    }
+    //
+    //    func getDataListHistory3() -> Int {
+    //        return valueDatalistHistory3.count
+    //    }
+    
+    
+    
 }

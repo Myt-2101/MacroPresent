@@ -25,18 +25,25 @@ class viewPastHistory4: NSCollectionViewItem {
     }
     
     @IBAction func buttonAudio(_ sender: Any) {
+        let url = Bundle.main.path(forResource: "01. Blood And Wine", ofType: "mp3")
+        
+        //cek jika sedang jalan maka dia akan pause
         if let audio = audio, audio.isPlaying {
             //stop playback
             audio.pause()
-        } else {
+            
+          //cek, apakah udah jalan sebelumnya, audio tidak kosong, maka melanjutkan
+        } else if audio != nil{
+            audio?.play()
+            //audio kosong maka jalanin ini
+        } else{
             //set up player, and play
-            let url = Bundle.main.path(forResource: "01. Blood And Wine", ofType: "mp3")
             do{
                 guard let url = url else {
                     return
                 }
                 audio = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: url))
-                
+
                 guard let audio = audio else {
                     return
                 }
