@@ -16,8 +16,8 @@ class viewPastHistory4: NSCollectionViewItem {
     @IBOutlet weak var currentTime4: NSTextField!
     @IBOutlet weak var textAnalisa: NSTextField!
     
-    
     var audio: AVAudioPlayer?
+    var playingAudio: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,8 @@ class viewPastHistory4: NSCollectionViewItem {
     }
     
     @IBAction func buttonAudio(_ sender: Any) {
-        let url = Bundle.main.path(forResource: "01. Blood And Wine", ofType: "mp3")
+        let url = Bundle.main.path(forResource: playingAudio, ofType: "mp3")
+        print(playingAudio)
         
         //cek jika sedang jalan maka dia akan pause
         if let audio = audio, audio.isPlaying {

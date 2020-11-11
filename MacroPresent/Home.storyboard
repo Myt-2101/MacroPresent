@@ -227,10 +227,10 @@
                         <outlet property="helloText" destination="fPY-pA-hMP" id="oGf-Oq-APL"/>
                         <outlet property="historyPlaceHolderText" destination="weL-Bn-X7I" id="UhK-AR-i5J"/>
                         <outlet property="keynoteTextField" destination="kgM-mq-2ev" id="WW9-aG-BRX"/>
-                        <outlet property="listHistoryPast4" destination="0u2-cH-J93" id="Mbj-6R-sg0"/>
                         <outlet property="listPastHistory1" destination="ZWR-lb-s7M" id="R4t-ve-VGI"/>
                         <outlet property="listPastHistory2" destination="O9j-Bq-1q1" id="7WM-lN-KW1"/>
                         <outlet property="listPastHistory3" destination="2jM-G6-OxD" id="Wgi-Hp-wmu"/>
+                        <outlet property="listPastHistory4" destination="0u2-cH-J93" id="Mbj-6R-sg0"/>
                         <outlet property="maxDurationTextField" destination="gcS-Sh-QpV" id="4Sh-2F-iBu"/>
                     </connections>
                 </viewController>

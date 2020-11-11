@@ -24,7 +24,7 @@ class dataListHistory3 {
         self.nameNotifViewNumber3 = nameNotifViewNumber3
     }
     
-    func setDataListHistory4(setValueDataList4: dataListHistory4, amePresentationTitle3: String){
+    func setDataListHistory4(setValueDataList4: dataListHistory4, namePresentationTitle3: String){
         if namePresentationTitle3 == self.namePresentationTitle3 {
             self.valueDatalistHistory4.append(setValueDataList4)
         }

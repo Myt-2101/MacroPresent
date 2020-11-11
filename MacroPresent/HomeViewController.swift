@@ -21,7 +21,7 @@ class HomeViewController: NSViewController {
     @IBOutlet weak var listPastHistory1: NSCollectionView!
     @IBOutlet weak var listPastHistory2: NSCollectionView!
     @IBOutlet weak var listPastHistory3: NSCollectionView!
-    @IBOutlet weak var listHistoryPast4: NSCollectionView!
+    @IBOutlet weak var listPastHistory4: NSCollectionView!
     
     
     var collectionviewhidden2:Int = 0
@@ -60,20 +60,30 @@ class HomeViewController: NSViewController {
         listPastHistory3.register(nibPastHistory3, forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: "viewPastHistory3"))
         
         let nibPastHistory4 = NSNib(nibNamed: "viewPastHistory4", bundle: nil)
-        listHistoryPast4.register(nibPastHistory4, forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: "viewPastHistory4"))
+        listPastHistory4.register(nibPastHistory4, forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: "viewPastHistory4"))
         
         
         
         /////// CEK YA BRADER
-        //showDataListHistory4.append(dataListHistory4.init(valueCurrentTime4: "00:00", valueMaxTime4: "2:58", nameTextAnalisa4: <#T##String#>))
+        //showDataListHistory4.append(dataListHistory4.init(valueCurrentTime4: "00:00", valueMaxTime4: "2:58", nameTextAnalisa4: dat))
+        showDataListHistory4.append(dataListHistory4.init(nameAudioFile: "01. Blood And Wine", valueCurrentTime4: "00:00", valueMaxTime4: "2:58", nameTextAnalisa4: "Get Gud Son"))
+        showDataListHistory4.append(dataListHistory4.init(nameAudioFile: "10. Silver For Monsters...", valueCurrentTime4: "00:00", valueMaxTime4: "2:20", nameTextAnalisa4: "Le Le Le Le Le"))
+        
+        
+        //showDataListHistory3[0].setDataListHistory4(setValueDataList4: showDataListHistory4[0], amePresentationTitle3: "terakhir ketiga 1")
+        //showDataListHistory3[0].setDataListHistory4(setValueDataList4: showDataListHistory4[1], amePresentationTitle3: "terakhir ketiga 1")
         
         
         //coba masukin data dummy rekaman
         
         //coba masukin data dummy di nscollection paling kanan
-        showDataListHistory3.append(dataListHistory3.init(namePresentationTitle3: "terakhir ketiga 1", namePptView3: "Rectangleppt1", valueTimePresentation3: "10:00:00", nameNotifView3: "rectanglered", nameNotifViewNumber3: 3))
+        showDataListHistory3.append(dataListHistory3.init(namePresentationTitle3: "geralt", namePptView3: "Rectangleppt1", valueTimePresentation3: "10:00:00", nameNotifView3: "rectanglered", nameNotifViewNumber3: 3))
         showDataListHistory3.append(dataListHistory3.init(namePresentationTitle3: "terakhir ketiga 2", namePptView3: "Rectangleppt1", valueTimePresentation3: "20:00:00", nameNotifView3: "rectanglered", nameNotifViewNumber3: 3))
-        showDataListHistory3.append(dataListHistory3.init(namePresentationTitle3: "terakhir ketiga 3", namePptView3: "Rectangleppt1", valueTimePresentation3: "30:00:00", nameNotifView3: "rectanglered", nameNotifViewNumber3: 3))
+            showDataListHistory3.append(dataListHistory3.init(namePresentationTitle3: "terakhir ketiga 3", namePptView3: "Rectangleppt1", valueTimePresentation3: "30:00:00", nameNotifView3: "rectanglered", nameNotifViewNumber3: 3))
+        
+        //masukin data yang ke 4 ke ketiga
+        showDataListHistory3[0].setDataListHistory4(setValueDataList4: showDataListHistory4[0], namePresentationTitle3: "geralt")
+        showDataListHistory3[0].setDataListHistory4(setValueDataList4: showDataListHistory4[1], namePresentationTitle3: "geralt")
         
         
         
@@ -89,7 +99,7 @@ class HomeViewController: NSViewController {
         //masukin data dummy datalist 3 ke datalist 2
         showDataListHistory2[0].setDataListHistory3(setValueDataList3: showDataListHistory3[0], namePresentationTitle2: "kamu yang kedua 1")
         showDataListHistory2[0].setDataListHistory3(setValueDataList3: showDataListHistory3[1], namePresentationTitle2: "kamu yang kedua 1")
-        showDataListHistory2[0].setDataListHistory3(setValueDataList3: showDataListHistory3[2], namePresentationTitle2: "kamu yang kedua 1")
+        showDataListHistory2[1].setDataListHistory3(setValueDataList3: showDataListHistory3[2], namePresentationTitle2: "kamu yang kedua 2")
         //showDataListHistory2[0].setDataListHistory3(setValueDataList3: showDataListHistory3[3], namePresentationTitle2: "kamu yang kedua 1")
         
         
@@ -116,8 +126,8 @@ class HomeViewController: NSViewController {
         listPastHistory2.dataSource = self
         listPastHistory3.delegate = self
         listPastHistory3.dataSource = self
-        listHistoryPast4.delegate = self
-        listHistoryPast4.dataSource = self
+        listPastHistory4.delegate = self
+        listPastHistory4.dataSource = self
         
         setName()
         setPastHistory1()
@@ -132,7 +142,7 @@ class HomeViewController: NSViewController {
         listPastHistory1.backgroundColors = [NSColor.clear]
         listPastHistory2.backgroundColors = [NSColor.clear]
         listPastHistory3.backgroundColors = [NSColor.clear]
-        listHistoryPast4.backgroundColors = [NSColor.clear]
+        listPastHistory4.backgroundColors = [NSColor.clear]
     }
     //logic to hideen collectionview, default collectionview history 2 dan 3 hidden
     func setHiddenCollectionView(){
@@ -173,11 +183,15 @@ extension HomeViewController: NSCollectionViewDelegate, NSCollectionViewDataSour
         if (collectionView == listPastHistory2){
             guard let index = indexListPastHistory1 else {return 0}
             return showDataListHistory1[index].getDataListHistory2()
+            
         }else if (collectionView == listPastHistory3){
             guard let index = indexListPastHistory2 else {return 0}
+            //guard let index = i
             return showDataListHistory2[index].getDataListHistory3()
-        }else if (collectionView == listHistoryPast4){
-            return 2
+            
+        }else if (collectionView == listPastHistory4){
+            guard let index = indexListPastHistory3 else {return 0}
+            return showDataListHistory3[index].getDataListHistory4()
         }
         
         return showDataListHistory1.count
@@ -194,27 +208,48 @@ extension HomeViewController: NSCollectionViewDelegate, NSCollectionViewDataSour
         
         if (collectionView == listPastHistory2){
             let item2 = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "viewPastHistory2"), for: indexPath) as! viewPastHistory2
-            item2.presentationTitle2.stringValue = showDataListHistory1[indexPath.section].valueDatalistHistory2[indexPath.item].namePresentationTitle2
+            
+            guard let indexCollection2 = indexListPastHistory1 else {return NSCollectionViewItem()}
+
+            item2.presentationTitle2.stringValue =
+                showDataListHistory1[indexCollection2].valueDatalistHistory2[indexPath.item].namePresentationTitle2
             item2.pptView2.image = NSImage(named: showDataListHistory1[indexPath.section].valueDatalistHistory2[indexPath.item].namePptView2)
             //item2.pptView2.image = NSImage(named: showDataListHistory1[indexPath.section].valueDatalistHistory2[indexPath.item].namePptView2)
-            item2.notifView2.image = NSImage(named: showDataListHistory1[indexPath.section].valueDatalistHistory2[indexPath.item].nameNotifView2)
-            item2.notifViewNumber2.stringValue = "\(showDataListHistory1[indexPath.section].valueDatalistHistory2[indexPath.item].nameNotifViewNumber2)"
-            item2.timePresentation2.stringValue = showDataListHistory1[indexPath.section].valueDatalistHistory2[indexPath.item].valueTimePresentation2
+            item2.notifView2.image = NSImage(named: showDataListHistory1[indexCollection2].valueDatalistHistory2[indexPath.item].nameNotifView2)
+            item2.notifViewNumber2.stringValue = "\(showDataListHistory1[indexCollection2].valueDatalistHistory2[indexPath.item].nameNotifViewNumber2)"
+            item2.timePresentation2.stringValue = showDataListHistory1[indexCollection2].valueDatalistHistory2[indexPath.item].valueTimePresentation2
             return item2
             
         }else if (collectionView == listPastHistory3){
             
             let item3 = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "viewPastHistory3"), for: indexPath) as! viewPastHistory3
-            item3.presentationTitle3.stringValue = showDataListHistory2[indexPath.section].valueDatalistHistory3[indexPath.item].namePresentationTitle3
-            item3.pptView3.image = NSImage(named: showDataListHistory2[indexPath.section].valueDatalistHistory3[indexPath.item].namePptView3)
+            
+            guard let indexCollection3 = indexListPastHistory2 else {return NSCollectionViewItem()}
+            
+            item3.presentationTitle3.stringValue = showDataListHistory2[indexCollection3].valueDatalistHistory3[indexPath.item].namePresentationTitle3
+            item3.pptView3.image = NSImage(named: showDataListHistory2[indexCollection3].valueDatalistHistory3[indexPath.item].namePptView3)
             //item3.pptview3.image = NSImage(named: showDataListHistory2[indexPath.section].valueDatalistHistory3[indexPath.item].namePptView3)
-            item3.notifView3.image = NSImage(named: showDataListHistory2[indexPath.section].valueDatalistHistory3[indexPath.item].nameNotifView3)
-            item3.notifViewNumber3.stringValue = "\(showDataListHistory2[indexPath.section].valueDatalistHistory3[indexPath.item].nameNotifViewNumber3)"
-            item3.timePresentation3.stringValue = showDataListHistory2[indexPath.section].valueDatalistHistory3[indexPath.item].valueTimePresentation3
+            item3.notifView3.image = NSImage(named: showDataListHistory2[indexCollection3].valueDatalistHistory3[indexPath.item].nameNotifView3)
+            item3.notifViewNumber3.stringValue = "\(showDataListHistory2[indexCollection3].valueDatalistHistory3[indexPath.item].nameNotifViewNumber3)"
+            item3.timePresentation3.stringValue = showDataListHistory2[indexCollection3].valueDatalistHistory3[indexPath.item].valueTimePresentation3
             return item3
             
-        } else if (collectionView == listHistoryPast4){
+        } else if (collectionView == listPastHistory4){
             let item4 = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "viewPastHistory4"), for: indexPath) as! viewPastHistory4
+            
+            guard let indexCollection4 = indexListPastHistory3 else {return NSCollectionViewItem()}
+            
+            item4.currentTime4.stringValue = showDataListHistory3[indexCollection4].valueDatalistHistory4[indexPath.item].valueCurrentTime4
+            item4.maxTime4.stringValue = showDataListHistory3[indexCollection4].valueDatalistHistory4[indexPath.item].valueMaxTime4
+            item4.textAnalisa.stringValue = showDataListHistory3[indexCollection4].valueDatalistHistory4[indexPath.item].nameTextAnalisa4
+            item4.playingAudio = showDataListHistory3[indexCollection4].valueDatalistHistory4[indexPath.item].nameAudioFile
+            
+            //item4.currentTime4.stringValue = showDataListHistory3[indexPath.item].valueData
+            
+//            item4.currentTime4.stringValue = showDataListHistory3[indexPath.section].valueDatalistHistory4[indexPath.item].valueCurrentTime4
+//            item4.maxTime4.stringValue = showDataListHistory3[indexPath.section].valueDatalistHistory4[indexPath.item].valueMaxTime4
+//            item4.textAnalisa.stringValue = showDataListHistory3[indexPath.section].valueDatalistHistory4[indexPath.item].nameTextAnalisa4
+            
             return item4
         }
         return item
@@ -226,6 +261,9 @@ extension HomeViewController: NSCollectionViewDelegate, NSCollectionViewDataSour
         }else if (collectionView == listPastHistory2){
             indexListPastHistory2 = indexPaths.first?.item
             listPastHistory3.reloadData()
+        }else if (collectionView == listPastHistory3){
+            indexListPastHistory3 = indexPaths.first?.item
+            listPastHistory4.reloadData()
         }
     }
 
