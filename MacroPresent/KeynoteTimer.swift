@@ -122,6 +122,7 @@ class KeynoteTimer: NSViewController {
         nextSlideButtonOutlet.isHidden=false
         StartPresentation()
         startTotalTimer()
+        startTimePerSlide()
         exportImages()
     }
     
@@ -149,6 +150,7 @@ class KeynoteTimer: NSViewController {
             print(averageTimePerSlide)
             keynoteName.stringValue = "Slide \(getCurrentslideValue())"
         }
+        startTimePerSlide()
            
            
             
@@ -186,20 +188,14 @@ class KeynoteTimer: NSViewController {
         let stop = NSAppleScript(source: stopPresent)
         stop?.executeAndReturnError(&error)
         print(error ?? TID_NULL)
+        stopTimer()
+        stopTimerPerSlide()
     }
     
 //    SETIAP SLIDE GANTI RESET TIMER
     func newSlideTimer(){
         arrayTimePerSlide.append(timerInSeconds)
         timerInSeconds = 0
-        
-        averageTimePerSlide = timeInSeconds / arrayTimePerSlide.count
-        
-        interval = TimeInterval(averageTimePerSlide)
-        formatter.allowedUnits = [.hour, .minute, .second]
-        formatter.unitsStyle = .abbreviated
-        
-        timePerSlide.stringValue = formatter.string(from: interval) ?? ""
 
     }
 //    UNTUK TOTAL TIMER
@@ -209,6 +205,10 @@ class KeynoteTimer: NSViewController {
 //    UNTUK MENGHITUNG DURASI TOTAL TIMER DALAM DETIK
     @objc func startInSeconds(){
         timeInSeconds += 1
+        interval1 = TimeInterval(timeInSeconds)
+        formatter.allowedUnits = [.hour, .minute, .second]
+        formatter.unitsStyle = .abbreviated
+        totalTime.stringValue = formatter.string(from: interval1) ?? ""
     }
 //  UNTUK START TIMER PER SLIDE
     func startTimePerSlide(){
@@ -217,6 +217,21 @@ class KeynoteTimer: NSViewController {
 //   UNTUK MENGHITUNG DURASI TOTAL TIMER PER SLIDE
     @objc func startPerSlide(){
         timerInSeconds += 1
+        interval = TimeInterval(timerInSeconds)
+        formatter.allowedUnits = [.hour, .minute, .second]
+        formatter.unitsStyle = .abbreviated
+        timePerSlide.stringValue = formatter.string(from: interval) ?? ""
+    }
+    
+//  UNTUK STOP TOTAL TIMER
+    func stopTimer(){
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    func stopTimerPerSlide(){
+        timerPerSlide?.invalidate()
+        timerPerSlide = nil
     }
     
     
