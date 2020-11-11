@@ -44,6 +44,31 @@ tell application "Keynote"
 end tell
 """
 
+let ExportImages = """
+set Defaultdest to (path to pictures folder)
+tell application "Keynote"
+    try
+        set ThisDocument to the front document
+        set documentName to the name of the front document
+        if documentName ends with ".key" then
+            set documentName to text 1 thru -5 of documentName
+        end if
+        
+        tell application "Finder"
+            set newFolder to documentName & " Present It"
+            set the targetFolder to make new folder at Defaultdest with properties {name:newFolder}
+            set the targetFolderExport to targetFolder as string
+        end tell
+    
+        export front document as slide images to file targetFolderExport with properties {image format:JPEG, skipped slides:true, compression factor:0.8}
+
+        on error ErrorMessage number ErrorNumber
+        error number -128
+    end try
+
+end tell
+"""
+
 //let next2 = NSAppleScript(source: NextSlideScript)
 
 //AppleScript Variable
@@ -97,7 +122,7 @@ class KeynoteTimer: NSViewController {
         nextSlideButtonOutlet.isHidden=false
         StartPresentation()
         startTotalTimer()
-        keynoteName.stringValue = "Slide \(getCurrentslideValue())"
+        exportImages()
     }
     
 
@@ -117,15 +142,12 @@ class KeynoteTimer: NSViewController {
    
     @IBAction func NextSlide(_ sender: Any) {
         GotoNextSlide()
+        print(getCurrentslideValue())
         if(getCurrentslideValue() != getMaxslideValue()) {
             newSlideTimer()
             print(arrayTimePerSlide)
             print(averageTimePerSlide)
             keynoteName.stringValue = "Slide \(getCurrentslideValue())"
-            
-        }
-        else if (getCurrentslideValue() == getMaxslideValue()){
-            keynoteName.stringValue = "Slide \(getMaxslideValue())"
         }
            
            
@@ -135,15 +157,15 @@ class KeynoteTimer: NSViewController {
     
     
     @IBAction func previousSlideButton(_ sender: Any) {
-        if(slideindex != 1){
-            slideindex -= 1
-        }
-           keynoteName.stringValue = "Slide \(getCurrentslideValue())"
-        
         let Previous = NSAppleScript(source: PreviousSlideScript)
-        var error = NSDictionary?.none
-        Previous?.executeAndReturnError(&error)
-        print(error ?? TID_NULL)
+            var error = NSDictionary?.none
+            Previous?.executeAndReturnError(&error)
+            print(error ?? TID_NULL)
+        
+        if(getCurrentslideValue() >= 1){
+            keynoteName.stringValue = "Slide \(getCurrentslideValue())"}
+        
+    
     }
     
     
@@ -200,8 +222,6 @@ class KeynoteTimer: NSViewController {
     
 //    PINDAH KE SLIDE SELANJUTNYA
          func GotoNextSlide(){
-           
-            
             let next = NSAppleScript(source: NextSlideScript)
             next?.executeAndReturnError(&error)
             print(error ?? TID_NULL)
@@ -226,7 +246,11 @@ class KeynoteTimer: NSViewController {
         return Int(script?.executeAndReturnError(&error).stringValue ?? "") ?? 0
     }
     
-    
+    func exportImages(){
+        let script = NSAppleScript(source: ExportImages)
+        script?.executeAndReturnError(&error)
+        print(error ?? TID_NULL)
+    }
     //Functions
 }
 
