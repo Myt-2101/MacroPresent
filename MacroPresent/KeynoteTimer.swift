@@ -134,7 +134,8 @@ class KeynoteTimer: NSViewController {
         previousSlideButtonOutlet.isHidden=true
         nextSlideButtonOutlet.isHidden=true
         StopPresentation()
-        
+        stopTimer()
+        stopTimerPerSlide()
         
     }
     
@@ -150,7 +151,7 @@ class KeynoteTimer: NSViewController {
             print(averageTimePerSlide)
             keynoteName.stringValue = "Slide \(getCurrentslideValue())"
         }
-        startTimePerSlide()
+        //startTimePerSlide()
            
            
             
@@ -188,8 +189,6 @@ class KeynoteTimer: NSViewController {
         let stop = NSAppleScript(source: stopPresent)
         stop?.executeAndReturnError(&error)
         print(error ?? TID_NULL)
-        stopTimer()
-        stopTimerPerSlide()
     }
     
 //    SETIAP SLIDE GANTI RESET TIMER
