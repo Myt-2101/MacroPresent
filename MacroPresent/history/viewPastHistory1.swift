@@ -18,6 +18,8 @@ class viewPastHistory1: NSCollectionViewItem {
     //var viewc = HomeViewController()
    
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.

@@ -159,23 +159,17 @@ extension HomeViewController: NSCollectionViewDelegate, NSCollectionViewDataSour
         if (collectionView == listPastHistory2){
             guard let index = indexListPastHistory1 else {return 0}
             return showDataListHistory1[index].getDataListHistory2()
-            //return showDataListHistory1[section].getDataListHistory2()
         }else if (collectionView == listPastHistory3){
             guard let index = indexListPastHistory2 else {return 0}
             return showDataListHistory2[index].getDataListHistory3()
-            //return showDataListHistory2[section].getDataListHistory3()
         }
         
         return showDataListHistory1.count
-        
-//        guard let data = data,                   let selectedKeynoteIndex = selectedKeynoteIndex else { return 0 }             return data[selectedKeynoteIndex].practice.count  
-    }
+}
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "viewPastHistory1"), for: indexPath) as! viewPastHistory1
-        //string value
-        //item.presentationTitle.stringValue = showDataListHistory1[indexPath.item].namePresentationTitle
-        //print(item.presentationTitle.stringValue)
+
         item.presentationTitle.stringValue = showDataListHistory1[indexPath.item].namePresentationTitle
         item.pptView.image = NSImage(named: showDataListHistory1[indexPath.item].namePptView)
         item.notifView.image = NSImage(named: showDataListHistory1[indexPath.item].nameNotifView)
@@ -184,7 +178,7 @@ extension HomeViewController: NSCollectionViewDelegate, NSCollectionViewDataSour
         if (collectionView == listPastHistory2){
             let item2 = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "viewPastHistory2"), for: indexPath) as! viewPastHistory2
             
-            //kenapa gak muncul??
+
             item2.presentationTitle2.stringValue = showDataListHistory1[indexPath.section].valueDatalistHistory2[indexPath.item].namePresentationTitle2
             item2.pptView2.image = NSImage(named: showDataListHistory1[indexPath.section].valueDatalistHistory2[indexPath.item].namePptView2)
             item2.notifView2.image = NSImage(named: showDataListHistory1[indexPath.section].valueDatalistHistory2[indexPath.item].nameNotifView2)
@@ -203,22 +197,17 @@ extension HomeViewController: NSCollectionViewDelegate, NSCollectionViewDataSour
         }
         return item
     }
-    
     func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
         if (collectionView == listPastHistory1){
-        }else if(collectionView == listPastHistory2)
+            indexListPastHistory1 = indexPaths.first?.item
+            listPastHistory2.reloadData()
+        }
     }
-    
-    //itemforrepre
-    
-    
-//    func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
-//        if (collectionView == listPastHistory1){
-//            collectionviewhidden2 = 0
-//            //Not Done Yet
-//        }
-//    }
-    
-    
-    
+
 }
+
+
+
+
+
+
