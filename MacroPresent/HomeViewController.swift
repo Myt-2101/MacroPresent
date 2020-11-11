@@ -58,6 +58,10 @@ class HomeViewController: NSViewController {
         let nibPastHistory3 = NSNib(nibNamed: "viewPastHistory3", bundle: nil)
         listPastHistory3.register(nibPastHistory3, forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: "viewPastHistory3"))
         
+        let nibPastHistory4 = NSNib(nibNamed: "viewPastHistory4", bundle: nil)
+        listHistoryPast4.register(nibPastHistory4, forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: "viewPastHistory4"))
+        
+        
         
         /////// CEK YA BRADER
         
@@ -107,6 +111,8 @@ class HomeViewController: NSViewController {
         listPastHistory2.dataSource = self
         listPastHistory3.delegate = self
         listPastHistory3.dataSource = self
+        listHistoryPast4.delegate = self
+        listHistoryPast4.dataSource = self
         
         setName()
         setPastHistory1()
@@ -121,6 +127,7 @@ class HomeViewController: NSViewController {
         listPastHistory1.backgroundColors = [NSColor.clear]
         listPastHistory2.backgroundColors = [NSColor.clear]
         listPastHistory3.backgroundColors = [NSColor.clear]
+        listHistoryPast4.backgroundColors = [NSColor.clear]
     }
     //logic to hideen collectionview, default collectionview history 2 dan 3 hidden
     func setHiddenCollectionView(){
@@ -164,6 +171,8 @@ extension HomeViewController: NSCollectionViewDelegate, NSCollectionViewDataSour
         }else if (collectionView == listPastHistory3){
             guard let index = indexListPastHistory2 else {return 0}
             return showDataListHistory2[index].getDataListHistory3()
+        }else if (collectionView == listHistoryPast4){
+            return 2
         }
         
         return showDataListHistory1.count
@@ -198,6 +207,10 @@ extension HomeViewController: NSCollectionViewDelegate, NSCollectionViewDataSour
             item3.notifViewNumber3.stringValue = "\(showDataListHistory2[indexPath.section].valueDatalistHistory3[indexPath.item].nameNotifViewNumber3)"
             item3.timePresentation3.stringValue = showDataListHistory2[indexPath.section].valueDatalistHistory3[indexPath.item].valueTimePresentation3
             return item3
+            
+        } else if (collectionView == listHistoryPast4){
+            let item4 = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "viewPastHistory4"), for: indexPath) as! viewPastHistory4
+            return item4
         }
         return item
     }

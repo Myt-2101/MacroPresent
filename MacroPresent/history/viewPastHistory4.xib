@@ -8,6 +8,9 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="viewPastHistory4" customModule="MacroPresent" customModuleProvider="target">
             <connections>
+                <outlet property="currentTime4" destination="KAp-iw-Ooa" id="Ife-Ix-q1h"/>
+                <outlet property="maxTime4" destination="Du3-1L-yOe" id="8oF-eI-OJS"/>
+                <outlet property="textAnalisa" destination="wn3-9V-RsX" id="gpb-gH-VmR"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -48,13 +51,28 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tUW-3f-Kxf">
+                    <rect key="frame" x="278" y="14" width="43" height="23"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ButtonPlay" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="Xpw-dq-P0C">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="buttonAudio:" target="-2" id="plr-yR-4Wk"/>
+                    </connections>
+                </button>
             </subviews>
-            <point key="canvasLocation" x="25" y="130"/>
+            <point key="canvasLocation" x="24.5" y="130"/>
         </customView>
         <customObject id="7e3-qu-HDb" customClass="viewPastHistory4" customModule="MacroPresent" customModuleProvider="target">
             <connections>
+                <outlet property="buttonImage" destination="tUW-3f-Kxf" id="gqp-Fu-Mbu"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="TaJ-hY-YgI"/>
             </connections>
         </customObject>
     </objects>
+    <resources>
+        <image name="ButtonPlay" width="94" height="52"/>
+    </resources>
 </document>

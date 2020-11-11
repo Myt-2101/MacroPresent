@@ -7,12 +7,45 @@
 //
 
 import Cocoa
+import AVFoundation
 
 class viewPastHistory4: NSCollectionViewItem {
 
+    @IBOutlet weak var buttonImage: NSButton!
+    @IBOutlet weak var maxTime4: NSTextField!
+    @IBOutlet weak var currentTime4: NSTextField!
+    @IBOutlet weak var textAnalisa: NSTextField!
+    
+    
+    var audio: AVAudioPlayer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
     }
     
+    @IBAction func buttonAudio(_ sender: Any) {
+        if let audio = audio, audio.isPlaying {
+            //stop playback
+            audio.pause()
+        } else {
+            //set up player, and play
+            let url = Bundle.main.path(forResource: "01. Blood And Wine", ofType: "mp3")
+            do{
+                guard let url = url else {
+                    return
+                }
+                audio = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: url))
+                
+                guard let audio = audio else {
+                    return
+                }
+                //audio.pl
+                audio.play()
+            }
+            catch {
+                print("something when wrong")
+            }
+        }
+    }
 }
