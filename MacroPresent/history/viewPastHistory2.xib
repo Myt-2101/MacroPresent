@@ -8,6 +8,11 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="viewPastHistory2" customModule="MacroPresent" customModuleProvider="target">
             <connections>
+                <outlet property="notifView2" destination="EGB-Jv-Mtr" id="Qv7-O3-e80"/>
+                <outlet property="notifViewNumber2" destination="FFe-QO-kdN" id="hbi-BJ-Kq5"/>
+                <outlet property="pptView2" destination="rCM-X6-fc3" id="4Bt-Nw-R2I"/>
+                <outlet property="presentationTitle2" destination="CJj-SX-6DA" id="ZaD-2A-kzD"/>
+                <outlet property="timePresentation2" destination="R9l-PK-LZl" id="6GN-OC-R5Z"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -57,16 +62,7 @@
             </subviews>
             <point key="canvasLocation" x="-101" y="145"/>
         </customView>
-        <customObject id="7bR-Tc-CSB" customClass="viewPastHistory2" customModule="MacroPresent" customModuleProvider="target">
-            <connections>
-                <outlet property="notifView2" destination="EGB-Jv-Mtr" id="OyE-nG-3Xz"/>
-                <outlet property="notifViewNumber2" destination="FFe-QO-kdN" id="5It-IM-pEy"/>
-                <outlet property="pptView2" destination="rCM-X6-fc3" id="VgO-oj-xxf"/>
-                <outlet property="presentationTitle2" destination="CJj-SX-6DA" id="q2z-E2-GID"/>
-                <outlet property="timePresentation2" destination="R9l-PK-LZl" id="12D-Vu-rqp"/>
-                <outlet property="view" destination="Hz6-mo-xeY" id="5Jx-hD-nuf"/>
-            </connections>
-        </customObject>
+        <collectionViewItem id="GMt-ll-YC6" customClass="viewPastHistory2" customModule="MacroPresent" customModuleProvider="target"/>
     </objects>
     <resources>
         <image name="rectanglered" width="23" height="23"/>

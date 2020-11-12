@@ -83,7 +83,7 @@ class HomeViewController: NSViewController {
         
         //masukin data yang ke 4 ke ketiga
         showDataListHistory3[0].setDataListHistory4(setValueDataList4: showDataListHistory4[0], namePresentationTitle3: "geralt")
-        showDataListHistory3[0].setDataListHistory4(setValueDataList4: showDataListHistory4[1], namePresentationTitle3: "geralt")
+        showDataListHistory3[1].setDataListHistory4(setValueDataList4: showDataListHistory4[1], namePresentationTitle3: "terakhir ketiga 2")
         
         
         
