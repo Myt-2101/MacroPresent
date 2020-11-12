@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="UI2-NF-NO6">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097.2"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -9,11 +9,12 @@
         <scene sceneID="MEa-1G-ubR">
             <objects>
                 <windowController id="UI2-NF-NO6" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="OSh-r2-nPo">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="OSh-r2-nPo" customClass="NSPanel">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" nonactivatingPanel="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="245" y="310" width="214" height="217"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1050"/>
+                        <value key="maxSize" type="size" width="214" height="217"/>
                         <connections>
                             <outlet property="delegate" destination="UI2-NF-NO6" id="oM6-NF-iXS"/>
                         </connections>
@@ -26,10 +27,10 @@
             </objects>
             <point key="canvasLocation" x="94" y="81"/>
         </scene>
-        <!--View Controller-->
+        <!--Keynote Timer-->
         <scene sceneID="6qy-27-4mn">
             <objects>
-                <viewController id="816-dG-TQx" sceneMemberID="viewController">
+                <viewController id="816-dG-TQx" customClass="KeynoteTimer" customModule="MacroPresent" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="yXK-lC-zNQ">
                         <rect key="frame" x="0.0" y="0.0" width="214" height="217"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -56,7 +57,7 @@
                                 <rect key="frame" x="78" y="153" width="59" height="14"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Total Time" id="bLd-gQ-OVj">
-                                    <font key="font" metaFont="menu" size="11"/>
+                                    <font key="font" metaFont="controlContent" size="11"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -74,7 +75,7 @@
                                 <rect key="frame" x="61" y="109" width="92" height="14"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Time Per Slide" id="fgA-Uf-nEi">
-                                    <font key="font" metaFont="menu" size="11"/>
+                                    <font key="font" metaFont="controlContent" size="11"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -86,9 +87,54 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="nextButton:" target="816-dG-TQx" id="19f-al-m51"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b7t-Ru-gxm">
+                                <rect key="frame" x="138" y="25" width="38" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSTouchBarGoForwardTemplate" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DLt-q5-JNv">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="NextSlide:" target="816-dG-TQx" id="1Gv-fv-kpY"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Et1-2D-PHt">
+                                <rect key="frame" x="38" y="26" width="38" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSTouchBarGoBackTemplate" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ydy-yd-C8z">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="previousSlideButton:" target="816-dG-TQx" id="XDY-bt-bHy"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hhb-rs-dTv">
+                                <rect key="frame" x="88" y="26" width="38" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSTouchBarRecordStopTemplate" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Mqs-f7-b6i">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="StopButton:" target="816-dG-TQx" id="66m-q5-XiU"/>
+                                </connections>
                             </button>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="NextButtonOutlet" destination="cD0-Mv-vu4" id="whw-sU-v0f"/>
+                        <outlet property="StopButtonOutlet" destination="hhb-rs-dTv" id="KEW-pS-6PW"/>
+                        <outlet property="keynoteName" destination="LEg-Kg-SHx" id="6qK-Sh-Xoa"/>
+                        <outlet property="nextSlideButtonOutlet" destination="b7t-Ru-gxm" id="FyG-Z5-paS"/>
+                        <outlet property="previousSlideButtonOutlet" destination="Et1-2D-PHt" id="pXA-kS-lR2"/>
+                        <outlet property="timePerSlide" destination="7hk-y4-VJc" id="lNi-A1-xav"/>
+                        <outlet property="totalTime" destination="EEc-Go-5Jw" id="PaP-cM-kZ5"/>
+                    </connections>
                 </viewController>
                 <customObject id="ksp-1Q-9ez" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -96,6 +142,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="NSTouchBarGoBackTemplate" width="10" height="30"/>
+        <image name="NSTouchBarGoForwardTemplate" width="10" height="30"/>
         <image name="NSTouchBarPlayTemplate" width="14" height="30"/>
+        <image name="NSTouchBarRecordStopTemplate" width="12" height="30"/>
     </resources>
 </document>
