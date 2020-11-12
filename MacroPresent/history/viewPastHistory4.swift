@@ -26,7 +26,7 @@ class viewPastHistory4: NSCollectionViewItem {
     
     @IBAction func buttonAudio(_ sender: Any) {
         let url = Bundle.main.path(forResource: playingAudio, ofType: "mp3")
-        print(playingAudio)
+        //print(playingAudio)
         
         //cek jika sedang jalan maka dia akan pause
         if let audio = audio, audio.isPlaying {
