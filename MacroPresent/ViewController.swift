@@ -14,6 +14,8 @@ class ViewController: NSViewController {
         super.viewDidLoad()
 
         //test
+        
+       
     }
 
     override var representedObject: Any? {

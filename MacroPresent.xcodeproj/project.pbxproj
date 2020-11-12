@@ -14,11 +14,18 @@
 		233E72272542C9B800B243EC /* (null) in Resources */ = {isa = PBXBuildFile; };
 		233E723B2546D34A00B243EC /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 233E723A2546D34A00B243EC /* Home.storyboard */; };
 		233E723D2546D3BD00B243EC /* KeynoteTimer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 233E723C2546D3BD00B243EC /* KeynoteTimer.storyboard */; };
-		C80F368B25481AC500222976 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80F368A25481AC500222976 /* HomeViewController.swift */; };
-		233E72342546C2FA00B243EC /* KeynoteTimer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 233E72332546C2FA00B243EC /* KeynoteTimer.storyboard */; };
-		233E72392546CD6700B243EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 233E72372546CD6700B243EC /* Main.storyboard */; };
 		3FB9172C25481EA7004AC6E0 /* KeynoteTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB9172B25481EA7004AC6E0 /* KeynoteTimer.swift */; };
+		C80F368B25481AC500222976 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80F368A25481AC500222976 /* HomeViewController.swift */; };
 		C80FE742255A816400065A93 /* TimerColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80FE741255A816400065A93 /* TimerColor.swift */; };
+		C8B8D93F255D2F49009DFA50 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B8D937255D2F49009DFA50 /* CoreDataManager.swift */; };
+		C8B8D940255D2F49009DFA50 /* Practice+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B8D938255D2F49009DFA50 /* Practice+CoreDataClass.swift */; };
+		C8B8D941255D2F49009DFA50 /* WPM+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B8D939255D2F49009DFA50 /* WPM+CoreDataProperties.swift */; };
+		C8B8D942255D2F49009DFA50 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B8D93A255D2F49009DFA50 /* Structs.swift */; };
+		C8B8D943255D2F49009DFA50 /* Practice+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B8D93B255D2F49009DFA50 /* Practice+CoreDataProperties.swift */; };
+		C8B8D944255D2F49009DFA50 /* Slide+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B8D93C255D2F49009DFA50 /* Slide+CoreDataClass.swift */; };
+		C8B8D945255D2F49009DFA50 /* WPM+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B8D93D255D2F49009DFA50 /* WPM+CoreDataClass.swift */; };
+		C8B8D946255D2F49009DFA50 /* Slide+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B8D93E255D2F49009DFA50 /* Slide+CoreDataProperties.swift */; };
+		C8B8D948255D2F71009DFA50 /* MacroPresent.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = C8B8D933255D2F40009DFA50 /* MacroPresent.xcdatamodeld */; };
 		C8F5F0C1254FEFED00EAD1AB /* PreRecordedRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F5F0C0254FEFED00EAD1AB /* PreRecordedRecognizer.swift */; };
 		C8F5F0C3254FEFF700EAD1AB /* LiveRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F5F0C2254FEFF700EAD1AB /* LiveRecognizer.swift */; };
 		C8F5F0C5254FF00000EAD1AB /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F5F0C4254FF00000EAD1AB /* Recording.swift */; };
@@ -35,11 +42,18 @@
 		233E72292542C9B800B243EC /* MacroPresent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacroPresent.entitlements; sourceTree = "<group>"; };
 		233E723A2546D34A00B243EC /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		233E723C2546D3BD00B243EC /* KeynoteTimer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = KeynoteTimer.storyboard; sourceTree = "<group>"; };
-		C80F368A25481AC500222976 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		233E72332546C2FA00B243EC /* KeynoteTimer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = KeynoteTimer.storyboard; sourceTree = "<group>"; };
-		233E72382546CD6700B243EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3FB9172B25481EA7004AC6E0 /* KeynoteTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeynoteTimer.swift; sourceTree = "<group>"; };
+		C80F368A25481AC500222976 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C80FE741255A816400065A93 /* TimerColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerColor.swift; sourceTree = "<group>"; };
+		C8B8D934255D2F40009DFA50 /* MacroPresent.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MacroPresent.xcdatamodel; sourceTree = "<group>"; };
+		C8B8D937255D2F49009DFA50 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		C8B8D938255D2F49009DFA50 /* Practice+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Practice+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C8B8D939255D2F49009DFA50 /* WPM+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WPM+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C8B8D93A255D2F49009DFA50 /* Structs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
+		C8B8D93B255D2F49009DFA50 /* Practice+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Practice+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C8B8D93C255D2F49009DFA50 /* Slide+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Slide+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C8B8D93D255D2F49009DFA50 /* WPM+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WPM+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C8B8D93E255D2F49009DFA50 /* Slide+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Slide+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C8F5F0C0254FEFED00EAD1AB /* PreRecordedRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreRecordedRecognizer.swift; sourceTree = "<group>"; };
 		C8F5F0C2254FEFF700EAD1AB /* LiveRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveRecognizer.swift; sourceTree = "<group>"; };
 		C8F5F0C4254FF00000EAD1AB /* Recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
@@ -76,6 +90,7 @@
 		233E721E2542C9B600B243EC /* MacroPresent */ = {
 			isa = PBXGroup;
 			children = (
+				C8B8D936255D2F49009DFA50 /* Model */,
 				C8F5F0BF254FEFDF00EAD1AB /* Speech Recognizer */,
 				233E721F2542C9B600B243EC /* AppDelegate.swift */,
 				233E72212542C9B600B243EC /* ViewController.swift */,
@@ -86,10 +101,33 @@
 				23118BD02546E2A300E925A0 /* Main.storyboard */,
 				233E72282542C9B800B243EC /* Info.plist */,
 				233E72292542C9B800B243EC /* MacroPresent.entitlements */,
-				233E72332546C2FA00B243EC /* KeynoteTimer.storyboard */,
 				3FB9172B25481EA7004AC6E0 /* KeynoteTimer.swift */,
+				C8B8D933255D2F40009DFA50 /* MacroPresent.xcdatamodeld */,
 			);
 			path = MacroPresent;
+			sourceTree = "<group>";
+		};
+		C8B8D936255D2F49009DFA50 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C8B8D937255D2F49009DFA50 /* CoreDataManager.swift */,
+				C8B8D93A255D2F49009DFA50 /* Structs.swift */,
+				C8B8D947255D2F4F009DFA50 /* Entities */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C8B8D947255D2F4F009DFA50 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				C8B8D938255D2F49009DFA50 /* Practice+CoreDataClass.swift */,
+				C8B8D939255D2F49009DFA50 /* WPM+CoreDataProperties.swift */,
+				C8B8D93B255D2F49009DFA50 /* Practice+CoreDataProperties.swift */,
+				C8B8D93C255D2F49009DFA50 /* Slide+CoreDataClass.swift */,
+				C8B8D93D255D2F49009DFA50 /* WPM+CoreDataClass.swift */,
+				C8B8D93E255D2F49009DFA50 /* Slide+CoreDataProperties.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		C8F5F0BF254FEFDF00EAD1AB /* Speech Recognizer */ = {
@@ -162,6 +200,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8B8D948255D2F71009DFA50 /* MacroPresent.xcdatamodeld in Resources */,
 				233E723B2546D34A00B243EC /* Home.storyboard in Resources */,
 				23118BD12546E2A300E925A0 /* Main.storyboard in Resources */,
 				233E72242542C9B800B243EC /* Assets.xcassets in Resources */,
@@ -182,10 +221,18 @@
 				C80FE742255A816400065A93 /* TimerColor.swift in Sources */,
 				233E72202542C9B600B243EC /* AppDelegate.swift in Sources */,
 				C80F368B25481AC500222976 /* HomeViewController.swift in Sources */,
+				C8B8D941255D2F49009DFA50 /* WPM+CoreDataProperties.swift in Sources */,
+				C8B8D940255D2F49009DFA50 /* Practice+CoreDataClass.swift in Sources */,
 				3FB9172C25481EA7004AC6E0 /* KeynoteTimer.swift in Sources */,
+				C8B8D946255D2F49009DFA50 /* Slide+CoreDataProperties.swift in Sources */,
+				C8B8D944255D2F49009DFA50 /* Slide+CoreDataClass.swift in Sources */,
+				C8B8D945255D2F49009DFA50 /* WPM+CoreDataClass.swift in Sources */,
+				C8B8D943255D2F49009DFA50 /* Practice+CoreDataProperties.swift in Sources */,
 				C8F5F0C7254FF00A00EAD1AB /* TimerRecording.swift in Sources */,
+				C8B8D942255D2F49009DFA50 /* Structs.swift in Sources */,
 				C8F5F0C3254FEFF700EAD1AB /* LiveRecognizer.swift in Sources */,
 				C8F5F0C5254FF00000EAD1AB /* Recording.swift in Sources */,
+				C8B8D93F255D2F49009DFA50 /* CoreDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +416,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C8B8D933255D2F40009DFA50 /* MacroPresent.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C8B8D934255D2F40009DFA50 /* MacroPresent.xcdatamodel */,
+			);
+			currentVersion = C8B8D934255D2F40009DFA50 /* MacroPresent.xcdatamodel */;
+			path = MacroPresent.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 233E72142542C9B600B243EC /* Project object */;
 }

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19H2" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Practice" representedClassName="Practice" syncable="YES" codeGenerationType="class">
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="keynoteName" attributeType="URI"/>
+        <attribute name="keynotePreview" attributeType="URI"/>
+        <attribute name="maxDuration" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="totalTime" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="slides" toMany="YES" deletionRule="Nullify" destinationEntity="Slide"/>
+        <relationship name="wpm" toMany="YES" deletionRule="Nullify" destinationEntity="WPM"/>
+    </entity>
+    <entity name="Slide" representedClassName="Slide" syncable="YES" codeGenerationType="class">
+        <attribute name="slideNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="slidePreview" attributeType="URI"/>
+        <attribute name="slideTime" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="WPM" representedClassName="WPM" syncable="YES" codeGenerationType="class">
+        <attribute name="audioPath" attributeType="URI"/>
+        <attribute name="position" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="slideNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="wordsPerMinute" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <elements>
+        <element name="Practice" positionX="-54" positionY="0" width="128" height="148"/>
+        <element name="Slide" positionX="-36" positionY="45" width="128" height="88"/>
+        <element name="WPM" positionX="-18" positionY="63" width="128" height="103"/>
+    </elements>
+</model>

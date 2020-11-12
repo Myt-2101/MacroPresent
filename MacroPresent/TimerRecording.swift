@@ -9,13 +9,6 @@
 import Foundation
 import Speech
 
-public struct cWPM{
-    var position: Int
-    var wordsPerMinute: Int
-    var audioPath: URL
-    var slideNumber: Int
-}
-
 class TimerRecording{
     
     var folderID: UUID!

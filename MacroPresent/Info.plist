@@ -27,16 +27,16 @@
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2020 CKCK. All rights reserved.</string>
 	<key>NSMainStoryboardFile</key>
-	<string>KeynoteTimer</string>
+	<string>Home</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Mic</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Speech</string>
 	<key>NSSupportsAutomaticTermination</key>
 	<true/>
 	<key>NSSupportsSuddenTermination</key>
 	<true/>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>Mic</string>
-	<key>NSSpeechRecognitionUsageDescription</key>
-	<string>Speech</string>
 </dict>
 </plist>

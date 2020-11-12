@@ -30,6 +30,25 @@ class HomeViewController: NSViewController {
         // Do view setup here.
         timerStepper.integerValue = 0
         maxDurationTextField.stringValue = String(timerStepper.integerValue)
+        let testImage = URL(fileURLWithPath: "/Users/calvindalenta/Documents/Foto KTP.jpg")
+                       let testWPM: cWPM = cWPM(position: 2, wordsPerMinute: 2, audioPath: URL(fileURLWithPath: "audxxoo"), slideNumber: 1)
+                       let testSlide: cSlide = cSlide(number: 2, time: 2, preview: testImage)
+                       let testPractice: cPractice = cPractice(ID: UUID(), keynoteName: URL(fileURLWithPath: "Keynote test5"), keynotePreview: testImage, maxDuration: 13, totalTime: 99, slides: [testSlide], WPMs: [testWPM])
+
+               //        CoreDataManager.shared.deleteAllPractices()
+                       if (CoreDataManager.save(practice: testPractice)){
+                           let practices = CoreDataManager.fetchPractices()
+                           for practice in practices{
+               //                if (practice.keynoteName == "Keynote test3"){
+               //                    CoreDataManager.shared.delete(practice: practice)
+               //                    continue
+               //                }
+                               print(practice.keynoteName)
+                               print(practice.slides)
+                               print(practice.WPMs)
+                               print(practice.maxDuration)
+                           }
+                       }
     }
     
     
