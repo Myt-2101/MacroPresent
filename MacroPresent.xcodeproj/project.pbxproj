@@ -94,14 +94,14 @@
 				C8F5F0BF254FEFDF00EAD1AB /* Speech Recognizer */,
 				233E721F2542C9B600B243EC /* AppDelegate.swift */,
 				233E72212542C9B600B243EC /* ViewController.swift */,
+				23118BD02546E2A300E925A0 /* Main.storyboard */,
 				233E723A2546D34A00B243EC /* Home.storyboard */,
 				C80F368A25481AC500222976 /* HomeViewController.swift */,
-				233E72232542C9B800B243EC /* Assets.xcassets */,
 				233E723C2546D3BD00B243EC /* KeynoteTimer.storyboard */,
-				23118BD02546E2A300E925A0 /* Main.storyboard */,
-				233E72282542C9B800B243EC /* Info.plist */,
-				233E72292542C9B800B243EC /* MacroPresent.entitlements */,
 				3FB9172B25481EA7004AC6E0 /* KeynoteTimer.swift */,
+				233E72282542C9B800B243EC /* Info.plist */,
+				233E72232542C9B800B243EC /* Assets.xcassets */,
+				233E72292542C9B800B243EC /* MacroPresent.entitlements */,
 				C8B8D933255D2F40009DFA50 /* MacroPresent.xcdatamodeld */,
 			);
 			path = MacroPresent;

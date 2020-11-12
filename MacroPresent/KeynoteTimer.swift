@@ -85,14 +85,22 @@ class KeynoteTimer: NSViewController {
     var formatter = DateComponentsFormatter()
     var interval : TimeInterval = 0
     var interval1 : TimeInterval = 0
-    var slideindex = 1
     var error=NSDictionary?.none
+    
+    var pathToPictureDir: String!
 //VARIABLE
+    
+//RECORDING AND RECOGNIZING
+    var timerRecording: TimerRecording!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         
+        timerRecording = TimerRecording(basePath: "\(FileManager.default.currentDirectoryPath)/Recordings", interval: 15)
+        let picturesDir = FileManager.SearchPathDirectory.picturesDirectory
+        let domainMask = FileManager.SearchPathDomainMask.userDomainMask
+        pathToPictureDir = NSSearchPathForDirectoriesInDomains(picturesDir, domainMask, true)[0]
     }
      
 
@@ -100,10 +108,6 @@ class KeynoteTimer: NSViewController {
        view.window?.level = .mainMenu
     }
 
-  
-    
-
-    
     //IBOutlet
     @IBOutlet weak var previousSlideButtonOutlet: NSButton!
     @IBOutlet weak var StopButtonOutlet: NSButton!
@@ -124,6 +128,8 @@ class KeynoteTimer: NSViewController {
         startTotalTimer()
         startTimePerSlide()
         exportImages()
+        
+        timerRecording.startTimer()
     }
     
 
@@ -137,24 +143,78 @@ class KeynoteTimer: NSViewController {
         stopTimer()
         stopTimerPerSlide()
         
+        timerRecording.stopTimer()
+        
+        //TODO: Show the user that we want to wait for 5 seconds
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            if (self.saveToDatabase()){
+                //TODO: Back to home after saving data
+
+            }
+ 
+        }
     }
     
-    
+    func saveToDatabase() -> Bool{
+        var wpms: [cWPM] = []
+        var slides: [cSlide] = []
+
+        for wpm in self.timerRecording.WPMs{
+            wpms.append(wpm)
+        }
+
+        let keynotePath = UserDefaults.standard.url(forKey: "keynoteFilePath")
+        let keynoteName = keynotePath?.deletingPathExtension().lastPathComponent
+        let maxDuration = UserDefaults.standard.integer(forKey: "maxDuration")
+//            let keynotePath = URL(fileURLWithPath:"Keynote test 5")
+//            let keynoteName = keynotePath.deletingPathExtension().lastPathComponent
+//            let maxDuration = 10
+        let format = "%03d"
+        let folderName = "\(keynoteName!) Present It"
+        if self.arrayTimePerSlide.count != 0 {
+            for index in 0..<self.arrayTimePerSlide.count{
+                //TODO: Get slide preview URL
+                let formattedNumber = String(format: format, index+1)
+                let newSlide = cSlide(number: index,
+                                      time: self.arrayTimePerSlide[index],
+                                      preview: URL(fileURLWithPath: "\(self.pathToPictureDir!)/\(folderName)/\(folderName).\(formattedNumber).jpeg"))
+                
+                slides.append(newSlide)
+            }
+        }
+        
+        //TODO: keynoteName, keynotePreview, maxDuration
+        let practice = cPractice(ID: UUID(),
+                                 keynoteName: keynotePath!,
+                                 keynotePreview: URL(fileURLWithPath: "\(self.pathToPictureDir!)/\(folderName)/\(folderName).001.jpeg"),
+                                 maxDuration: maxDuration,
+                                 totalTime: self.timeInSeconds,
+                                 slides: slides,
+                                 WPMs: wpms)
+        
+//        for slide in slides{
+//            print(slide.preview)
+//        }
+        
+        return CoreDataManager.save(practice: practice)
+    }
    
    
     @IBAction func NextSlide(_ sender: Any) {
         GotoNextSlide()
-        print(getCurrentslideValue())
-        if(getCurrentslideValue() != getMaxslideValue()) {
+        let currentSlideValue = getCurrentslideValue()
+        print(currentSlideValue)
+        
+        timerRecording.currentSlideNumber = currentSlideValue
+        
+        if(currentSlideValue != getMaxslideValue()) {
             newSlideTimer()
             print(arrayTimePerSlide)
             print(averageTimePerSlide)
-            keynoteName.stringValue = "Slide \(getCurrentslideValue())"
+            keynoteName.stringValue = "Slide \(currentSlideValue)"
         }
         //startTimePerSlide()
-           
-           
-            
     }
     
     
@@ -167,8 +227,6 @@ class KeynoteTimer: NSViewController {
         
         if(getCurrentslideValue() >= 1){
             keynoteName.stringValue = "Slide \(getCurrentslideValue())"}
-        
-    
     }
     
     
