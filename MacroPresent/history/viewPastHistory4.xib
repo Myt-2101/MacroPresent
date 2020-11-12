@@ -8,6 +8,10 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="viewPastHistory4" customModule="MacroPresent" customModuleProvider="target">
             <connections>
+                <outlet property="buttonImage" destination="tUW-3f-Kxf" id="GDD-BU-s0U"/>
+                <outlet property="currentTime4" destination="KAp-iw-Ooa" id="C7Y-Nt-A2I"/>
+                <outlet property="maxTime4" destination="Du3-1L-yOe" id="beP-tz-3p0"/>
+                <outlet property="textAnalisa" destination="wn3-9V-RsX" id="JbV-S3-n13"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -56,21 +60,13 @@
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
-                        <action selector="buttonAudio:" target="-2" id="plr-yR-4Wk"/>
+                        <action selector="buttonAudio:" target="-2" id="91v-sF-0Vr"/>
                     </connections>
                 </button>
             </subviews>
             <point key="canvasLocation" x="24.5" y="130"/>
         </customView>
-        <customObject id="7e3-qu-HDb" customClass="viewPastHistory4" customModule="MacroPresent" customModuleProvider="target">
-            <connections>
-                <outlet property="buttonImage" destination="tUW-3f-Kxf" id="gqp-Fu-Mbu"/>
-                <outlet property="currentTime4" destination="KAp-iw-Ooa" id="hYN-2i-P0s"/>
-                <outlet property="maxTime4" destination="Du3-1L-yOe" id="cHY-uT-FLs"/>
-                <outlet property="textAnalisa" destination="wn3-9V-RsX" id="X9t-gy-E2Y"/>
-                <outlet property="view" destination="Hz6-mo-xeY" id="TaJ-hY-YgI"/>
-            </connections>
-        </customObject>
+        <collectionViewItem id="n0Q-cZ-X0E" customClass="viewPastHistory4" customModule="MacroPresent" customModuleProvider="target"/>
     </objects>
     <resources>
         <image name="ButtonPlay" width="94" height="52"/>

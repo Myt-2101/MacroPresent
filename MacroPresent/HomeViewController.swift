@@ -50,24 +50,24 @@ class HomeViewController: NSViewController {
         
         
         // add NIb to NSCollection View
-        let nibPastHistory1 = NSNib(nibNamed: "viewPastHistory1", bundle: nil)
-        listPastHistory1.register(nibPastHistory1, forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: "viewPastHistory1"))
-        
-        let nibPastHistory2 = NSNib(nibNamed: "viewPastHistory2", bundle: nil)
-        listPastHistory2.register(nibPastHistory2, forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: "viewPastHistory2"))
-        
-        let nibPastHistory3 = NSNib(nibNamed: "viewPastHistory3", bundle: nil)
-        listPastHistory3.register(nibPastHistory3, forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: "viewPastHistory3"))
-        
-        let nibPastHistory4 = NSNib(nibNamed: "viewPastHistory4", bundle: nil)
-        listPastHistory4.register(nibPastHistory4, forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: "viewPastHistory4"))
+//        let nibPastHistory1 = NSNib(nibNamed: "viewPastHistory1", bundle: nil)
+//        listPastHistory1.register(nibPastHistory1, forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: "viewPastHistory1"))
+//        
+//        let nibPastHistory2 = NSNib(nibNamed: "viewPastHistory2", bundle: nil)
+//        listPastHistory2.register(nibPastHistory2, forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: "viewPastHistory2"))
+//        
+//        let nibPastHistory3 = NSNib(nibNamed: "viewPastHistory3", bundle: nil)
+//        listPastHistory3.register(nibPastHistory3, forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: "viewPastHistory3"))
+//        
+//        let nibPastHistory4 = NSNib(nibNamed: "viewPastHistory4", bundle: nil)
+//        listPastHistory4.register(nibPastHistory4, forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: "viewPastHistory4"))
         
         
         
         /////// CEK YA BRADER
         //showDataListHistory4.append(dataListHistory4.init(valueCurrentTime4: "00:00", valueMaxTime4: "2:58", nameTextAnalisa4: dat))
-        showDataListHistory4.append(dataListHistory4.init(nameAudioFile: "01. Blood And Wine", valueCurrentTime4: "00:00", valueMaxTime4: "2:58", nameTextAnalisa4: "Get Gud Son"))
-        showDataListHistory4.append(dataListHistory4.init(nameAudioFile: "10. Silver For Monsters...", valueCurrentTime4: "00:00", valueMaxTime4: "2:20", nameTextAnalisa4: "Le Le Le Le Le"))
+        showDataListHistory4.append(dataListHistory4.init(nameAudioFile: "01BloodAndWine", valueCurrentTime4: "00:00", valueMaxTime4: "2:58", nameTextAnalisa4: "Get Gud Son"))
+        showDataListHistory4.append(dataListHistory4.init(nameAudioFile: "10SilverForMonsters", valueCurrentTime4: "00:00", valueMaxTime4: "2:20", nameTextAnalisa4: "Le Le Le Le Le"))
         
         
         //showDataListHistory3[0].setDataListHistory4(setValueDataList4: showDataListHistory4[0], amePresentationTitle3: "terakhir ketiga 1")
