@@ -92,15 +92,19 @@ class KeynoteTimer: NSViewController {
     
 //RECORDING AND RECOGNIZING
     var timerRecording: TimerRecording!
+    var colorRecording: ColorRecording!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        keynoteName.stringValue = "Slide \(getCurrentslideValue())"
         
         timerRecording = TimerRecording(basePath: "\(FileManager.default.currentDirectoryPath)/Recordings", interval: 15)
         let picturesDir = FileManager.SearchPathDirectory.picturesDirectory
         let domainMask = FileManager.SearchPathDomainMask.userDomainMask
         pathToPictureDir = NSSearchPathForDirectoriesInDomains(picturesDir, domainMask, true)[0]
+        
+        colorRecording = ColorRecording(view: view)
     }
      
 
@@ -130,20 +134,23 @@ class KeynoteTimer: NSViewController {
         exportImages()
         
         timerRecording.startTimer()
+//        colorRecording.start()
     }
     
 
     
     @IBAction func StopButton(_ sender: Any) {
-        NextButtonOutlet.isHidden=false
+        NextButtonOutlet.isHidden=true
         StopButtonOutlet.isHidden=true
         previousSlideButtonOutlet.isHidden=true
         nextSlideButtonOutlet.isHidden=true
         StopPresentation()
         stopTimer()
         stopTimerPerSlide()
+        newSlideTimer()
         
         timerRecording.stopTimer()
+//        colorRecording.stop()
         
         //TODO: Show the user that we want to wait for 5 seconds
         
@@ -164,14 +171,14 @@ class KeynoteTimer: NSViewController {
             wpms.append(wpm)
         }
 
-        let keynotePath = UserDefaults.standard.url(forKey: "keynoteFilePath")
-        let keynoteName = keynotePath?.deletingPathExtension().lastPathComponent
-        let maxDuration = UserDefaults.standard.integer(forKey: "maxDuration")
-//            let keynotePath = URL(fileURLWithPath:"Keynote test 5")
-//            let keynoteName = keynotePath.deletingPathExtension().lastPathComponent
-//            let maxDuration = 10
+//        let keynotePath = UserDefaults.standard.url(forKey: "keynoteFilePath")
+//        let keynoteName = keynotePath?.deletingPathExtension().lastPathComponent
+//        let maxDuration = UserDefaults.standard.integer(forKey: "maxDuration")
+        let keynotePath = URL(fileURLWithPath:"/Users/calvindalenta/Downloads/Persona Draft.key")
+        let keynoteName = keynotePath.deletingPathExtension().lastPathComponent
+        let maxDuration = 10
         let format = "%03d"
-        let folderName = "\(keynoteName!) Present It"
+        let folderName = "\(keynoteName) Present It"
         if self.arrayTimePerSlide.count != 0 {
             for index in 0..<self.arrayTimePerSlide.count{
                 //TODO: Get slide preview URL
@@ -186,18 +193,19 @@ class KeynoteTimer: NSViewController {
         
         //TODO: keynoteName, keynotePreview, maxDuration
         let practice = cPractice(ID: UUID(),
-                                 keynoteName: keynotePath!,
+                                 keynoteName: keynotePath,
                                  keynotePreview: URL(fileURLWithPath: "\(self.pathToPictureDir!)/\(folderName)/\(folderName).001.jpeg"),
                                  maxDuration: maxDuration,
                                  totalTime: self.timeInSeconds,
                                  slides: slides,
                                  WPMs: wpms)
         
-//        for slide in slides{
-//            print(slide.preview)
-//        }
+        for slide in practice.slides{
+            print(slide.preview)
+        }
         
-        return CoreDataManager.save(practice: practice)
+        return true
+//        return CoreDataManager.save(practice: practice)
     }
    
    

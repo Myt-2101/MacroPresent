@@ -23,7 +23,7 @@ class Recording : NSObject, AVAudioRecorderDelegate {
     /// - Parameter path: Full path to save the audio file, including the file name and extension
     /// - Parameter position: Recording ke berapa
     /// - Parameter slideNumber: Mulai recording di slide berapa
-    init(path: URL, position: Int, slideNumber: Int) {
+    init(path: URL, position: Int = 1, slideNumber: Int = 1) {
         
         self.url = path
         self.isRecording = false

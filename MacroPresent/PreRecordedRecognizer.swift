@@ -28,7 +28,7 @@ class PreRecordedRecognizer{
     /// - Parameter for: Full path to an existing audio file
     init(for recording: Recording){
         self.recording = recording
-        speechRecognizer = SFSpeechRecognizer()
+        speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))
     }
     
     public func recognize(){
