@@ -23,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KAp-iw-Ooa">
-                    <rect key="frame" x="-2" y="14" width="41" height="16"/>
+                    <rect key="frame" x="-2" y="14" width="171" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="00:00" id="Ilv-5C-C2k">
                         <font key="font" metaFont="system"/>
