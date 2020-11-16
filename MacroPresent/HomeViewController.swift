@@ -239,8 +239,8 @@ extension HomeViewController: NSCollectionViewDelegate, NSCollectionViewDataSour
             
             guard let indexCollection4 = indexListPastHistory3 else {return NSCollectionViewItem()}
             
-            item4.currentTime4.stringValue = showDataListHistory3[indexCollection4].valueDatalistHistory4[indexPath.item].valueCurrentTime4
-            item4.maxTime4.stringValue = showDataListHistory3[indexCollection4].valueDatalistHistory4[indexPath.item].valueMaxTime4
+            //item4.currentTime4.stringValue = showDataListHistory3[indexCollection4].valueDatalistHistory4[indexPath.item].valueCurrentTime4
+            //item4.maxTime4.stringValue = showDataListHistory3[indexCollection4].valueDatalistHistory4[indexPath.item].valueMaxTime4
             item4.textAnalisa.stringValue = showDataListHistory3[indexCollection4].valueDatalistHistory4[indexPath.item].nameTextAnalisa4
             // disini keambil tapi gak keupdate di cell.
             item4.playingAudio = showDataListHistory3[indexCollection4].valueDatalistHistory4[indexPath.item].nameAudioFile

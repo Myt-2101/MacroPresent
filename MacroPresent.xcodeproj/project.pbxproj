@@ -18,6 +18,7 @@
 		3D0994D725599A360080C398 /* viewPastHistory2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D0994D525599A360080C398 /* viewPastHistory2.xib */; };
 		3D0994DB2559A58A0080C398 /* viewPastHistory3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0994D92559A58A0080C398 /* viewPastHistory3.swift */; };
 		3D0994DC2559A58A0080C398 /* viewPastHistory3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D0994DA2559A58A0080C398 /* viewPastHistory3.xib */; };
+		3D13A6162562695F000163C4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D13A6152562695F000163C4 /* AVFoundation.framework */; };
 		3D13EF6A255BEDEC00ECA788 /* viewPastHistory4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13EF68255BEDEC00ECA788 /* viewPastHistory4.swift */; };
 		3D13EF6B255BEDEC00ECA788 /* viewPastHistory4.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D13EF69255BEDEC00ECA788 /* viewPastHistory4.xib */; };
 		3D13EFF4255C255800ECA788 /* 01BloodAndWine.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D13EFF3255C255800ECA788 /* 01BloodAndWine.mp3 */; };
@@ -45,6 +46,7 @@
 		3D0994D525599A360080C398 /* viewPastHistory2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = viewPastHistory2.xib; sourceTree = "<group>"; };
 		3D0994D92559A58A0080C398 /* viewPastHistory3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewPastHistory3.swift; sourceTree = "<group>"; };
 		3D0994DA2559A58A0080C398 /* viewPastHistory3.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = viewPastHistory3.xib; sourceTree = "<group>"; };
+		3D13A6152562695F000163C4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		3D13EF68255BEDEC00ECA788 /* viewPastHistory4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewPastHistory4.swift; sourceTree = "<group>"; };
 		3D13EF69255BEDEC00ECA788 /* viewPastHistory4.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = viewPastHistory4.xib; sourceTree = "<group>"; };
 		3D13EFF3255C255800ECA788 /* 01BloodAndWine.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 01BloodAndWine.mp3; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D13A6162562695F000163C4 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +77,7 @@
 			children = (
 				233E721E2542C9B600B243EC /* MacroPresent */,
 				233E721D2542C9B600B243EC /* Products */,
+				3D13A6142562695F000163C4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,6 +106,14 @@
 				233E72292542C9B800B243EC /* MacroPresent.entitlements */,
 			);
 			path = MacroPresent;
+			sourceTree = "<group>";
+		};
+		3D13A6142562695F000163C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3D13A6152562695F000163C4 /* AVFoundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		3D13EFF1255C23A700ECA788 /* Audio */ = {
