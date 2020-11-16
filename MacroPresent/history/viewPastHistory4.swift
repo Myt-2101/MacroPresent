@@ -15,6 +15,7 @@ class viewPastHistory4: NSCollectionViewItem {
     @IBOutlet weak var maxTime4: NSTextField!
     @IBOutlet weak var currentTime4: NSTextField!
     @IBOutlet weak var textAnalisa: NSTextField!
+    @IBOutlet weak var audioSliderImage: NSSlider!
     
     var audio: AVAudioPlayer?
     var playingAudio: String?
@@ -77,6 +78,13 @@ class viewPastHistory4: NSCollectionViewItem {
 //        maxTime4.stringValue = "4pppp"
     }
     
+    func UpdateSlider(){
+        
+    }
+    
+    @IBAction func audioSliderAction(_ sender: Any) {
+        audio?.play()
+    }
     
     @IBAction func buttonAudio(_ sender: Any) {
         

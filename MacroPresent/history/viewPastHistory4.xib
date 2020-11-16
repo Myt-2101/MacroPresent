@@ -8,6 +8,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="viewPastHistory4" customModule="MacroPresent" customModuleProvider="target">
             <connections>
+                <outlet property="audioSliderImage" destination="thG-nr-gZ6" id="rnr-0F-zOc"/>
                 <outlet property="buttonImage" destination="tUW-3f-Kxf" id="GDD-BU-s0U"/>
                 <outlet property="currentTime4" destination="KAp-iw-Ooa" id="C7Y-Nt-A2I"/>
                 <outlet property="maxTime4" destination="Du3-1L-yOe" id="beP-tz-3p0"/>
@@ -21,10 +22,6 @@
             <rect key="frame" x="0.0" y="0.0" width="321" height="40"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <progressIndicator wantsLayer="YES" fixedFrame="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="FQw-kt-xOC">
-                    <rect key="frame" x="0.0" y="23" width="270" height="20"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                </progressIndicator>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KAp-iw-Ooa">
                     <rect key="frame" x="-2" y="14" width="41" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -63,6 +60,14 @@
                         <action selector="buttonAudio:" target="-2" id="91v-sF-0Vr"/>
                     </connections>
                 </button>
+                <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="thG-nr-gZ6">
+                    <rect key="frame" x="1" y="22" width="270" height="19"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="lUk-pG-CnF"/>
+                    <connections>
+                        <action selector="audioSliderAction:" target="-2" id="89L-7Q-YNG"/>
+                    </connections>
+                </slider>
             </subviews>
             <point key="canvasLocation" x="24.5" y="130"/>
         </customView>
