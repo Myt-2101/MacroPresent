@@ -259,10 +259,15 @@ extension HomeViewController: NSCollectionViewDelegate, NSCollectionViewDataSour
         if (collectionView == listPastHistory1){
             indexListPastHistory1 = indexPaths.first?.item
             listPastHistory2.reloadData()
-            //inde
+            indexListPastHistory2 = nil
+            listPastHistory3.reloadData()
+            indexListPastHistory3 = nil
+            listPastHistory4.reloadData()
         }else if (collectionView == listPastHistory2){
             indexListPastHistory2 = indexPaths.first?.item
             listPastHistory3.reloadData()
+            indexListPastHistory3 = nil
+            listPastHistory4.reloadData()
         }else if (collectionView == listPastHistory3){
             indexListPastHistory3 = indexPaths.first?.item
             listPastHistory4.reloadData()
