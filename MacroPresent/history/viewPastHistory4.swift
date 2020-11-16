@@ -51,6 +51,14 @@ class viewPastHistory4: NSCollectionViewItem {
             guard let audio = audio else {
                 return
             }
+            audio.prepareToPlay()
+            audioSliderImage.maxValue = Double(audio.duration)
+            if audioSliderImage.doubleValue > 0.0 {
+                audio.currentTime = TimeInterval(audioSliderImage.doubleValue)
+                audio.pause()
+            }else {
+                audioSliderImage.doubleValue = 0.0
+            }
             audio.play()
             //try AVAudioPlayer
         } catch {
@@ -91,6 +99,7 @@ class viewPastHistory4: NSCollectionViewItem {
             audio?.play()
         default:
             audio?.pause()
+            audio?.currentTime = TimeInterval(audioSliderImage.doubleValue)
         }
     }
     
