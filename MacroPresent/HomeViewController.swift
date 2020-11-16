@@ -48,13 +48,22 @@ class HomeViewController: NSViewController {
     var indexListPastHistory3: Int?
     
     
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         timerStepper.integerValue = 0
         maxDurationTextField.stringValue = String(timerStepper.integerValue)
+        
+        let keynote = UserDefaults.standard.url(forKey: "keynoteFilePath")
+        let maxDuration = UserDefaults.standard.integer(forKey: "maxDuration")
+        
+        maxDurationTextField.stringValue = "\(maxDuration/60)"
+
+        if let keynote = keynote{
+            self.keynoteTextField.stringValue = keynote.path
+            self.keynotFilePath = String(format: getFileName, keynote.path)
+        }
+        
         //hidden tulisan ditengah
         historyPlaceHolderText.isHidden = true
         //listPastHistory2.isHidden = true

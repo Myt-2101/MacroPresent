@@ -110,7 +110,7 @@ class KeynoteTimer: NSViewController {
      
 
     override func viewDidAppear() {
-       view.window?.level = .mainMenu
+        view.window?.level = .mainMenu
         view.window?.delegate = self
     }
 

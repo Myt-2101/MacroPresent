@@ -1,32 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="UI2-NF-NO6">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="816-dG-TQx">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097.3"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Window Controller-->
-        <scene sceneID="MEa-1G-ubR">
-            <objects>
-                <windowController id="UI2-NF-NO6" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="OSh-r2-nPo" customClass="NSPanel">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" nonactivatingPanel="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="245" y="310" width="214" height="217"/>
-                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1050"/>
-                        <value key="maxSize" type="size" width="214" height="217"/>
-                        <connections>
-                            <outlet property="delegate" destination="UI2-NF-NO6" id="oM6-NF-iXS"/>
-                        </connections>
-                    </window>
-                    <connections>
-                        <segue destination="816-dG-TQx" kind="relationship" relationship="window.shadowedContentViewController" id="0Vm-We-PYF"/>
-                    </connections>
-                </windowController>
-                <customObject id="vPo-gE-mUv" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="94" y="81"/>
-        </scene>
         <!--Keynote Timer-->
         <scene sceneID="6qy-27-4mn">
             <objects>
