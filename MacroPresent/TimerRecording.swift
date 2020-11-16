@@ -8,6 +8,7 @@
 
 import Foundation
 import Speech
+import Cocoa
 
 class TimerRecording{
     
@@ -22,6 +23,8 @@ class TimerRecording{
     
     var currentSlideNumber: Int!
     
+    var view: NSView!
+    
     /// This function will create a new unique folder to save all the audio files,
     /// ```
     /// var path = "Users/calvindalenta/Documents/"
@@ -30,7 +33,7 @@ class TimerRecording{
     /// ```
     /// - Parameter basePath: Folder path to save audio files
     /// - Parameter interval: The duration for every recording
-    init(basePath: String, interval: TimeInterval){
+    init(basePath: String, interval: TimeInterval, view: NSView){
         self.interval = interval
         self.recordings = []
         self.folderID = UUID()
@@ -39,6 +42,9 @@ class TimerRecording{
         self.uniqueFolderPath = createPath(path: basePath)
         
         self.currentSlideNumber = 1
+        
+        self.view = view
+        self.view.wantsLayer = true
     }
     
     func startTimer(){
@@ -111,11 +117,32 @@ class TimerRecording{
         //TODO: Slide numbernya dapet darimana
         return currentSlideNumber
     }
-
+//
+//    var recognizeCount = 0
+//    func recognize(){
+//        let record = PreRecordedRecognizer(for: recordings[recognizeCount])
+//        record.delegate = self
+//        record.recognize()
+//    }
 }
 
 extension TimerRecording : RecognizerTaskDelegate{
     func didFinishRecognizing(_ result: cWPM) {
         WPMs.append(result)
+        
+        let wpm = result.wordsPerMinute
+        
+        if wpm < 140 {
+            view.layer?.backgroundColor = TimerColor.blue
+        } else if wpm > 170 {
+            view.layer?.backgroundColor = TimerColor.red
+        } else {
+            view.layer?.backgroundColor = TimerColor.green
+        }
+        
+//        recognizeCount += 1
+//        if(recognizeCount < recordings.count){
+//            recognize()
+//        }
     }
 }

@@ -64,6 +64,18 @@ class HomeViewController: NSViewController {
         
         UserDefaults.standard.set(duraationsInSeconds, forKey: "maxDuration")
         //TODO: Hidden Home.storyboard and show KeynoteTimer.storyboard
+        
+        self.view.window?.setIsVisible(false)
+        performSegue(withIdentifier: "KeynoteTimer", sender: nil)
+    }
+    
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        print(segue.identifier!)
+        if segue.identifier == "KeynoteTimer" {
+            if let keynoteTimer = segue.destinationController as? KeynoteTimer {
+                keynoteTimer.homeView = self.view
+            }
+        }
     }
     
     

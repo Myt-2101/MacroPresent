@@ -92,24 +92,26 @@ class KeynoteTimer: NSViewController {
     
 //RECORDING AND RECOGNIZING
     var timerRecording: TimerRecording!
-    var colorRecording: ColorRecording!
+//    var colorRecording: ColorRecording!
+    
+    var homeView: NSView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         keynoteName.stringValue = "Slide \(getCurrentslideValue())"
         
-        timerRecording = TimerRecording(basePath: "\(FileManager.default.currentDirectoryPath)/Recordings", interval: 15)
+        timerRecording = TimerRecording(basePath: "\(FileManager.default.currentDirectoryPath)/Recordings", interval: 15, view: self.view)
         let picturesDir = FileManager.SearchPathDirectory.picturesDirectory
         let domainMask = FileManager.SearchPathDomainMask.userDomainMask
         pathToPictureDir = NSSearchPathForDirectoriesInDomains(picturesDir, domainMask, true)[0]
         
-        colorRecording = ColorRecording(view: view)
     }
      
 
     override func viewDidAppear() {
        view.window?.level = .mainMenu
+        view.window?.delegate = self
     }
 
     //IBOutlet
@@ -157,33 +159,37 @@ class KeynoteTimer: NSViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
             if (self.saveToDatabase()){
                 //TODO: Back to home after saving data
-
+                self.view.window?.performClose(self)
             }
  
         }
     }
     
+    
     func saveToDatabase() -> Bool{
         var wpms: [cWPM] = []
         var slides: [cSlide] = []
 
-        for wpm in self.timerRecording.WPMs{
-            wpms.append(wpm)
-        }
+        wpms = self.timerRecording.WPMs
+//        for wpm in self.timerRecording.WPMs{
+//            wpms.append(wpm)
+//        }
 
-//        let keynotePath = UserDefaults.standard.url(forKey: "keynoteFilePath")
-//        let keynoteName = keynotePath?.deletingPathExtension().lastPathComponent
-//        let maxDuration = UserDefaults.standard.integer(forKey: "maxDuration")
-        let keynotePath = URL(fileURLWithPath:"/Users/calvindalenta/Downloads/Persona Draft.key")
+        let keynotePath = UserDefaults.standard.url(forKey: "keynoteFilePath")!
         let keynoteName = keynotePath.deletingPathExtension().lastPathComponent
-        let maxDuration = 10
+        let maxDuration = UserDefaults.standard.integer(forKey: "maxDuration")
+        
+//        let keynotePath = URL(fileURLWithPath:"/Users/calvindalenta/Downloads/Persona Draft.key")
+//        let keynoteName = keynotePath.deletingPathExtension().lastPathComponent
+//        let maxDuration = 10
+        
         let format = "%03d"
         let folderName = "\(keynoteName) Present It"
         if self.arrayTimePerSlide.count != 0 {
             for index in 0..<self.arrayTimePerSlide.count{
                 //TODO: Get slide preview URL
                 let formattedNumber = String(format: format, index+1)
-                let newSlide = cSlide(number: index,
+                let newSlide = cSlide(number: index+1,
                                       time: self.arrayTimePerSlide[index],
                                       preview: URL(fileURLWithPath: "\(self.pathToPictureDir!)/\(folderName)/\(folderName).\(formattedNumber).jpeg"))
                 
@@ -332,6 +338,18 @@ class KeynoteTimer: NSViewController {
         print(error ?? TID_NULL)
     }
     //Functions
+}
+
+extension KeynoteTimer: NSWindowDelegate{
+//    func windowShouldClose(_ sender: NSWindow) -> Bool {
+//        print("1")
+//        self.homeView.window?.setIsVisible(true)
+//        return true
+//    }
+
+    func windowWillClose(_ notification: Notification) {
+        self.homeView.window?.setIsVisible(true)
+    }
 }
 
 

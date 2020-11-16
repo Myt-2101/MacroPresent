@@ -27,7 +27,7 @@
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2020 CKCK. All rights reserved.</string>
 	<key>NSMainStoryboardFile</key>
-	<string>KeynoteTimer</string>
+	<string>Home</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Mic</string>
 	<key>NSPrincipalClass</key>
