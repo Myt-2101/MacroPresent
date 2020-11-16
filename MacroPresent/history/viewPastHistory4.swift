@@ -29,7 +29,7 @@ class viewPastHistory4: NSCollectionViewItem {
         //buttonAudioPlayer = AVAudioPlayer(contentsOf: buttonaAudioURL)
         //updateTimer()
         //UpdateSlider()
-        //setAudio()
+        setAudio()
 
         
     }
@@ -64,7 +64,7 @@ class viewPastHistory4: NSCollectionViewItem {
             }else {
                 audioSliderImage.intValue = 0
             }
-            audio.play()
+            //audio.play()
             timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.UpdateSlider), userInfo: nil, repeats: true)
             
             //try AVAudioPlayer
@@ -174,12 +174,13 @@ class viewPastHistory4: NSCollectionViewItem {
         case audio?.isPlaying:
             audio?.pause()
         // cek apakah audi sudah ada isinya apa belum, jadi kalau udah ada berrarti kepause apa kestop, jadi jalanin lagi.
-        case audio != nil:
-            audio?.play()
+//        case audio != nil:
+//            audio?.play()
         //fungsi kalau yang atas gak jalan smeua
         default:
+            audio?.play()
             //audio?.play()
-            setAudio()
+            //setAudio()
             //audio?.play()
         //setAudiotoPlay()
             //setAudio()
