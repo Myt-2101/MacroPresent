@@ -36,6 +36,7 @@ class viewPastHistory4: NSCollectionViewItem {
         //buttonAudioPlayer = AVAudioPlayer(contentsOf: buttonaAudioURL)
         //updateTimer()
         //UpdateSlider()
+        setAudio()
 
         
     }
@@ -54,13 +55,23 @@ class viewPastHistory4: NSCollectionViewItem {
             }
             audio.prepareToPlay()
             audioSliderImage.maxValue = Double(audio.duration)
+            
+            let maxTime = Int(audioSliderImage.maxValue)
+            
+            hmsFrom(seconds: Int(maxTime)) { (minutes, seconds) in
+                //let hours = self.getStringFrom(seconds: hours)
+                let minutes = self.getStringFrom(seconds: minutes)
+                let seconds = self.getStringFrom(seconds: seconds)
+                self.maxTime4.stringValue = "\(minutes):\(seconds)"
+            }
+            
             if audioSliderImage.intValue > 0 {
                 audio.currentTime = TimeInterval(audioSliderImage.intValue)
                 audio.pause()
             }else {
                 audioSliderImage.intValue = 0
             }
-            audio.play()
+            //audio.play()
             timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.UpdateSlider), userInfo: nil, repeats: true)
             
             //try AVAudioPlayer
@@ -174,7 +185,11 @@ class viewPastHistory4: NSCollectionViewItem {
             audio?.play()
         //fungsi kalau yang atas gak jalan smeua
         default:
+            //audio?.play()
             setAudio()
+            audio?.play()
+        //setAudiotoPlay()
+            //setAudio()
         }
         
         // old code, sangat tidak efisien, not recomended
