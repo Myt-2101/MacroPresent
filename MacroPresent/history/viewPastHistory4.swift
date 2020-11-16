@@ -19,6 +19,7 @@ class viewPastHistory4: NSCollectionViewItem {
     
     var audio: AVAudioPlayer?
     var playingAudio: String?
+    var timer: Timer?
     
     //var buttonAudioURL = URL(fileURLWithPath: Bundle.main.path(forResource: playingAudio, ofType: "mp3")!)
     //var buttonAudioURL = NSURL(fileURLWithPath: Bundle.main.path(forResource: self().playingAudio, ofType: "mp3")!)
@@ -33,8 +34,8 @@ class viewPastHistory4: NSCollectionViewItem {
         // Do view setup here.
         
         //buttonAudioPlayer = AVAudioPlayer(contentsOf: buttonaAudioURL)
-        updateTimer()
-        
+        //updateTimer()
+        //UpdateSlider()
 
         
     }
@@ -60,6 +61,8 @@ class viewPastHistory4: NSCollectionViewItem {
                 audioSliderImage.doubleValue = 0.0
             }
             audio.play()
+            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.UpdateSlider), userInfo: nil, repeats: true)
+            //
             //try AVAudioPlayer
         } catch {
             print("something when wrong")
@@ -86,8 +89,9 @@ class viewPastHistory4: NSCollectionViewItem {
 //        maxTime4.stringValue = "4pppp"
     }
     
-    func UpdateSlider(){
-        
+    @objc func UpdateSlider(){
+        audioSliderImage.doubleValue = Double(audio!.currentTime)
+        //currentTime4 = Double(audio!.currentTime)
     }
     
     @IBAction func audioSliderAction(_ sender: Any) {
