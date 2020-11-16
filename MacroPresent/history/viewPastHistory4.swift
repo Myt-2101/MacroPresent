@@ -29,7 +29,7 @@ class viewPastHistory4: NSCollectionViewItem {
         //buttonAudioPlayer = AVAudioPlayer(contentsOf: buttonaAudioURL)
         //updateTimer()
         //UpdateSlider()
-        setAudio()
+        //setAudio()
 
         
     }

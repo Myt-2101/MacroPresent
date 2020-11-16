@@ -244,6 +244,8 @@ extension HomeViewController: NSCollectionViewDelegate, NSCollectionViewDataSour
             item4.textAnalisa.stringValue = showDataListHistory3[indexCollection4].valueDatalistHistory4[indexPath.item].nameTextAnalisa4
             // disini keambil tapi gak keupdate di cell.
             item4.playingAudio = showDataListHistory3[indexCollection4].valueDatalistHistory4[indexPath.item].nameAudioFile
+            item4.setAudio() 
+            //item4.playingAudio = "01BloodAndWine"
             
             //item4.currentTime4.stringValue = showDataListHistory3[indexPath.item].valueData
             
