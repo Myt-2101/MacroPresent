@@ -83,8 +83,8 @@ class viewPastHistory4: NSCollectionViewItem {
 //            currentTime4.stringValue = "xxxxx"
 //            maxTime4.stringValue = "XXX"
 //        }
-//        
-//        
+//
+//
 ////        currentTime4.stringValue = "2000"
 ////        maxTime4.stringValue = "4pppp"
 //    }
@@ -110,7 +110,6 @@ class viewPastHistory4: NSCollectionViewItem {
             //let hours = self.getStringFrom(seconds: hours)
             let minutes = self.getStringFrom(seconds: minutes)
             let seconds = self.getStringFrom(seconds: seconds)
-            
             self.currentTime4.stringValue = "\(minutes):\(seconds)"
         }
         
