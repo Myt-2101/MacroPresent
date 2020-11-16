@@ -63,7 +63,7 @@
                 <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="thG-nr-gZ6">
                     <rect key="frame" x="1" y="22" width="270" height="19"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="lUk-pG-CnF"/>
+                    <sliderCell key="cell" state="on" alignment="left" maxValue="100" tickMarkPosition="above" sliderType="linear" id="lUk-pG-CnF"/>
                     <connections>
                         <action selector="audioSliderAction:" target="-2" id="89L-7Q-YNG"/>
                     </connections>

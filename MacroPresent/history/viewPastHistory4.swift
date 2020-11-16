@@ -83,7 +83,15 @@ class viewPastHistory4: NSCollectionViewItem {
     }
     
     @IBAction func audioSliderAction(_ sender: Any) {
-        audio?.play()
+        switch true {
+        case audio?.isPlaying:
+            audio?.stop()
+            audio?.currentTime = TimeInterval(audioSliderImage.doubleValue)
+            audio?.prepareToPlay()
+            audio?.play()
+        default:
+            audio?.pause()
+        }
     }
     
     @IBAction func buttonAudio(_ sender: Any) {
