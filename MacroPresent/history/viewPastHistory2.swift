@@ -22,4 +22,13 @@ class viewPastHistory2: NSCollectionViewItem {
         // Do view setup here.
     }
     
+    
+    override var isSelected: Bool {
+        didSet {
+            self.view.layer?.backgroundColor = isSelected ? CGColor(red: 0, green: 0x62/0xFF, blue: 0xCC/0xFF, alpha: 1) : NSColor.clear.cgColor
+        }
+    }
+    
+    
+    
 }

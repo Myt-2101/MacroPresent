@@ -267,6 +267,29 @@ class HomeViewController: NSViewController {
         maxDurationTextField.stringValue = String(timerStepper.integerValue)
         duraationsInSeconds = timerStepper.integerValue*60
     }
+    
+    
+//    func hexStringToUIColor (hex:String) -> NSColor {
+//        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+//
+//        if (cString.hasPrefix("#")) {
+//            cString.remove(at: cString.startIndex)
+//        }
+//
+//        if ((cString.count) != 6) {
+//            return UIColor.gray
+//        }
+//
+//        var rgbValue:UInt64 = 0
+//        Scanner(string: cString).scanHexInt64(&rgbValue)
+//
+//        return UIColor(
+//            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+//            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+//            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+//            alpha: CGFloat(1.0)
+//        )
+//    }
 
 }
 
@@ -327,6 +350,8 @@ extension HomeViewController: NSCollectionViewDelegate, NSCollectionViewDataSour
 
 //            item2.presentationTitle2.stringValue =
 //                showDataListHistory1[indexCollection2].valueDatalistHistory2[indexPath.item].namePresentationTitle2
+            
+            
             item2.presentationTitle2.stringValue = keynotes[indexCollection2].practices[indexPath.item].keynoteName.deletingPathExtension().lastPathComponent
             
             //item2.presentationTitle2.stringValue = keynotes[indexCollection2].practices[indexPath.item].keynoteName.deletingPathExtension().lastPathComponent
@@ -419,23 +444,58 @@ extension HomeViewController: NSCollectionViewDelegate, NSCollectionViewDataSour
     func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
         if (collectionView == listPastHistory1){
             indexListPastHistory1 = indexPaths.first?.item
+            listPastHistory1.item(at: indexListPastHistory1!)?.view.layer?.backgroundColor = CGColor(red: 0, green: 0x62/0xFF, blue: 0xCC/0xFF, alpha: 1)
+            //listPastHistory2.item(at: indexListPastHistory1!)?.view.layer?.backgroundColor = .clear
+            //listPastHistory3.item(at: indexListPastHistory1!)?.view.layer?.backgroundColor = .clear
+            
+            //listPastHistory1.reloadData()
+            //listPastHistory2.backgroundColors = CGColor(red: 0, green: 0x62/0xFF, blue: 0xCC/0xFF, alpha: 1) as! [NSColor]
+            //listPastHistory2.backgroundColors = NSColor(.c)
             listPastHistory2.reloadData()
             indexListPastHistory2 = nil
             listPastHistory3.reloadData()
             indexListPastHistory3 = nil
             listPastHistory4.reloadData()
         }else if (collectionView == listPastHistory2){
+            
+            //listPastHistory2.item(at: indexListPastHistory2!)?.view.layer?.backgroundColor = .clear
             indexListPastHistory2 = indexPaths.first?.item
+            //listPastHistory1.item(at: indexListPastHistory1!)?.view.layer?.backgroundColor = .clear
+            listPastHistory2.item(at: indexListPastHistory2!)?.view.layer?.backgroundColor = CGColor(red: 0, green: 0x62/0xFF, blue: 0xCC/0xFF, alpha: 1)
+            //listPastHistory3.item(at: indexListPastHistory1!)?.view.layer?.backgroundColor = .clear
             listPastHistory3.reloadData()
             indexListPastHistory3 = nil
             listPastHistory4.reloadData()
         }else if (collectionView == listPastHistory3){
             indexListPastHistory3 = indexPaths.first?.item
+            listPastHistory3.item(at: indexListPastHistory3!)?.view.layer?.backgroundColor = CGColor(red: 0, green: 0x62/0xFF, blue: 0xCC/0xFF, alpha: 1)
             listPastHistory4.reloadData()
         }
     }
-
-}
+    
+    func collectionView(_ collectionView: NSCollectionView, didDeselectItemsAt indexPaths: Set<IndexPath>) {
+        if (collectionView == listPastHistory1){
+            indexListPastHistory1 = indexPaths.first?.item
+            listPastHistory1.item(at: indexListPastHistory1!)?.view.layer?.backgroundColor = .clear
+            //listPastHistory1.reloadData()
+            listPastHistory2.reloadData()
+            //indexListPastHistory2 = nil
+            listPastHistory3.reloadData()
+            //indexListPastHistory3 = nil
+            listPastHistory4.reloadData()
+        }else if (collectionView == listPastHistory2){
+            indexListPastHistory2 = indexPaths.first?.item
+            listPastHistory2.item(at: indexListPastHistory2!)?.view.layer?.backgroundColor = .clear
+            listPastHistory3.reloadData()
+            //indexListPastHistory3 = nil
+            listPastHistory4.reloadData()
+        }else if (collectionView == listPastHistory3){
+            indexListPastHistory3 = indexPaths.first?.item
+            listPastHistory3.item(at: indexListPastHistory3!)?.view.layer?.backgroundColor = .clear
+            listPastHistory4.reloadData()
+        }
+        }
+    }
 
 extension Notification.Name{
     static let didCloseKeynoteTimer = NSNotification.Name(rawValue: "onCloseKeynoteTimer")
