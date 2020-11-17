@@ -36,7 +36,7 @@ class HomeViewController: NSViewController {
     var collectionviewhideen3:Int = 0
     var nilai:Int?
     
-    let data: [cPractice] = CoreDataManager.fetchPractices()
+    var data: [cPractice] = CoreDataManager.fetchPractices()
     
     //var valueListPstHistory = [dataListHistoryNext]()
     
@@ -74,11 +74,7 @@ class HomeViewController: NSViewController {
         
         //let data: [cPractice] = CoreDataManager.fetchPractices()
         
-        if data.isEmpty{
-            historyPlaceHolderText.isHidden = false
-        }else {
-            historyPlaceHolderText.isHidden = true
-        }
+        cekData()
         
         
         
@@ -169,9 +165,21 @@ class HomeViewController: NSViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(onCloseKeynoteTimer), name: .didCloseKeynoteTimer, object: nil)
     }
+    func cekData(){
+        if data.isEmpty{
+            historyPlaceHolderText.isHidden = false
+        }else {
+            historyPlaceHolderText.isHidden = true
+        }
+    }
+    
     
     @objc func onCloseKeynoteTimer(){
         self.view.window?.setIsVisible(true)
+        data = CoreDataManager.fetchPractices()
+        cekData()
+        listPastHistory1.reloadData()
+        //data = CoreDataManager.fetchPractices()
         //self.view.window.
     }
     
