@@ -111,9 +111,16 @@ class HomeViewController: NSViewController {
         //setHiddenCollectionView()
         print(collectionviewhidden2)
         //print(showDataListHistory1[index])
+        reverseArray()
         
         NotificationCenter.default.addObserver(self, selector: #selector(onCloseKeynoteTimer), name: .didCloseKeynoteTimer, object: nil)
     }
+    
+    func reverseArray(){
+        keynotes.reverse()
+    }
+    
+    
     func cekData(){
         if keynotes.isEmpty{
             historyPlaceHolderText.isHidden = false
@@ -140,6 +147,7 @@ class HomeViewController: NSViewController {
         self.view.window?.setIsVisible(true)
         keynotes = CoreDataManager.kelompokinByKeynote()
         cekData()
+        reverseArray()
         listPastHistory1.reloadData()
         //data = CoreDataManager.fetchPractices()
         //self.view.window.
