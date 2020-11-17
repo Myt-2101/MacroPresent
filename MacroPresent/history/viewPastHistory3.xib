@@ -28,7 +28,7 @@
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="NY1-6U-aQp"/>
                 </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="js6-kS-eql">
-                    <rect key="frame" x="43" y="16" width="31" height="16"/>
+                    <rect key="frame" x="9" y="16" width="107" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Title" id="Mag-hk-VZU">
                         <font key="font" usesAppearanceFont="YES"/>
@@ -60,7 +60,7 @@
                     </textFieldCell>
                 </textField>
             </subviews>
-            <point key="canvasLocation" x="-101" y="145"/>
+            <point key="canvasLocation" x="-101.5" y="144.5"/>
         </customView>
         <collectionViewItem id="jN1-48-Ymo" customClass="viewPastHistory3" customModule="MacroPresent" customModuleProvider="target"/>
     </objects>

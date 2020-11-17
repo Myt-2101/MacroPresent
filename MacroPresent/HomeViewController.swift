@@ -274,28 +274,41 @@ extension HomeViewController: NSCollectionViewDelegate, NSCollectionViewDataSour
 
     
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
+        //guard let index = indexListPastHistory1 else {return 0}
+        //guard let index2 = indexListPastHistory2 else {return 0}
+        //guard let index3 = indexListPastHistory3 else {return 0}
         
         if (collectionView == listPastHistory2){
             guard let index = indexListPastHistory1 else {return 0}
 //            return showDataListHistory1[index].getDataListHistory2()
             return keynotes[index].practices.count
         }else if (collectionView == listPastHistory3){
-            guard let index = indexListPastHistory2 else {return 0}
-            //guard let index = i
-            return showDataListHistory2[index].getDataListHistory3()
+            guard let index = indexListPastHistory1 else {return 0}
+            guard let index2 = indexListPastHistory2 else {return 0}
+            return keynotes[index].practices[index2].slides.count
+            //return showDataListHistory2[index].getDataListHistory3()
             
         }else if (collectionView == listPastHistory4){
-            guard let index = indexListPastHistory3 else {return 0}
-            return showDataListHistory3[index].getDataListHistory4()
+            guard let index = indexListPastHistory1 else {return 0}
+            guard let index2 = indexListPastHistory2 else {return 0}
+            guard let index3 = indexListPastHistory3 else {return 0}
+            return keynotes[index].practices[index2].WPMs.count
+            //return showDataListHistory3[index].getDataListHistory4()
         }
         
         return keynotes.count
 }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
+        
+        //guard let indexCollection2 = indexListPastHistory1 else {return NSCollectionViewItem()}
+        //guard let indexCollection3 = indexListPastHistory2 else {return NSCollectionViewItem()}
+        
         if (collectionView == listPastHistory1){
             let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "viewPastHistory1"), for: indexPath) as! viewPastHistory1
-                    
+            
+            //guard let indexCollection2 = indexListPastHistory1 else {return NSCollectionViewItem()}
+            
                     //item.presentationTitle.stringValue =
                     item.presentationTitle.stringValue = keynotes[indexPath.item].keynoteName.deletingPathExtension().lastPathComponent
                     item.pptView.image = NSImage(contentsOf: keynotes[indexPath.item].keynotePreview)
@@ -310,10 +323,13 @@ extension HomeViewController: NSCollectionViewDelegate, NSCollectionViewDataSour
             let item2 = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "viewPastHistory2"), for: indexPath) as! viewPastHistory2
             
             guard let indexCollection2 = indexListPastHistory1 else {return NSCollectionViewItem()}
+            //guard let indexCollection2 = indexListPastHistory1 else {return NSCollectionViewItem()}
 
 //            item2.presentationTitle2.stringValue =
 //                showDataListHistory1[indexCollection2].valueDatalistHistory2[indexPath.item].namePresentationTitle2
             item2.presentationTitle2.stringValue = keynotes[indexCollection2].practices[indexPath.item].keynoteName.deletingPathExtension().lastPathComponent
+            
+            //item2.presentationTitle2.stringValue = keynotes[indexCollection2].practices[indexPath.item].keynoteName.deletingPathExtension().lastPathComponent
             
 //            item2.pptView2.image = NSImage(named: showDataListHistory1[indexPath.section].valueDatalistHistory2[indexPath.item].namePptView2)
             item2.pptView2.image = NSImage(contentsOf: keynotes[indexCollection2].practices[indexPath.item].keynotePreview)
@@ -335,14 +351,26 @@ extension HomeViewController: NSCollectionViewDelegate, NSCollectionViewDataSour
             
             let item3 = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "viewPastHistory3"), for: indexPath) as! viewPastHistory3
             
+            guard let indexCollection2 = indexListPastHistory1 else {return NSCollectionViewItem()}
             guard let indexCollection3 = indexListPastHistory2 else {return NSCollectionViewItem()}
             
-            item3.presentationTitle3.stringValue = showDataListHistory2[indexCollection3].valueDatalistHistory3[indexPath.item].namePresentationTitle3
-            item3.pptView3.image = NSImage(named: showDataListHistory2[indexCollection3].valueDatalistHistory3[indexPath.item].namePptView3)
-            //item3.pptview3.image = NSImage(named: showDataListHistory2[indexPath.section].valueDatalistHistory3[indexPath.item].namePptView3)
-            item3.notifView3.image = NSImage(named: showDataListHistory2[indexCollection3].valueDatalistHistory3[indexPath.item].nameNotifView3)
-            item3.notifViewNumber3.stringValue = "\(showDataListHistory2[indexCollection3].valueDatalistHistory3[indexPath.item].nameNotifViewNumber3)"
-            item3.timePresentation3.stringValue = showDataListHistory2[indexCollection3].valueDatalistHistory3[indexPath.item].valueTimePresentation3
+            
+            item3.presentationTitle3.stringValue = "Slide \(keynotes[indexCollection2].practices[indexCollection3].slides[indexPath.item].number)"
+            item3.pptView3.image = NSImage(contentsOf: keynotes[indexCollection2].practices[indexCollection3].slides[indexPath.item].preview)
+            
+            let interval = keynotes[indexCollection2].practices[indexCollection3].slides[indexPath.item].time
+            let formatter = DateComponentsFormatter()
+            formatter.allowedUnits = [.minute, .second]
+            formatter.unitsStyle = .abbreviated
+            let formatterToString = formatter.string(from: TimeInterval(interval))
+            
+            item3.timePresentation3.stringValue = formatterToString ?? "error"
+//            item3.presentationTitle3.stringValue = showDataListHistory2[indexCollection3].valueDatalistHistory3[indexPath.item].namePresentationTitle3
+//            item3.pptView3.image = NSImage(named: showDataListHistory2[indexCollection3].valueDatalistHistory3[indexPath.item].namePptView3)
+//            //item3.pptview3.image = NSImage(named: showDataListHistory2[indexPath.section].valueDatalistHistory3[indexPath.item].namePptView3)
+//            item3.notifView3.image = NSImage(named: showDataListHistory2[indexCollection3].valueDatalistHistory3[indexPath.item].nameNotifView3)
+//            item3.notifViewNumber3.stringValue = "\(showDataListHistory2[indexCollection3].valueDatalistHistory3[indexPath.item].nameNotifViewNumber3)"
+//            item3.timePresentation3.stringValue = showDataListHistory2[indexCollection3].valueDatalistHistory3[indexPath.item].valueTimePresentation3
             return item3
             
         } else if (collectionView == listPastHistory4){
