@@ -167,10 +167,9 @@ class KeynoteTimer: NSViewController {
     
     
     func saveToDatabase() -> Bool{
-        var wpms: [cWPM] = []
         var slides: [cSlide] = []
 
-        wpms = self.timerRecording.WPMs
+//        wpms = self.timerRecording.WPMs
 //        for wpm in self.timerRecording.WPMs{
 //            wpms.append(wpm)
 //        }
@@ -187,24 +186,31 @@ class KeynoteTimer: NSViewController {
         let folderName = "\(keynoteName) Present It"
         if self.arrayTimePerSlide.count != 0 {
             for index in 0..<self.arrayTimePerSlide.count{
-                //TODO: Get slide preview URL
-                let formattedNumber = String(format: format, index+1)
-                let newSlide = cSlide(number: index+1,
+                let slideNumber = index + 1
+                var newWPMs: [cWPM] = []
+
+                for wpm in timerRecording.WPMs{
+                    if (wpm.slideNumber == slideNumber){
+                        newWPMs.append(wpm)
+                    }
+                }
+                
+                let formattedNumber = String(format: format, slideNumber)
+                let newSlide = cSlide(number: slideNumber,
                                       time: self.arrayTimePerSlide[index],
-                                      preview: URL(fileURLWithPath: "\(self.pathToPictureDir!)/\(folderName)/\(folderName).\(formattedNumber).jpeg"))
+                                      preview: URL(fileURLWithPath: "\(self.pathToPictureDir!)/\(folderName)/\(folderName).\(formattedNumber).jpeg"),
+                                      WPMs: newWPMs)
                 
                 slides.append(newSlide)
             }
         }
         
-        //TODO: keynoteName, keynotePreview, maxDuration
         let practice = cPractice(ID: UUID(),
                                  keynoteName: keynotePath,
                                  keynotePreview: URL(fileURLWithPath: "\(self.pathToPictureDir!)/\(folderName)/\(folderName).001.jpeg"),
                                  maxDuration: maxDuration,
                                  totalTime: self.timeInSeconds,
-                                 slides: slides,
-                                 WPMs: wpms)
+                                 slides: slides)
         
         for slide in practice.slides{
             print(slide.preview)

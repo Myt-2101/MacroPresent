@@ -92,25 +92,53 @@ public class CoreDataManager{
             } else {
                 for data in practiceResult{
                     
+//                    var newWPMs: [cWPM] = []
+//                    for wpm in slides.wpm.compactMap({($0 as! WPM)}){
+//                        let currentWPM = cWPM(
+//                            position: Int(wpm.position),
+//                            wordsPerMinute: Int(wpm.wordsPerMinute),
+//                            audioPath: wpm.audioPath,
+//                            slideNumber: Int(wpm.slideNumber)
+//                        )
+//                        newWPMs.append(currentWPM)
+//                    }
+                    
                     var newSlides: [cSlide] = []
                     for slide in data.slides.compactMap({($0 as! Slide)}){
+                        
+                        var newWPMs: [cWPM] = []
+                        for wpm in slide.wpm.compactMap({($0 as! WPM)}){
+                            let currentWPM = cWPM(
+                                position: Int(wpm.position),
+                                wordsPerMinute: Int(wpm.wordsPerMinute),
+                                audioPath: wpm.audioPath,
+                                slideNumber: Int(wpm.slideNumber)
+                            )
+                            newWPMs.append(currentWPM)
+                        }
+                        
+                        newWPMs.sort { (wpm1, wpm2) -> Bool in
+                            wpm1.position < wpm2.position
+                        }
+                        
+//                        var thisWPM = [cWPM]()
+//                        for wpm in newWPMs{
+//                            if wpm.slideNumber == slide.slideNumber {
+//                                thisWPM.append(wpm)
+//                            }
+//                        }
+                        
                         let currentSlide = cSlide(
                             number: Int(slide.slideNumber),
                             time: Int(slide.slideTime),
-                            preview: slide.slidePreview
+                            preview: slide.slidePreview,
+                            WPMs: newWPMs
                         )
                         newSlides.append(currentSlide)
                     }
                     
-                    var newWPMs: [cWPM] = []
-                    for wpm in data.wpm.compactMap({($0 as! WPM)}){
-                        let currentWPM = cWPM(
-                            position: Int(wpm.position),
-                            wordsPerMinute: Int(wpm.wordsPerMinute),
-                            audioPath: wpm.audioPath,
-                            slideNumber: Int(wpm.slideNumber)
-                        )
-                        newWPMs.append(currentWPM)
+                    newSlides.sort { (a, b) -> Bool in
+                        a.number < b.number
                     }
                     
                     let newPractice = cPractice(
@@ -119,8 +147,7 @@ public class CoreDataManager{
                         keynotePreview: data.keynotePreview,
                         maxDuration: Int(data.maxDuration),
                         totalTime: Int(data.totalTime),
-                        slides: newSlides,
-                        WPMs: newWPMs
+                        slides: newSlides
                     )
                     
                     practices.append(newPractice)
@@ -139,22 +166,34 @@ public class CoreDataManager{
         
         var slides: [Slide] = []
         for slide in newData.slides{
+            
+            var WPMs: [WPM] = []
+            for wpm in slide.WPMs{
+                let newWPM = WPM(context: context)
+                newWPM.position = Int32(wpm.position)
+                newWPM.wordsPerMinute = Int32(wpm.wordsPerMinute)
+                newWPM.audioPath = wpm.audioPath
+                newWPM.slideNumber = Int32(wpm.slideNumber)
+                WPMs.append(newWPM)
+            }
+            
             let newSlide = Slide(context: context)
             newSlide.slideNumber = Int32(slide.number)
             newSlide.slideTime = Int32(slide.time)
             newSlide.slidePreview = slide.preview
+            newSlide.wpm = NSSet(array: WPMs)
             slides.append(newSlide)
         }
         
-        var WPMs: [WPM] = []
-        for wpm in newData.WPMs{
-            let newWPM = WPM(context: context)
-            newWPM.position = Int32(wpm.position)
-            newWPM.wordsPerMinute = Int32(wpm.wordsPerMinute)
-            newWPM.audioPath = wpm.audioPath
-            newWPM.slideNumber = Int32(wpm.slideNumber)
-            WPMs.append(newWPM)
-        }
+//        var WPMs: [WPM] = []
+//        for wpm in newData.WPMs{
+//            let newWPM = WPM(context: context)
+//            newWPM.position = Int32(wpm.position)
+//            newWPM.wordsPerMinute = Int32(wpm.wordsPerMinute)
+//            newWPM.audioPath = wpm.audioPath
+//            newWPM.slideNumber = Int32(wpm.slideNumber)
+//            WPMs.append(newWPM)
+//        }
         
         let practice = Practice(context: context)
         practice.id = newData.ID
@@ -163,7 +202,7 @@ public class CoreDataManager{
         practice.maxDuration = Int32(newData.maxDuration)
         practice.totalTime = Int32(newData.totalTime)
         practice.slides = NSSet(array: slides)
-        practice.wpm = NSSet(array: WPMs)
+//        practice.wpm = NSSet(array: WPMs)
         
 
         do {
