@@ -392,9 +392,10 @@ extension HomeViewController: NSCollectionViewDelegate, NSCollectionViewDataSour
                 item4.urlAudio = keynotes[indexCollection2].practices[indexCollection3].slides[indexCollection4].WPMs[indexPath.item].audioPath
                 item4.textAnalisa.stringValue = "Your going too slow, be faster"
                 item4.setAudio()
-            }else {
-                item4.collectionView?.isHidden = true
             }
+            //else {
+                //item4.collectionView?.isHidden = true
+            //}
             
             
             //item4.currentTime4.stringValue = showDataListHistory3[indexCollection4].valueDatalistHistory4[indexPath.item].valueCurrentTime4
