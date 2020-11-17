@@ -22,6 +22,7 @@ public struct cSlide{
     var number: Int
     var time: Int
     var preview: URL
+    var WPMs: [cWPM]
 }
 
 public struct cPractice{
@@ -31,7 +32,7 @@ public struct cPractice{
     var maxDuration: Int
     var totalTime: Int
     var slides: [cSlide]
-    var WPMs: [cWPM]
+    //var WPMs: [cWPM]
 }
 
 public struct Keynote{

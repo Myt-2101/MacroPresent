@@ -18,8 +18,9 @@ class viewPastHistory4: NSCollectionViewItem {
     @IBOutlet weak var audioSliderImage: NSSlider!
     
     var audio: AVAudioPlayer?
-    var playingAudio: String?
+    //var playingAudio: String?
     var timer: Timer?
+    var urlAudio: URL?
     
     
     override func viewDidLoad() {
@@ -36,12 +37,13 @@ class viewPastHistory4: NSCollectionViewItem {
     
     func setAudio() {
         //untuk masukin ke url supaya buat play
-        let url = Bundle.main.path(forResource: playingAudio, ofType: "mp3")
+        //let url = Bundle.main.path(forResource: playingAudio, ofType: "mp3")
         do {
-            guard let url = url else{
-                return
-            }
-            audio = try AVAudioPlayer(contentsOf: URL(string: url)!)
+//            guard let url = url else{
+//                return
+//            }
+            audio = try AVAudioPlayer(contentsOf: urlAudio!)
+            //audio = try AVAudioPlayer(contentsOf: URL(string: url)!)
             
             guard let audio = audio else {
                 return

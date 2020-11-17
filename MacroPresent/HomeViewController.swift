@@ -292,7 +292,7 @@ extension HomeViewController: NSCollectionViewDelegate, NSCollectionViewDataSour
             guard let index = indexListPastHistory1 else {return 0}
             guard let index2 = indexListPastHistory2 else {return 0}
             guard let index3 = indexListPastHistory3 else {return 0}
-            return keynotes[index].practices[index2].WPMs.count
+            return keynotes[index].practices[index2].slides[index3].WPMs.count
             //return showDataListHistory3[index].getDataListHistory4()
         }
         
@@ -376,14 +376,33 @@ extension HomeViewController: NSCollectionViewDelegate, NSCollectionViewDataSour
         } else if (collectionView == listPastHistory4){
             let item4 = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "viewPastHistory4"), for: indexPath) as! viewPastHistory4
             
+            guard let indexCollection2 = indexListPastHistory1 else {return NSCollectionViewItem()}
+            guard let indexCollection3 = indexListPastHistory2 else {return NSCollectionViewItem()}
             guard let indexCollection4 = indexListPastHistory3 else {return NSCollectionViewItem()}
+            
+            //item4.urlAudio = keynotes[indexCollection2].practices[indexCollection3].slides[indexCollection4].WPMs[indexPath.item].audioPath
+            
+            let cekAnalisa = keynotes[indexCollection2].practices[indexCollection3].slides[indexCollection4].WPMs[indexPath.item].wordsPerMinute
+            
+            if cekAnalisa > 170 {
+                item4.urlAudio = keynotes[indexCollection2].practices[indexCollection3].slides[indexCollection4].WPMs[indexPath.item].audioPath
+                item4.setAudio()
+                item4.textAnalisa.stringValue = "Your going too fast,"
+            }else if cekAnalisa < 140 {
+                item4.urlAudio = keynotes[indexCollection2].practices[indexCollection3].slides[indexCollection4].WPMs[indexPath.item].audioPath
+                item4.textAnalisa.stringValue = "Your going too slow, be faster"
+                item4.setAudio()
+            }else {
+                item4.collectionView?.isHidden = true
+            }
+            
             
             //item4.currentTime4.stringValue = showDataListHistory3[indexCollection4].valueDatalistHistory4[indexPath.item].valueCurrentTime4
             //item4.maxTime4.stringValue = showDataListHistory3[indexCollection4].valueDatalistHistory4[indexPath.item].valueMaxTime4
-            item4.textAnalisa.stringValue = showDataListHistory3[indexCollection4].valueDatalistHistory4[indexPath.item].nameTextAnalisa4
-            // disini keambil tapi gak keupdate di cell.
-            item4.playingAudio = showDataListHistory3[indexCollection4].valueDatalistHistory4[indexPath.item].nameAudioFile
-            item4.setAudio() 
+//            item4.textAnalisa.stringValue = showDataListHistory3[indexCollection4].valueDatalistHistory4[indexPath.item].nameTextAnalisa4
+//            // disini keambil tapi gak keupdate di cell.
+//            item4.playingAudio = showDataListHistory3[indexCollection4].valueDatalistHistory4[indexPath.item].nameAudioFile
+//            item4.setAudio()
             //item4.playingAudio = "01BloodAndWine"
             
             //item4.currentTime4.stringValue = showDataListHistory3[indexPath.item].valueData
