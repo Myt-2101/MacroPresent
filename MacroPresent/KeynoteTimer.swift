@@ -210,8 +210,8 @@ class KeynoteTimer: NSViewController {
             print(slide.preview)
         }
         
-        return true
-//        return CoreDataManager.save(practice: practice)
+        //return true
+        return CoreDataManager.save(practice: practice)
     }
    
    

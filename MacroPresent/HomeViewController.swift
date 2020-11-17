@@ -36,6 +36,8 @@ class HomeViewController: NSViewController {
     var collectionviewhideen3:Int = 0
     var nilai:Int?
     
+    let data: [cPractice] = CoreDataManager.fetchPractices()
+    
     //var valueListPstHistory = [dataListHistoryNext]()
     
     var showDataListHistory1 = [dataListHistory1]()
@@ -50,6 +52,7 @@ class HomeViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewWillAppear()
         // Do view setup here.
         timerStepper.integerValue = 0
         maxDurationTextField.stringValue = String(timerStepper.integerValue)
@@ -69,16 +72,27 @@ class HomeViewController: NSViewController {
         //listPastHistory2.isHidden = true
         
         
+        //let data: [cPractice] = CoreDataManager.fetchPractices()
+        
+        if data.isEmpty{
+            historyPlaceHolderText.isHidden = false
+        }else {
+            historyPlaceHolderText.isHidden = true
+        }
+        
+        
+        
+        
         // add NIb to NSCollection View
 //        let nibPastHistory1 = NSNib(nibNamed: "viewPastHistory1", bundle: nil)
 //        listPastHistory1.register(nibPastHistory1, forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: "viewPastHistory1"))
-//        
+//
 //        let nibPastHistory2 = NSNib(nibNamed: "viewPastHistory2", bundle: nil)
 //        listPastHistory2.register(nibPastHistory2, forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: "viewPastHistory2"))
-//        
+//
 //        let nibPastHistory3 = NSNib(nibNamed: "viewPastHistory3", bundle: nil)
 //        listPastHistory3.register(nibPastHistory3, forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: "viewPastHistory3"))
-//        
+//
 //        let nibPastHistory4 = NSNib(nibNamed: "viewPastHistory4", bundle: nil)
 //        listPastHistory4.register(nibPastHistory4, forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: "viewPastHistory4"))
         
@@ -158,6 +172,7 @@ class HomeViewController: NSViewController {
     
     @objc func onCloseKeynoteTimer(){
         self.view.window?.setIsVisible(true)
+        //self.view.window.
     }
     
     //membuat background di nscollection clear, default deep black
@@ -263,17 +278,20 @@ extension HomeViewController: NSCollectionViewDelegate, NSCollectionViewDataSour
             return showDataListHistory3[index].getDataListHistory4()
         }
         
-        return showDataListHistory1.count
+        return data.count
 }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "viewPastHistory1"), for: indexPath) as! viewPastHistory1
-
-        item.presentationTitle.stringValue = showDataListHistory1[indexPath.item].namePresentationTitle
-        item.pptView.image = NSImage(named: showDataListHistory1[indexPath.item].namePptView)
-        //item.pptView.image = NSImage(named: showDataListHistory1[indexPath.item].namePptView)
-        item.notifView.image = NSImage(named: showDataListHistory1[indexPath.item].nameNotifView)
-        item.notifViewNumber.stringValue = "\(showDataListHistory1[indexPath.item].nameNotifViewNumber)"
+        
+        //item.presentationTitle.stringValue =
+        item.presentationTitle.stringValue = data[indexPath.item].keynoteName.deletingPathExtension().lastPathComponent
+        item.pptView.image = NSImage(contentsOf: data[indexPath.item].keynotePreview)
+//        item.presentationTitle.stringValue = showDataListHistory1[indexPath.item].namePresentationTitle
+//        item.pptView.image = NSImage(named: showDataListHistory1[indexPath.item].namePptView)
+//        //item.pptView.image = NSImage(named: showDataListHistory1[indexPath.item].namePptView)
+//        item.notifView.image = NSImage(named: showDataListHistory1[indexPath.item].nameNotifView)
+//        item.notifViewNumber.stringValue = "\(showDataListHistory1[indexPath.item].nameNotifViewNumber)"
         
         if (collectionView == listPastHistory2){
             let item2 = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "viewPastHistory2"), for: indexPath) as! viewPastHistory2
