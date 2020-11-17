@@ -217,14 +217,14 @@
                                 </scroller>
                             </scrollView>
                             <scrollView wantsLayer="YES" fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q64-yZ-yTZ">
-                                <rect key="frame" x="500" y="16" width="330" height="354"/>
+                                <rect key="frame" x="500" y="16" width="330" height="305"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" copiesOnScroll="NO" id="N5a-hg-0Pf">
-                                    <rect key="frame" x="0.0" y="0.0" width="330" height="354"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="330" height="305"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <collectionView id="0u2-cH-J93">
-                                            <rect key="frame" x="0.0" y="0.0" width="330" height="354"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="330" height="305"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="0El-5y-yHY">
                                                 <size key="itemSize" width="321" height="40"/>
@@ -238,7 +238,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="ywR-m5-3gz">
-                                    <rect key="frame" x="314" y="0.0" width="16" height="281"/>
+                                    <rect key="frame" x="314" y="0.0" width="16" height="302"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -254,6 +254,15 @@
                                 <rect key="frame" x="489" y="16" width="5" height="354"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </box>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vB4-vl-L7Z">
+                                <rect key="frame" x="500" y="329" width="229" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Need Improvement :" id="fTU-ZH-Io8">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
@@ -265,6 +274,7 @@
                         <outlet property="listPastHistory3" destination="2jM-G6-OxD" id="Wgi-Hp-wmu"/>
                         <outlet property="listPastHistory4" destination="0u2-cH-J93" id="Mbj-6R-sg0"/>
                         <outlet property="maxDurationTextField" destination="gcS-Sh-QpV" id="4Sh-2F-iBu"/>
+                        <outlet property="needImprovement" destination="vB4-vl-L7Z" id="ACZ-cT-Ep0"/>
                         <outlet property="timerStepper" destination="Y0R-vt-bZ9" id="QC1-KP-eLd"/>
                         <outlet property="verticalLine1" destination="clr-rU-F9e" id="LLU-h3-Aaw"/>
                         <outlet property="verticalLine2" destination="g3h-Kh-xJj" id="Hd4-fO-VM2"/>

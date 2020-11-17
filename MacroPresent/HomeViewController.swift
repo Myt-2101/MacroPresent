@@ -34,6 +34,7 @@ class HomeViewController: NSViewController {
     @IBOutlet weak var verticalLine1: NSBox!
     @IBOutlet weak var verticalLine2: NSBox!
     @IBOutlet weak var verticalLine3: NSBox!
+    @IBOutlet weak var needImprovement: NSTextField!
     
     var collectionviewhidden2:Int = 0
     var collectionviewhideen3:Int = 0
@@ -177,11 +178,13 @@ class HomeViewController: NSViewController {
             verticalLine1.isHidden = true
             verticalLine2.isHidden = true
             verticalLine3.isHidden = true
+            needImprovement.isHidden = true
         }else {
             historyPlaceHolderText.isHidden = true
             verticalLine1.isHidden = false
             verticalLine2.isHidden = true
             verticalLine3.isHidden = true
+            needImprovement.isHidden = true
         }
     }
     
@@ -466,6 +469,7 @@ extension HomeViewController: NSCollectionViewDelegate, NSCollectionViewDataSour
             verticalLine3.isHidden = true
             listPastHistory3.reloadData()
             indexListPastHistory3 = nil
+            needImprovement.isHidden = true
             listPastHistory4.reloadData()
         }else if (collectionView == listPastHistory2){
             
@@ -477,10 +481,12 @@ extension HomeViewController: NSCollectionViewDelegate, NSCollectionViewDataSour
             verticalLine3.isHidden = false
             listPastHistory3.reloadData()
             indexListPastHistory3 = nil
+            needImprovement.isHidden = true
             listPastHistory4.reloadData()
         }else if (collectionView == listPastHistory3){
             indexListPastHistory3 = indexPaths.first?.item
             listPastHistory3.item(at: indexListPastHistory3!)?.view.layer?.backgroundColor = CGColor(red: 0, green: 0x62/0xFF, blue: 0xCC/0xFF, alpha: 1)
+            needImprovement.isHidden = false
             listPastHistory4.reloadData()
         }
     }
