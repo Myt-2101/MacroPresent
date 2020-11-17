@@ -20,8 +20,18 @@ class viewPastHistory2: NSCollectionViewItem {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        setItem()
     }
     
+    
+    func setItem(){
+        //presentationTitle.usesSingleLineMode = false
+        //presentationTitle2.maximumNumberOfLines = 2
+        presentationTitle2.cell?.wraps = true
+        presentationTitle2.alignment = .center
+        //presentationTitle.lineBreakMode =
+        timePresentation2.alignment = .center
+    }
     
     override var isSelected: Bool {
         didSet {
