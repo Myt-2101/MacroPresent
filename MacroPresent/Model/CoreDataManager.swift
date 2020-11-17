@@ -46,6 +46,37 @@ public class CoreDataManager{
     
     private static let context = getContext()
     
+    public static func kelompokinByKeynote() -> [Keynote]{
+        
+        var keynotes: [Keynote] = [Keynote]()
+        
+        let practices = fetchPractices()
+        
+        if practices.isEmpty{
+            return keynotes
+        }
+        
+        for practice in practices{
+            let keynoteExists = keynotes.contains { (keynote) -> Bool in
+                return keynote.keynoteName == practice.keynoteName
+            }
+            
+            if keynoteExists {
+                for index in 0..<keynotes.count {
+                    if (keynotes[index].keynoteName == practice.keynoteName) {
+                        keynotes[index].practices.append(practice)
+                    }
+                }
+            } else {
+                let newKeynote = Keynote(keynoteName: practice.keynoteName, keynotePreview: practice.keynotePreview, practices: [practice])
+                keynotes.append(newKeynote)
+            }
+        }
+        
+        return keynotes
+        
+    }
+    
     public static func fetchPractices() -> [cPractice]{
 
         var practices: [cPractice] = []

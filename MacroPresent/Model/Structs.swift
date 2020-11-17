@@ -33,3 +33,9 @@ public struct cPractice{
     var slides: [cSlide]
     var WPMs: [cWPM]
 }
+
+public struct Keynote{
+    var keynoteName: URL
+    var keynotePreview: URL
+    var practices: [cPractice]
+}
