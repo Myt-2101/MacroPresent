@@ -27,21 +27,13 @@ class viewPastHistory4: NSCollectionViewItem {
         super.viewDidLoad()
         // Do view setup here.
         
-        //buttonAudioPlayer = AVAudioPlayer(contentsOf: buttonaAudioURL)
-        //updateTimer()
-        //UpdateSlider()
-        //setAudio()
 
         
     }
     
     func setAudio() {
-        //untuk masukin ke url supaya buat play
-        //let url = Bundle.main.path(forResource: playingAudio, ofType: "mp3")
         do {
-//            guard let url = url else{
-//                return
-//            }
+            //langsung play
             audio = try AVAudioPlayer(contentsOf: urlAudio!)
             //audio = try AVAudioPlayer(contentsOf: URL(string: url)!)
             
@@ -53,8 +45,9 @@ class viewPastHistory4: NSCollectionViewItem {
             
             let maxTime = Int(audioSliderImage.maxValue)
             
+            //set waktu int to 00:00:00
             hmsFrom(seconds: Int(maxTime)) { (minutes, seconds) in
-                //let hours = self.getStringFrom(seconds: hours)
+                
                 let minutes = self.getStringFrom(seconds: minutes)
                 let seconds = self.getStringFrom(seconds: seconds)
                 self.maxTime4.stringValue = "\(minutes):\(seconds)"
@@ -66,7 +59,7 @@ class viewPastHistory4: NSCollectionViewItem {
             }else {
                 audioSliderImage.intValue = 0
             }
-            //audio.play()
+            //set timer supaya slider jalan
             timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.UpdateSlider), userInfo: nil, repeats: true)
             
             //try AVAudioPlayer
@@ -75,25 +68,6 @@ class viewPastHistory4: NSCollectionViewItem {
         }
     }
     
-    //override func
-    
-//    func updateTimer(){
-//        switch playingAudio {
-//        case "01BloodAndWine":
-//            currentTime4.stringValue = "2000"
-//            maxTime4.stringValue = "4pppp"
-//        case "10SilverForMonsters":
-//            currentTime4.stringValue = "10000"
-//            maxTime4.stringValue = "6pppp"
-//        default:
-//            currentTime4.stringValue = "xxxxx"
-//            maxTime4.stringValue = "XXX"
-//        }
-//
-//
-////        currentTime4.stringValue = "2000"
-////        maxTime4.stringValue = "4pppp"
-//    }
     
     func hmsFrom(seconds: Int, completion: @escaping (_ minutes: Int, _ seconds: Int)->()) {
 
@@ -119,40 +93,7 @@ class viewPastHistory4: NSCollectionViewItem {
             self.currentTime4.stringValue = "\(minutes):\(seconds)"
         }
         
-        
-        
-        
-        //let date = Date()
-        
-        //currentTime4.stringValue = "\(audioSliderImage.intValue)"
-        
-        
-        //audioSliderImage.doubleValue = Double(audio!.currentTime)
-        //currentTime4.stringValue = String(format: "%.0f", audioSliderImage.doubleValue)
-        
-        //let formater= DateComponentsFormatter()
-        
-        
-        
-        //audioSliderImage.intValue = Int32(Int(audio!.currentTime))
-//        audioSliderImage.intValue = Int32(audio!.currentTime)
-//        currentTime4.stringValue = String(format: "%.0f", audioSliderImage.intValue)
-        //let doubletoFloat64 = Float64(audioSliderImage.double)
-        //let doubletoInt = Int(audioSliderImage.doubleValue)
-        
-        //let seconds = CMTimeGetSeconds(doubletoFloat64)
-        //let seconds = CMTimeGetSeconds()
-        
-//        let formater = DateComponentsFormatter()
-//        formater.allowedUnits = [.minute, .second]
-//        formater.unitsStyle = .positional
-//
-//        let formattedString = formater.string(from: TimeInterval(audioSliderImage.doubleValue))
-//        currentTime4.stringValue = formattedString!
-        
-        //currentTime4.stringValue = String(format: "%.0f", audioSliderImage.doubleValue)
-        //currentTime4.stringValue = String(format: "%.0f", audioSliderImage.doubleValue)
-        //currentTime4.stringValue = "\(Float(audioSliderImage.doubleValue))"
+
     }
     
     @IBAction func audioSliderAction(_ sender: Any) {
@@ -176,16 +117,9 @@ class viewPastHistory4: NSCollectionViewItem {
         case audio?.isPlaying:
             audio?.pause()
         // cek apakah audi sudah ada isinya apa belum, jadi kalau udah ada berrarti kepause apa kestop, jadi jalanin lagi.
-//        case audio != nil:
-//            audio?.play()
-        //fungsi kalau yang atas gak jalan smeua
         default:
             audio?.play()
-            //audio?.play()
-            //setAudio()
-            //audio?.play()
-        //setAudiotoPlay()
-            //setAudio()
+            
         }
         
         // old code, sangat tidak efisien, not recomended
