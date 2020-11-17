@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="o3O-qB-HAo">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="o3O-qB-HAo">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097.3"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17156"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -241,6 +242,18 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
+                            <box horizontalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="clr-rU-F9e">
+                                <rect key="frame" x="171" y="16" width="5" height="354"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </box>
+                            <box horizontalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="g3h-Kh-xJj">
+                                <rect key="frame" x="331" y="16" width="5" height="354"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </box>
+                            <box horizontalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="1z5-p4-8XS">
+                                <rect key="frame" x="489" y="16" width="5" height="354"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </box>
                         </subviews>
                     </view>
                     <connections>
@@ -253,6 +266,9 @@
                         <outlet property="listPastHistory4" destination="0u2-cH-J93" id="Mbj-6R-sg0"/>
                         <outlet property="maxDurationTextField" destination="gcS-Sh-QpV" id="4Sh-2F-iBu"/>
                         <outlet property="timerStepper" destination="Y0R-vt-bZ9" id="QC1-KP-eLd"/>
+                        <outlet property="verticalLine1" destination="clr-rU-F9e" id="LLU-h3-Aaw"/>
+                        <outlet property="verticalLine2" destination="g3h-Kh-xJj" id="Hd4-fO-VM2"/>
+                        <outlet property="verticalLine3" destination="1z5-p4-8XS" id="kZL-57-uAB"/>
                         <segue destination="uAx-8X-QTo" kind="show" identifier="KeynoteTimer" id="zlV-NM-lA4"/>
                     </connections>
                 </viewController>

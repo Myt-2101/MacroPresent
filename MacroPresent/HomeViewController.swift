@@ -31,6 +31,9 @@ class HomeViewController: NSViewController {
     @IBOutlet weak var listPastHistory3: NSCollectionView!
     @IBOutlet weak var listPastHistory4: NSCollectionView!
     
+    @IBOutlet weak var verticalLine1: NSBox!
+    @IBOutlet weak var verticalLine2: NSBox!
+    @IBOutlet weak var verticalLine3: NSBox!
     
     var collectionviewhidden2:Int = 0
     var collectionviewhideen3:Int = 0
@@ -171,8 +174,14 @@ class HomeViewController: NSViewController {
     func cekData(){
         if keynotes.isEmpty{
             historyPlaceHolderText.isHidden = false
+            verticalLine1.isHidden = true
+            verticalLine2.isHidden = true
+            verticalLine3.isHidden = true
         }else {
             historyPlaceHolderText.isHidden = true
+            verticalLine1.isHidden = false
+            verticalLine2.isHidden = true
+            verticalLine3.isHidden = true
         }
     }
     
@@ -451,8 +460,10 @@ extension HomeViewController: NSCollectionViewDelegate, NSCollectionViewDataSour
             //listPastHistory1.reloadData()
             //listPastHistory2.backgroundColors = CGColor(red: 0, green: 0x62/0xFF, blue: 0xCC/0xFF, alpha: 1) as! [NSColor]
             //listPastHistory2.backgroundColors = NSColor(.c)
+            verticalLine2.isHidden = false
             listPastHistory2.reloadData()
             indexListPastHistory2 = nil
+            verticalLine3.isHidden = true
             listPastHistory3.reloadData()
             indexListPastHistory3 = nil
             listPastHistory4.reloadData()
@@ -463,6 +474,7 @@ extension HomeViewController: NSCollectionViewDelegate, NSCollectionViewDataSour
             //listPastHistory1.item(at: indexListPastHistory1!)?.view.layer?.backgroundColor = .clear
             listPastHistory2.item(at: indexListPastHistory2!)?.view.layer?.backgroundColor = CGColor(red: 0, green: 0x62/0xFF, blue: 0xCC/0xFF, alpha: 1)
             //listPastHistory3.item(at: indexListPastHistory1!)?.view.layer?.backgroundColor = .clear
+            verticalLine3.isHidden = false
             listPastHistory3.reloadData()
             indexListPastHistory3 = nil
             listPastHistory4.reloadData()
