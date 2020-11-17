@@ -94,7 +94,7 @@ class KeynoteTimer: NSViewController {
     var timerRecording: TimerRecording!
 //    var colorRecording: ColorRecording!
     
-    var homeView: NSView!
+    var homeView: NSView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -348,7 +348,7 @@ extension KeynoteTimer: NSWindowDelegate{
 //    }
 
     func windowWillClose(_ notification: Notification) {
-        self.homeView.window?.setIsVisible(true)
+        self.homeView?.window?.setIsVisible(true)
     }
 }
 
