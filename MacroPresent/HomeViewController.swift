@@ -82,6 +82,7 @@ class HomeViewController: NSViewController {
         
         
         cekData()
+        setNeedImprovement()
         
         
         
@@ -186,6 +187,11 @@ class HomeViewController: NSViewController {
             verticalLine3.isHidden = true
             needImprovement.isHidden = true
         }
+    }
+    
+    func setNeedImprovement() {
+        needImprovement.font = .systemFont(ofSize: 20)
+        needImprovement.font = .boldSystemFont(ofSize: 20)
     }
     
     
