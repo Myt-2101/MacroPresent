@@ -82,8 +82,6 @@ class HomeViewController: NSViewController {
 //        let nibPastHistory4 = NSNib(nibNamed: "viewPastHistory4", bundle: nil)
 //        listPastHistory4.register(nibPastHistory4, forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: "viewPastHistory4"))
         
-        
-        
         /////// CEK YA BRADER
         //showDataListHistory4.append(dataListHistory4.init(valueCurrentTime4: "00:00", valueMaxTime4: "2:58", nameTextAnalisa4: dat))
         showDataListHistory4.append(dataListHistory4.init(nameAudioFile: "01BloodAndWine", valueCurrentTime4: "00:00", valueMaxTime4: "2:58", nameTextAnalisa4: "Get Gud Son"))
@@ -154,8 +152,13 @@ class HomeViewController: NSViewController {
         //setHiddenCollectionView()
         print(collectionviewhidden2)
         //print(showDataListHistory1[index])
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(onCloseKeynoteTimer), name: .didCloseKeynoteTimer, object: nil)
     }
     
+    @objc func onCloseKeynoteTimer(){
+        self.view.window?.setIsVisible(true)
+    }
     
     //membuat background di nscollection clear, default deep black
     func setPastHistory1(){
@@ -344,6 +347,9 @@ extension HomeViewController: NSCollectionViewDelegate, NSCollectionViewDataSour
 
 }
 
+extension Notification.Name{
+    static let didCloseKeynoteTimer = NSNotification.Name(rawValue: "onCloseKeynoteTimer")
+}
 
 
 

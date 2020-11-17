@@ -348,7 +348,9 @@ extension KeynoteTimer: NSWindowDelegate{
 //    }
 
     func windowWillClose(_ notification: Notification) {
-        self.homeView?.window?.setIsVisible(true)
+        timerRecording.stopTimer()
+        NotificationCenter.default.post(name: .didCloseKeynoteTimer, object: nil)
+//        self.homeView?.window?.setIsVisible(true)
     }
 }
 

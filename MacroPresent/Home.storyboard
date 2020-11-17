@@ -10,7 +10,7 @@
             <objects>
                 <windowController id="o3O-qB-HAo" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="GY6-6y-c6I">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" nonactivatingPanel="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="245" y="301" width="854" height="610"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
@@ -29,8 +29,8 @@
         <!--Present It-->
         <scene sceneID="ko9-pg-Dbf">
             <objects>
-                <viewController title="Present It" id="Nuv-Tk-SGM" customClass="HomeViewController" customModule="MacroPresent" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="Qa7-Yp-9gw">
+                <viewController title="Present It" showSeguePresentationStyle="single" id="Nuv-Tk-SGM" customClass="HomeViewController" customModule="MacroPresent" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" autoresizesSubviews="NO" id="Qa7-Yp-9gw">
                         <rect key="frame" x="0.0" y="0.0" width="854" height="610"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
@@ -258,7 +258,7 @@
                 </viewController>
                 <customObject id="HkC-7H-c22" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2" y="219"/>
+            <point key="canvasLocation" x="2" y="213"/>
         </scene>
         <!--KeynoteTimer-->
         <scene sceneID="ES4-hY-lZ4">
@@ -638,6 +638,9 @@
                             </menuItem>
                         </items>
                     </menu>
+                    <connections>
+                        <outlet property="delegate" destination="MLy-LI-cnY" id="90d-Hn-7Lm"/>
+                    </connections>
                 </application>
                 <customObject id="g55-Hh-eNL" customClass="NSFontManager"/>
                 <customObject id="MLy-LI-cnY" customClass="AppDelegate" customModule="MacroPresent" customModuleProvider="target"/>
