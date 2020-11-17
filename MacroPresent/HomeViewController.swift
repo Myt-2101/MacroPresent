@@ -279,27 +279,84 @@ extension HomeViewController: NSCollectionViewDelegate, NSCollectionViewDataSour
             guard let index2 = indexListPastHistory2 else {return 0}
             guard let index3 = indexListPastHistory3 else {return 0}
             return keynotes[index].practices[index2].slides[index3].WPMs.count
-            
+        }
+        return keynotes.count
+    }
+    
+    func getTotalMistake(_ indexPath: IndexPath) -> Int{
+        let keynote = keynotes[indexPath.item]
+        
+        var total = 0
+        
+        for practice in keynote.practices{
+            for slide in practice.slides{
+                for wpm in slide.WPMs{
+                    if wpm.wordsPerMinute < 140 || wpm.wordsPerMinute > 170 {
+                        total += 1
+                    }
+                }
+            }
         }
         
-        return keynotes.count
-}
+        return total
+    }
+    
+    func getPracticeMistake(_ index2: Int, _ indexPath: IndexPath) -> Int{
+        let practice = keynotes[index2].practices[indexPath.item]
+        
+        var total = 0
+        
+        for slide in practice.slides{
+            for wpm in slide.WPMs{
+                if wpm.wordsPerMinute < 140 || wpm.wordsPerMinute > 170 {
+                    total += 1
+                }
+            }
+        }
+        
+        return total
+    }
+    
+    func getSlideMistake(_ index2: Int, _ index3: Int, _ indexPath: IndexPath) -> Int{
+        let slide = keynotes[index2].practices[index3].slides[indexPath.item]
+        
+        var total = 0
+        
+        for wpm in slide.WPMs{
+            if wpm.wordsPerMinute < 140 || wpm.wordsPerMinute > 170 {
+                total += 1
+            }
+        }
+        
+        return total
+    }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-        
+                
         if (collectionView == listPastHistory1){
             let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "viewPastHistory1"), for: indexPath) as! viewPastHistory1
-                    item.presentationTitle.stringValue = keynotes[indexPath.item].keynoteName.deletingPathExtension().lastPathComponent
-                    item.pptView.image = NSImage(contentsOf: keynotes[indexPath.item].keynotePreview)
+            item.presentationTitle.stringValue = keynotes[indexPath.item].keynoteName.deletingPathExtension().lastPathComponent
+            item.pptView.image = NSImage(contentsOf: keynotes[indexPath.item].keynotePreview)
+            
+            let mistakes = getTotalMistake(indexPath)
+            if mistakes <= 0{
+                item.notifView.isHidden = true
+                item.notifViewNumber.isHidden = true
+            } else {
+                item.notifView.isHidden = false
+                item.notifViewNumber.isHidden = false
+                item.notifViewNumber.stringValue = "\(mistakes)"
+            }
+            
             return item
-        }
-        else if (collectionView == listPastHistory2){
+        }else if (collectionView == listPastHistory2){
             let item2 = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "viewPastHistory2"), for: indexPath) as! viewPastHistory2
             
             // untuk memastikan index yang kepilih sudah masuk
             guard let indexCollection2 = indexListPastHistory1 else {return NSCollectionViewItem()}
 
-            item2.presentationTitle2.stringValue = keynotes[indexCollection2].practices[indexPath.item].keynoteName.deletingPathExtension().lastPathComponent
+//            item2.presentationTitle2.stringValue = keynotes[indexCollection2].practices[indexPath.item].keynoteName.deletingPathExtension().lastPathComponent
+            item2.presentationTitle2.stringValue = "Practice \(indexPath.item + 1)"
             item2.pptView2.image = NSImage(contentsOf: keynotes[indexCollection2].practices[indexPath.item].keynotePreview)
             
             //fungsi membuat int ke dalam bentuk menit detik
@@ -310,6 +367,16 @@ extension HomeViewController: NSCollectionViewDelegate, NSCollectionViewDataSour
             let formatterToString = formatter.string(from: TimeInterval(interval))
             
             item2.timePresentation2.stringValue = formatterToString ?? "error"
+            
+            let mistakes = getPracticeMistake(indexCollection2, indexPath)
+            if mistakes <= 0{
+                item2.notifView2.isHidden = true
+                item2.notifViewNumber2.isHidden = true
+            } else {
+                item2.notifView2.isHidden = false
+                item2.notifViewNumber2.isHidden = false
+                item2.notifViewNumber2.stringValue = "\(mistakes)"
+            }
             
             return item2
             
@@ -332,6 +399,17 @@ extension HomeViewController: NSCollectionViewDelegate, NSCollectionViewDataSour
             let formatterToString = formatter.string(from: TimeInterval(interval))
             
             item3.timePresentation3.stringValue = formatterToString ?? "error"
+            
+            let mistakes = getSlideMistake(indexCollection2, indexCollection3, indexPath)
+            if mistakes <= 0{
+                item3.notifView3.isHidden = true
+                item3.notifViewNumber3.isHidden = true
+            } else {
+                item3.notifView3.isHidden = false
+                item3.notifViewNumber3.isHidden = false
+                item3.notifViewNumber3.stringValue = "\(mistakes)"
+            }
+            
             return item3
             
         } else if (collectionView == listPastHistory4){
