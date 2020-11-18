@@ -99,10 +99,12 @@ class KeynoteTimer: NSViewController {
         super.viewDidLoad()
         // Do view setup here.
         keynoteName.stringValue = "Slide \(getCurrentslideValue())"
-        
-        timerRecording = TimerRecording(basePath: "\(FileManager.default.currentDirectoryPath)/Recordings", interval: 10, view: self.view)
+        let musicDir = FileManager.SearchPathDirectory.musicDirectory
         let picturesDir = FileManager.SearchPathDirectory.picturesDirectory
         let domainMask = FileManager.SearchPathDomainMask.userDomainMask
+        
+        timerRecording = TimerRecording(basePath: "\(NSSearchPathForDirectoriesInDomains(musicDir, domainMask, true)[0])/Present It Recordings", interval: 10, view: self.view)
+        
         pathToPictureDir = NSSearchPathForDirectoriesInDomains(picturesDir, domainMask, true)[0]
         
     }

@@ -50,7 +50,7 @@
 
 /* Begin PBXFileReference section */
 		23118BD02546E2A300E925A0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		233E721C2542C9B600B243EC /* MacroPresent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacroPresent.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		233E721C2542C9B600B243EC /* Present It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Present It.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		233E721F2542C9B600B243EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		233E72212542C9B600B243EC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		233E72232542C9B800B243EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -116,7 +116,7 @@
 		233E721D2542C9B600B243EC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				233E721C2542C9B600B243EC /* MacroPresent.app */,
+				233E721C2542C9B600B243EC /* Present It.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -227,9 +227,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		233E721B2542C9B600B243EC /* MacroPresent */ = {
+		233E721B2542C9B600B243EC /* Present It */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 233E722C2542C9B800B243EC /* Build configuration list for PBXNativeTarget "MacroPresent" */;
+			buildConfigurationList = 233E722C2542C9B800B243EC /* Build configuration list for PBXNativeTarget "Present It" */;
 			buildPhases = (
 				233E72182542C9B600B243EC /* Sources */,
 				233E72192542C9B600B243EC /* Frameworks */,
@@ -239,9 +239,9 @@
 			);
 			dependencies = (
 			);
-			name = MacroPresent;
+			name = "Present It";
 			productName = MacroPresent;
-			productReference = 233E721C2542C9B600B243EC /* MacroPresent.app */;
+			productReference = 233E721C2542C9B600B243EC /* Present It.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -259,7 +259,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 233E72172542C9B600B243EC /* Build configuration list for PBXProject "MacroPresent" */;
+			buildConfigurationList = 233E72172542C9B600B243EC /* Build configuration list for PBXProject "Present It" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -272,7 +272,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				233E721B2542C9B600B243EC /* MacroPresent */,
+				233E721B2542C9B600B243EC /* Present It */,
 			);
 		};
 /* End PBXProject section */
@@ -454,16 +454,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MacroPresent/MacroPresent.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 3F2HKZKWL7;
+				DEVELOPMENT_TEAM = 3MY2V9Q6LG;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = MacroPresent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = CKCK.MacroPresent;
+				PRODUCT_BUNDLE_IDENTIFIER = CKCK.PresentIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -475,16 +476,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MacroPresent/MacroPresent.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 3F2HKZKWL7;
+				DEVELOPMENT_TEAM = 3MY2V9Q6LG;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = MacroPresent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = CKCK.MacroPresent;
+				PRODUCT_BUNDLE_IDENTIFIER = CKCK.PresentIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -494,7 +496,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		233E72172542C9B600B243EC /* Build configuration list for PBXProject "MacroPresent" */ = {
+		233E72172542C9B600B243EC /* Build configuration list for PBXProject "Present It" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				233E722A2542C9B800B243EC /* Debug */,
@@ -503,7 +505,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		233E722C2542C9B800B243EC /* Build configuration list for PBXNativeTarget "MacroPresent" */ = {
+		233E722C2542C9B800B243EC /* Build configuration list for PBXNativeTarget "Present It" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				233E722D2542C9B800B243EC /* Debug */,
