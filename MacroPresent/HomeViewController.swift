@@ -425,10 +425,10 @@ extension HomeViewController: NSCollectionViewDelegate, NSCollectionViewDataSour
             if cekAnalisa > 170 {
                 item4.urlAudio = keynotes[indexCollection2].practices[indexCollection3].slides[indexCollection4].WPMs[indexPath.item].audioPath
                 item4.setAudio()
-                item4.textAnalisa.stringValue = "Your going too fast,"
+                item4.textAnalisa.stringValue = "You're going too fast"
             }else if cekAnalisa < 140 {
                 item4.urlAudio = keynotes[indexCollection2].practices[indexCollection3].slides[indexCollection4].WPMs[indexPath.item].audioPath
-                item4.textAnalisa.stringValue = "Your going too slow, be faster"
+                item4.textAnalisa.stringValue = "You're going too slow"
                 item4.setAudio()
             }
             return item4
