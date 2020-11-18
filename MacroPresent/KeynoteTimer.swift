@@ -18,8 +18,7 @@ end tell
 
 let stopPresent = """
 tell application "Keynote"
-set ThisDocument to the front document
-stop ThisDocument
+quit
 end tell
 """
 
@@ -86,7 +85,7 @@ class KeynoteTimer: NSViewController {
     var interval : TimeInterval = 0
     var interval1 : TimeInterval = 0
     var error=NSDictionary?.none
-    
+    var slideindex=1
     var pathToPictureDir: String!
 //VARIABLE
     
@@ -134,8 +133,8 @@ class KeynoteTimer: NSViewController {
         startTotalTimer()
         startTimePerSlide()
         exportImages()
-        
         timerRecording.startTimer()
+        keynoteName.stringValue = "Slide \(slideindex)"
 //        colorRecording.start()
     }
     
@@ -223,16 +222,17 @@ class KeynoteTimer: NSViewController {
    
     @IBAction func NextSlide(_ sender: Any) {
         GotoNextSlide()
+        slideindex+=1
         let currentSlideValue = getCurrentslideValue()
         print(currentSlideValue)
-        
+        keynoteName.stringValue = "Slide \(slideindex)"
         timerRecording.currentSlideNumber = currentSlideValue
         
         if(currentSlideValue != getMaxslideValue()) {
             newSlideTimer()
             print(arrayTimePerSlide)
             print(averageTimePerSlide)
-            keynoteName.stringValue = "Slide \(currentSlideValue)"
+            
         }
         //startTimePerSlide()
     }
