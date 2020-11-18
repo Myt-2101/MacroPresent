@@ -8,6 +8,7 @@
 
 import Cocoa
 import Foundation
+import Speech
 
 //AppleScript Variable
 let StartPresent = """
@@ -113,6 +114,8 @@ class KeynoteTimer: NSViewController {
     override func viewDidAppear() {
         view.window?.level = .mainMenu
         view.window?.delegate = self
+        exportImages()
+        permissions()
     }
 
     //IBOutlet
@@ -123,6 +126,8 @@ class KeynoteTimer: NSViewController {
     @IBOutlet weak var NextButtonOutlet: NSButton!
     @IBOutlet weak var keynoteName: NSTextField!
     @IBOutlet weak var nextSlideButtonOutlet: NSButton!
+    
+    @IBOutlet weak var analyzingText: NSTextField!
     //IBOutlet
     
     //IBAction
@@ -134,7 +139,6 @@ class KeynoteTimer: NSViewController {
         StartPresentation()
         startTotalTimer()
         startTimePerSlide()
-        exportImages()
         timerRecording.startTimer()
         keynoteName.stringValue = "Slide \(slideindex)"
 //        colorRecording.start()
@@ -156,13 +160,14 @@ class KeynoteTimer: NSViewController {
 //        colorRecording.stop()
         
         //TODO: Show the user that we want to wait for 5 seconds
-        
+        analyzingText.isHidden = false
+
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
             if (self.saveToDatabase()){
                 //TODO: Back to home after saving data
+                self.analyzingText.isHidden = true
                 self.view.window?.performClose(self)
             }
- 
         }
     }
     
@@ -362,6 +367,34 @@ extension KeynoteTimer: NSWindowDelegate{
     }
 }
 
+extension KeynoteTimer{
+    func permissions(){
+        AVCaptureDevice.requestAccess(for: .audio) { (authStatus) in
+            //TODO: Handle authorization
+        }
+        SFSpeechRecognizer.requestAuthorization { authStatus in
+            //TODO: Handle authorization
+//            OperationQueue.main.addOperation {
+//                switch authStatus{
+//                case .authorized:
+//                    // Good to go
+//                    break
+//                case .denied:
+//                    // User said no
+//                    break
+//                case .restricted:
+//                    // Device isn't permitted
+//                    break
+//                case .notDetermined:
+//                    // Don't know yet
+//                    break
+//                default:
+//                    break
+//                }
+//            }
+        }
+    }
+}
 
 
 

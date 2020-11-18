@@ -22,21 +22,21 @@
 	<string>1</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
+	<key>NSAppleEventsUsageDescription</key>
+	<string>To integrate with your keynotes</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2020 CKCK. All rights reserved.</string>
 	<key>NSMainStoryboardFile</key>
 	<string>Home</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>To record your voices</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>To analyze your voices</string>
 	<key>NSSupportsAutomaticTermination</key>
 	<true/>
 	<key>NSSupportsSuddenTermination</key>
 	<true/>
-	<key>NSAppleEventsUsageDescription</key>
-	<string>To integrate with your keynotes</string>
-	<key>NSSpeechRecognitionUsageDescription</key>
-	<string>To analyze your voices</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>To record your voices</string>
 </dict>
 </plist>

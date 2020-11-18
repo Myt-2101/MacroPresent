@@ -29,7 +29,7 @@
         <!--Keynote Timer-->
         <scene sceneID="6qy-27-4mn">
             <objects>
-                <viewController id="816-dG-TQx" customClass="KeynoteTimer" customModule="MacroPresent" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="816-dG-TQx" customClass="KeynoteTimer" customModule="Present_It" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" autoresizesSubviews="NO" id="yXK-lC-zNQ">
                         <rect key="frame" x="0.0" y="0.0" width="214" height="217"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -123,11 +123,21 @@
                                     <action selector="StopButton:" target="816-dG-TQx" id="66m-q5-XiU"/>
                                 </connections>
                             </button>
+                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pWa-xX-RFY">
+                                <rect key="frame" x="36" y="32" width="142" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Analyzing..." id="DBF-gM-0he">
+                                    <font key="font" metaFont="systemBold"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="NextButtonOutlet" destination="cD0-Mv-vu4" id="whw-sU-v0f"/>
                         <outlet property="StopButtonOutlet" destination="hhb-rs-dTv" id="KEW-pS-6PW"/>
+                        <outlet property="analyzingText" destination="pWa-xX-RFY" id="nOu-WD-rrj"/>
                         <outlet property="keynoteName" destination="LEg-Kg-SHx" id="6qK-Sh-Xoa"/>
                         <outlet property="nextSlideButtonOutlet" destination="b7t-Ru-gxm" id="FyG-Z5-paS"/>
                         <outlet property="previousSlideButtonOutlet" destination="Et1-2D-PHt" id="pXA-kS-lR2"/>

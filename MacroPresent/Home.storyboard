@@ -29,7 +29,7 @@
         <!--Present It-->
         <scene sceneID="ko9-pg-Dbf">
             <objects>
-                <viewController title="Present It" showSeguePresentationStyle="single" id="Nuv-Tk-SGM" customClass="HomeViewController" customModule="MacroPresent" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Present It" showSeguePresentationStyle="single" id="Nuv-Tk-SGM" customClass="HomeViewController" customModule="Present_It" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" autoresizesSubviews="NO" id="Qa7-Yp-9gw">
                         <rect key="frame" x="0.0" y="0.0" width="854" height="610"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -294,57 +294,61 @@
             <point key="canvasLocation" x="2" y="637"/>
         </scene>
         <!--Application-->
-        <scene sceneID="T2w-31-oF3">
+        <scene sceneID="87f-d7-oxp">
             <objects>
-                <application id="jhL-Dk-Eox" sceneMemberID="viewController">
-                    <menu key="mainMenu" title="Main Menu" systemMenu="main" id="qgj-xV-Ajv">
+                <application id="qnI-9X-D1V" sceneMemberID="viewController">
+                    <menu key="mainMenu" title="Main Menu" systemMenu="main" id="yJ7-1T-g4i">
                         <items>
-                            <menuItem title="Present It" id="4he-Aa-UO0">
+                            <menuItem title="Present It" id="DJn-cg-Yfb">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Present It" systemMenu="apple" id="1ew-LJ-Pw0">
+                                <menu key="submenu" title="Present It" systemMenu="apple" id="6c4-t5-xj6">
                                     <items>
-                                        <menuItem title="About MacroPresent" id="y0J-kY-hgF">
+                                        <menuItem title="About MacroPresent" id="YWb-7m-ANU">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                         </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="ANw-Lw-tGm"/>
-                                        <menuItem title="Preferences…" keyEquivalent="," id="ogL-eK-Wk5"/>
-                                        <menuItem isSeparatorItem="YES" id="zSa-uh-2Al"/>
-                                        <menuItem title="Services" id="A9r-Ei-ziP">
+                                        <menuItem isSeparatorItem="YES" id="JEH-NE-eCg"/>
+                                        <menuItem title="Preferences…" keyEquivalent="," id="dZ7-VC-ntE"/>
+                                        <menuItem isSeparatorItem="YES" id="f92-Ut-Vby"/>
+                                        <menuItem title="Services" id="scX-jN-haQ">
                                             <modifierMask key="keyEquivalentModifierMask"/>
-                                            <menu key="submenu" title="Services" systemMenu="services" id="Kw8-56-oG7"/>
+                                            <menu key="submenu" title="Services" systemMenu="services" id="UtE-lX-NCk"/>
                                         </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="umS-8P-ah9"/>
-                                        <menuItem title="Hide MacroPresent" keyEquivalent="h" id="WIh-AB-zDd"/>
-                                        <menuItem title="Hide Others" keyEquivalent="h" id="KSe-F1-mGc">
+                                        <menuItem isSeparatorItem="YES" id="dqb-75-acI"/>
+                                        <menuItem title="Hide MacroPresent" keyEquivalent="h" id="hO7-sT-pvo"/>
+                                        <menuItem title="Hide Others" keyEquivalent="h" id="gkH-Xy-ijJ">
                                             <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                         </menuItem>
-                                        <menuItem title="Show All" id="AiT-mu-DKd">
+                                        <menuItem title="Show All" id="CM4-XW-SeO">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                         </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="q0x-Xb-UzW"/>
-                                        <menuItem title="Quit MacroPresent" keyEquivalent="q" id="YgJ-Tx-ePx"/>
+                                        <menuItem isSeparatorItem="YES" id="fQT-qa-xv8"/>
+                                        <menuItem title="Quit MacroPresent" keyEquivalent="q" id="e3h-zs-GUL">
+                                            <connections>
+                                                <action selector="terminate:" target="EJp-Zy-auU" id="aia-5z-KBk"/>
+                                            </connections>
+                                        </menuItem>
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem title="Help" id="bac-aw-sTa">
+                            <menuItem title="Help" id="ZIT-ji-Arf">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Help" systemMenu="help" id="D3s-aK-bU9">
+                                <menu key="submenu" title="Help" systemMenu="help" id="TmX-nu-45J">
                                     <items>
-                                        <menuItem title="MacroPresent Help" keyEquivalent="?" id="Fxv-9k-8tE"/>
+                                        <menuItem title="Present It Help" keyEquivalent="?" id="GuB-cf-I0n"/>
                                     </items>
                                 </menu>
                             </menuItem>
                         </items>
                     </menu>
                     <connections>
-                        <outlet property="delegate" destination="MLy-LI-cnY" id="90d-Hn-7Lm"/>
+                        <outlet property="delegate" destination="VyB-4R-uVQ" id="edb-uD-E1h"/>
                     </connections>
                 </application>
-                <customObject id="g55-Hh-eNL" customClass="NSFontManager"/>
-                <customObject id="MLy-LI-cnY" customClass="AppDelegate" customModule="MacroPresent" customModuleProvider="target"/>
-                <customObject id="H37-lq-1ra" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="EJp-Zy-auU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="VyB-4R-uVQ" customClass="AppDelegate" customModule="Present_It" customModuleProvider="target"/>
+                <customObject id="QfC-J7-ZkR" customClass="NSFontManager"/>
             </objects>
-            <point key="canvasLocation" x="-18" y="-962"/>
+            <point key="canvasLocation" x="2" y="-952"/>
         </scene>
     </scenes>
 </document>
