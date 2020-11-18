@@ -53,7 +53,9 @@ class TimerRecording{
     }
     
     func stopTimer(){
-        timer.invalidate()
+        if timer != nil {
+            timer.invalidate()
+        }
         stopAllRecordings()
         
         //Recognize rekaman terakhir yang kepotong button stop
