@@ -407,7 +407,9 @@ extension KeynoteTimer{
     
     func finderPermission(){
         let source = """
-            tell application "Finder" to close home
+            tell application "Finder"
+                get properties
+            end tell
         """
         
         let script = NSAppleScript(source: source)
