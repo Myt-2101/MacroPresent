@@ -114,7 +114,6 @@ class KeynoteTimer: NSViewController {
     override func viewDidAppear() {
         view.window?.level = .mainMenu
         view.window?.delegate = self
-        exportImages()
         permissions()
     }
 
@@ -141,6 +140,7 @@ class KeynoteTimer: NSViewController {
         startTimePerSlide()
         timerRecording.startTimer()
         keynoteName.stringValue = "Slide \(slideindex)"
+        exportImages()
 //        colorRecording.start()
     }
     
@@ -369,29 +369,53 @@ extension KeynoteTimer: NSWindowDelegate{
 
 extension KeynoteTimer{
     func permissions(){
-        AVCaptureDevice.requestAccess(for: .audio) { (authStatus) in
-            //TODO: Handle authorization
+        finderPermission()
+        
+        if AVCaptureDevice.authorizationStatus(for: .audio) !=  .authorized {
+            AVCaptureDevice.requestAccess(for: .audio) { (status) in
+                //TODO: Handle authorization
+                
+            }
         }
-        SFSpeechRecognizer.requestAuthorization { authStatus in
-            //TODO: Handle authorization
-//            OperationQueue.main.addOperation {
-//                switch authStatus{
-//                case .authorized:
-//                    // Good to go
-//                    break
-//                case .denied:
-//                    // User said no
-//                    break
-//                case .restricted:
-//                    // Device isn't permitted
-//                    break
-//                case .notDetermined:
-//                    // Don't know yet
-//                    break
-//                default:
-//                    break
+        
+        if (SFSpeechRecognizer.authorizationStatus() != .authorized){
+            SFSpeechRecognizer.requestAuthorization { status in
+                //TODO: Handle authorization
+//                OperationQueue.main.addOperation {
+//                    switch status{
+//                    case .authorized:
+//                        // Good to go
+//                        break
+//                    case .denied:
+//                        // User said no
+//                        break
+//                    case .restricted:
+//                        // Device isn't permitted
+//                        break
+//                    case .notDetermined:
+//                        // Don't know yet
+//                        break
+//                    default:
+//                        break
+//                    }
 //                }
-//            }
+            }
+        }
+        
+        
+    }
+    
+    func finderPermission(){
+        let source = """
+            tell application "Finder" to close home
+        """
+        
+        let script = NSAppleScript(source: source)
+        var error = NSDictionary?.none
+        
+        script?.executeAndReturnError(&error)
+        if let error = error {
+            print("Finder permission: \(error)")
         }
     }
 }
