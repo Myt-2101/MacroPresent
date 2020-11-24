@@ -17,7 +17,15 @@ let getFileName =
 """
 
 class HomeViewController: NSViewController {
-    
+   class View: NSView {
+        override var acceptsFirstResponder: Bool{return true}
+        
+        override func keyDown(with event: NSEvent) {
+            if event.keyCode == 124 {
+                print("a key is pressed")
+            }
+        }
+    }
     @IBOutlet weak var helloText: NSTextField!
     @IBOutlet weak var keynoteTextField: NSTextField!
     @IBOutlet weak var maxDurationTextField: NSTextField!

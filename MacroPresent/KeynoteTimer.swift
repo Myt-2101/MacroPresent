@@ -19,7 +19,7 @@ end tell
 
 let stopPresent = """
 tell application "Keynote"
-quit
+quit 
 end tell
 """
 
@@ -72,6 +72,10 @@ end tell
 //let next2 = NSAppleScript(source: NextSlideScript)
 
 //AppleScript Variable
+class View: NSView {
+    override var acceptsFirstResponder: Bool{return true}
+    
+}
 
 
 class KeynoteTimer: NSViewController {
@@ -89,7 +93,8 @@ class KeynoteTimer: NSViewController {
     var slideindex=1
     var pathToPictureDir: String!
 //VARIABLE
-    
+
+   
 //RECORDING AND RECOGNIZING
     var timerRecording: TimerRecording!
 //    var colorRecording: ColorRecording!
@@ -108,12 +113,17 @@ class KeynoteTimer: NSViewController {
         
         pathToPictureDir = NSSearchPathForDirectoriesInDomains(picturesDir, domainMask, true)[0]
         
+        
+         
+        
     }
      
-
+ 
+  
     override func viewDidAppear() {
         view.window?.level = .mainMenu
         view.window?.delegate = self
+        view.window?.makeFirstResponder(self)
         exportImages()
         permissions()
     }
@@ -234,14 +244,38 @@ class KeynoteTimer: NSViewController {
         print(currentSlideValue)
         keynoteName.stringValue = "Slide \(slideindex)"
         timerRecording.currentSlideNumber = currentSlideValue
-        
+        newSlideTimer()
         if(currentSlideValue != getMaxslideValue()) {
-            newSlideTimer()
+            
             print(arrayTimePerSlide)
             print(averageTimePerSlide)
             
         }
         //startTimePerSlide()
+    }
+    
+    override func keyDown(with event: NSEvent) {
+        if event.keyCode == 124 {
+            GotoNextSlide()
+            slideindex+=1
+                let currentSlideValue = getCurrentslideValue()
+                print(currentSlideValue)
+                keynoteName.stringValue = "Slide \(slideindex)"
+                timerRecording.currentSlideNumber = currentSlideValue
+                newSlideTimer()
+        }
+        
+        if event.keyCode == 123 {
+            GotoNextSlide()
+            slideindex-=1
+                let Previous = NSAppleScript(source: PreviousSlideScript)
+                var error = NSDictionary?.none
+                Previous?.executeAndReturnError(&error)
+                print(error ?? TID_NULL)
+                keynoteName.stringValue = "Slide \(slideindex)"
+           
+        }
+        
     }
     
     
@@ -394,6 +428,7 @@ extension KeynoteTimer{
 //            }
         }
     }
+  
 }
 
 
