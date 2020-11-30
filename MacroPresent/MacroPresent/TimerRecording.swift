@@ -82,15 +82,6 @@ class TimerRecording{
         }
     }
     
-    func cancelRecordings(){
-        stopAllRecordings()
-        do {
-            try FileManager.default.removeItem(at: URL(fileURLWithPath: uniqueFolderPath!))
-        } catch {
-            print("Error in cancelRecording: \(error)")
-        }
-    }
-    
     @objc func onRecordTimer(){
         stopAllRecordings()
         
