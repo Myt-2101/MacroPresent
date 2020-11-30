@@ -16,5 +16,7 @@ import Foundation
 struct TimerColor{
     static let green = CGColor(red: 0x11/0xFF, green: 0x58/0xFF, blue: 0, alpha: 1) //#115B00
     static let red = CGColor(red: 0x79/0xFF, green: 0, blue: 0, alpha: 1) //#790000
-    static let blue = CGColor(red: 0, green: 0x2C/0xFF, blue: 0x79/0xFF, alpha: 1) //#002C79
+//    static let blue = CGColor(red: 0, green: 0x2C/0xFF, blue: 0x79/0xFF, alpha: 1) //#002C79
+    static let yellow = CGColor(red: 0xA9/0xFF, green: 0x73/0xFF, blue: 0x20/0xFF, alpha: 1) //#A97320
+    
 }

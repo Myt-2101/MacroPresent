@@ -135,7 +135,7 @@ extension TimerRecording : RecognizerTaskDelegate{
         let wpm = result.wordsPerMinute
         
         if wpm < 140 {
-            view.layer?.backgroundColor = TimerColor.blue
+            view.layer?.backgroundColor = TimerColor.yellow
         } else if wpm > 170 {
             view.layer?.backgroundColor = TimerColor.red
         } else {
