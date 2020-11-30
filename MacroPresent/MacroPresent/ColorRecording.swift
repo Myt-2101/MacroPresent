@@ -61,7 +61,7 @@ extension ColorRecording: RecognizerTaskDelegate{
         print(wpm)
         
         if wpm < 140 {
-            view.layer?.backgroundColor = TimerColor.blue
+            view.layer?.backgroundColor = TimerColor.yellow
         } else if wpm > 160 {
             view.layer?.backgroundColor = TimerColor.red
         } else {
