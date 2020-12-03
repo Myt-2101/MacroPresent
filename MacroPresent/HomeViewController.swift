@@ -67,12 +67,13 @@ class HomeViewController: NSViewController {
         maxDurationTextField.stringValue = String(timerStepper.integerValue)
         
         let keynote = UserDefaults.standard.url(forKey: "keynoteFilePath")
+        let keynoteFileName = UserDefaults.standard.string(forKey: "fileName")
         let maxDuration = UserDefaults.standard.integer(forKey: "maxDuration")
         
         maxDurationTextField.stringValue = "\(maxDuration/60)"
 
         if let keynote = keynote{
-            self.keynoteTextField.stringValue = keynote.path
+            self.keynoteTextField.stringValue = keynoteFileName ?? ""
             self.keynotFilePath = String(format: getFileName, keynote.path)
         }
         
@@ -204,7 +205,8 @@ class HomeViewController: NSViewController {
                 UserDefaults.standard.set(openPanel.url, forKey: "keynoteFilePath")
 
                 if let resultString = openPanel.url?.path {
-                    self.keynoteTextField.stringValue = resultString
+                    self.keynoteTextField.stringValue = (resultString as NSString).lastPathComponent
+                    UserDefaults.standard.set((resultString as NSString).lastPathComponent, forKey: "fileName")
                     self.keynotFilePath = String(format: getFileName, resultString)
                 }
                 
