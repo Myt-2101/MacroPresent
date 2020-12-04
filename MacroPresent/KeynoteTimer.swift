@@ -112,10 +112,7 @@ class KeynoteTimer: NSViewController {
         timerRecording = TimerRecording(basePath: "\(NSSearchPathForDirectoriesInDomains(musicDir, domainMask, true)[0])/Present It Recordings", interval: 10, view: self.view)
         
         pathToPictureDir = NSSearchPathForDirectoriesInDomains(picturesDir, domainMask, true)[0]
-        
-        
-         
-        
+
     }
      
  
@@ -124,8 +121,8 @@ class KeynoteTimer: NSViewController {
         view.window?.level = .mainMenu
         view.window?.delegate = self
         view.window?.makeFirstResponder(self)
-        exportImages()
         permissions()
+        exportImages()
     }
 
     //IBOutlet
@@ -403,6 +400,8 @@ extension KeynoteTimer: NSWindowDelegate{
 
 extension KeynoteTimer{
     func permissions(){
+        finderPermission()
+        
         AVCaptureDevice.requestAccess(for: .audio) { (authStatus) in
             //TODO: Handle authorization
         }
@@ -426,6 +425,22 @@ extension KeynoteTimer{
 //                    break
 //                }
 //            }
+        }
+    }
+    
+    func finderPermission(){
+        let source = """
+            tell application "Finder"
+                get properties
+            end tell
+        """
+        
+        let script = NSAppleScript(source: source)
+        var error = NSDictionary?.none
+        
+        script?.executeAndReturnError(&error)
+        if let error = error {
+            print("Finder permission: \(error)")
         }
     }
   
